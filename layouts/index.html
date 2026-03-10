@@ -30,4 +30,15 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Trigger hero decoration visibility after page load
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      document.querySelectorAll('.hero-decoration').forEach(function(el) {
+        el.classList.add('visible');
+      });
+    }, 300);
+  });
+</script>
 {{ end }}

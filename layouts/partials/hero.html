@@ -1,11 +1,11 @@
 <section class="hero">
   <canvas id="hero-particles" aria-hidden="true"></canvas>
 
-  <!-- Decorative SVG elements -->
+  <!-- Decorative SVG elements with draw-in animation -->
   <svg class="hero-decoration hero-decoration--circle" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="200" cy="200" r="180" stroke="currentColor" stroke-width="0.5" />
-    <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 6" />
-    <circle cx="200" cy="200" r="60" stroke="currentColor" stroke-width="0.5" />
+    <circle cx="200" cy="200" r="180" stroke="currentColor" stroke-width="0.5" class="svg-draw" pathLength="1" />
+    <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 6" class="svg-draw svg-draw--delay-1" pathLength="1" />
+    <circle cx="200" cy="200" r="60" stroke="currentColor" stroke-width="0.5" class="svg-draw svg-draw--delay-2" pathLength="1" />
   </svg>
 
   <svg class="hero-decoration hero-decoration--grid" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -16,16 +16,27 @@
   </svg>
 
   <svg class="hero-decoration hero-decoration--lines" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="0" y1="0" x2="200" y2="200" stroke="currentColor" stroke-width="0.4" />
-    <line x1="40" y1="0" x2="200" y2="160" stroke="currentColor" stroke-width="0.3" />
-    <line x1="0" y1="40" x2="160" y2="200" stroke="currentColor" stroke-width="0.3" />
+    <line x1="0" y1="0" x2="200" y2="200" stroke="currentColor" stroke-width="0.4" class="svg-draw" pathLength="1" />
+    <line x1="40" y1="0" x2="200" y2="160" stroke="currentColor" stroke-width="0.3" class="svg-draw svg-draw--delay-1" pathLength="1" />
+    <line x1="0" y1="40" x2="160" y2="200" stroke="currentColor" stroke-width="0.3" class="svg-draw svg-draw--delay-2" pathLength="1" />
   </svg>
 
   <div class="hero-gradient"></div>
 
   <div class="hero-content">
-    <h1>Pioneers</h1>
-    <p class="tagline">{{ .Site.Params.description }}</p>
-    <a href="{{ "/products/" | relURL }}" class="btn btn-primary">Explore our tools</a>
+    <h1 class="hero-title">
+      <span class="hero-word">Pioneers</span>
+    </h1>
+    <p class="tagline">
+      {{ $words := split .Site.Params.description " " }}
+      {{ range $i, $w := $words }}<span class="hero-word hero-word--stagger" style="transition-delay: {{ add (mul $i 60) 400 }}ms">{{ $w }} </span>{{ end }}
+    </p>
+    <div class="hero-cta">
+      <a href="{{ "/products/" | relURL }}" class="btn btn-primary">Explore our tools</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator" aria-hidden="true">
+    <span></span>
   </div>
 </section>

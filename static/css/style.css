@@ -267,6 +267,7 @@ main { flex: 1; }
   transform: translateY(40px);
   opacity: 0;
   filter: blur(8px);
+  margin-right: 0.3em;
   transition: transform var(--duration-slow) cubic-bezier(0.16, 1, 0.3, 1),
               opacity var(--duration-slow) var(--ease-apple),
               filter var(--duration-slow) var(--ease-apple);

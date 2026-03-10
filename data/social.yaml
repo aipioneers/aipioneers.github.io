@@ -1,0 +1,6 @@
+- name: GitHub
+  url: "https://github.com/aipioneers"
+  icon: github
+- name: PyPI
+  url: "https://pypi.org/org/aipioneers/"
+  icon: package

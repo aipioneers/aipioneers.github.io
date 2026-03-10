@@ -1,0 +1,13 @@
+<li class="blog-item">
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <div class="blog-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    {{ with .Params.author }} &middot; {{ . }}{{ end }}
+  </div>
+  {{ with .Description }}<p class="blog-excerpt">{{ . }}</p>{{ end }}
+  {{ with .Params.tags }}
+    <div class="blog-tags">
+      {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+    </div>
+  {{ end }}
+</li>

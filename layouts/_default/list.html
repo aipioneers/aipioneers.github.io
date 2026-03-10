@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </div>
+</div>
+
+<section class="section">
+  <div class="content-narrow">
+    {{ if .Pages }}
+      <ul class="blog-list">
+        {{ range .Pages.ByDate.Reverse }}
+          {{ if not .Draft }}
+            {{ partial "blog-card.html" . }}
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ else }}
+      <div class="empty-state">
+        <p>No posts yet — check back soon.</p>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

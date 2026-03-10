@@ -1,0 +1,44 @@
+baseURL = "https://pioneers.ai/"
+languageCode = "en"
+title = "AI Pioneers"
+
+[params]
+  description = "Building open-source tools that help developers work with AI."
+  github = "https://github.com/aipioneers"
+  tagline = "Open-source AI developer tools"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "Products"
+    url = "/products/"
+    weight = 20
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 30
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 40
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/aipioneers"
+    weight = 50
+    [menu.main.params]
+      external = true
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

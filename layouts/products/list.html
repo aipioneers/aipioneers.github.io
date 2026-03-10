@@ -2,15 +2,17 @@
 <div class="page-header">
   <div class="container">
     <h1>{{ .Title }}</h1>
-    {{ with .Content }}{{ . }}{{ end }}
+    {{ with .Content }}<div>{{ . }}</div>{{ end }}
   </div>
 </div>
 
 <section class="section">
   <div class="container">
     <div class="project-grid">
-      {{ range .Site.Data.projects }}
-        {{ partial "project-card.html" . }}
+      {{ range sort .Site.Data.projects "sort_order" }}
+        <div class="reveal">
+          {{ partial "project-card.html" . }}
+        </div>
       {{ end }}
     </div>
   </div>

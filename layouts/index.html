@@ -1,34 +1,27 @@
 {{ define "main" }}
-<section class="hero">
-  <div class="container">
-    <h1><span>AI</span> Pioneers</h1>
-    <p class="tagline">{{ .Site.Params.description }}</p>
-    <div class="hero-actions">
-      <a href="{{ "/products/" | relURL }}" class="btn btn-primary">Explore our tools</a>
-      <a href="{{ .Site.Params.github }}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
-    </div>
-  </div>
-</section>
+{{ partial "hero.html" . }}
 
 <section class="section">
   <div class="container">
-    <div class="section-title">
+    <div class="section-title reveal">
       <h2>Our Tools</h2>
       <p>Open-source projects for developers working with AI.</p>
     </div>
     <div class="project-grid">
       {{ range .Site.Data.projects }}
         {{ if .featured }}
-          {{ partial "project-card.html" . }}
+          <div class="reveal">
+            {{ partial "project-card.html" . }}
+          </div>
         {{ end }}
       {{ end }}
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section bg-secondary">
   <div class="container">
-    <div class="quickstart">
+    <div class="quickstart reveal">
       <h3>Quick Start</h3>
       <p>Install code-explore and start searching your projects.</p>
       <div class="code-block" onclick="copyText(this, 'curl -fsSL https://code.pioneers.ai | bash')">

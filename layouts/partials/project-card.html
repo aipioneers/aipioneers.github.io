@@ -1,11 +1,11 @@
 <article class="project-card">
   <div class="project-card-header">
-    <span class="project-card-name">{{ .name }}</span>
+    <h3 class="project-card-name">{{ .name }}</h3>
     <span class="badge badge-{{ .status }}">{{ .status }}</span>
   </div>
   <p class="project-card-tagline">{{ .tagline }}</p>
   <div class="project-card-meta">
-    <span class="tag">{{ .language }}</span>
+    {{ with .language }}<span class="tag">{{ . }}</span>{{ end }}
     {{ with .category }}<span class="tag">{{ . }}</span>{{ end }}
   </div>
   {{ with .install }}
@@ -14,7 +14,7 @@
     </div>
   {{ end }}
   <div class="project-card-links">
-    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">Website ↗</a>
-    <a href="{{ .github }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">Website ↗</a>{{ end }}
+    {{ with .github }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>{{ end }}
   </div>
 </article>

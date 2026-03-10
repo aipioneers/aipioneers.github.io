@@ -9,13 +9,13 @@
 <section class="section">
   <div class="content-narrow">
     {{ if .Pages }}
-      <ul class="blog-list">
+      <div class="blog-list">
         {{ range .Pages.ByDate.Reverse }}
           {{ if not .Draft }}
             {{ partial "blog-card.html" . }}
           {{ end }}
         {{ end }}
-      </ul>
+      </div>
     {{ else }}
       <div class="empty-state">
         <p>No posts yet — check back soon.</p>

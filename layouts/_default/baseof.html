@@ -9,15 +9,6 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
-  <script>
-    document.querySelector('.nav-toggle')?.addEventListener('click', function() {
-      document.querySelector('.nav-links').classList.toggle('open');
-    });
-    function copyText(el, text) {
-      navigator.clipboard.writeText(text);
-      el.classList.add('copied');
-      setTimeout(function() { el.classList.remove('copied'); }, 2000);
-    }
-  </script>
+  <script src="{{ "js/main.js" | relURL }}" defer></script>
 </body>
 </html>

@@ -163,6 +163,15 @@ main { flex: 1; }
   overflow: hidden;
   background: var(--bg);
 }
+#hero-mesh {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s var(--ease-apple);
+}
+#hero-mesh.visible { opacity: 1; }
 #hero-particles {
   position: absolute;
   inset: 0;

@@ -156,11 +156,12 @@
     var meshAnimId = null;
 
     var blobs = [
-      { x: 0.3, y: 0.3, r: 0.45, vx: 0.0003, vy: 0.0002, color: [0, 113, 227] },    // blue
-      { x: 0.7, y: 0.6, r: 0.5, vx: -0.0002, vy: 0.0003, color: [88, 86, 214] },     // indigo
-      { x: 0.5, y: 0.2, r: 0.4, vx: 0.0002, vy: -0.0002, color: [0, 199, 190] },     // teal
-      { x: 0.2, y: 0.7, r: 0.35, vx: 0.0003, vy: -0.0001, color: [175, 82, 222] },   // purple
-      { x: 0.8, y: 0.3, r: 0.38, vx: -0.0001, vy: 0.0002, color: [50, 173, 230] },   // sky
+      { x: 0.25, y: 0.25, r: 0.55, vx: 0.0004, vy: 0.0003, color: [0, 113, 227] },    // blue
+      { x: 0.75, y: 0.55, r: 0.6, vx: -0.0003, vy: 0.0004, color: [88, 86, 214] },     // indigo
+      { x: 0.5, y: 0.15, r: 0.5, vx: 0.0003, vy: -0.0003, color: [0, 199, 190] },     // teal
+      { x: 0.15, y: 0.7, r: 0.45, vx: 0.0004, vy: -0.0002, color: [175, 82, 222] },   // purple
+      { x: 0.85, y: 0.3, r: 0.48, vx: -0.0002, vy: 0.0003, color: [50, 173, 230] },   // sky
+      { x: 0.5, y: 0.5, r: 0.55, vx: 0.0002, vy: 0.0002, color: [255, 55, 95] },      // pink
     ];
 
     function meshResize() {
@@ -181,8 +182,8 @@
         var b = blobs[i];
 
         // Organic movement with sine modulation
-        b.x += b.vx + Math.sin(Date.now() * 0.0001 + i * 2) * 0.0001;
-        b.y += b.vy + Math.cos(Date.now() * 0.00012 + i * 3) * 0.0001;
+        b.x += b.vx + Math.sin(Date.now() * 0.00015 + i * 2.5) * 0.0003;
+        b.y += b.vy + Math.cos(Date.now() * 0.00018 + i * 1.7) * 0.0003;
 
         // Soft bounce at edges
         if (b.x < 0.05 || b.x > 0.95) b.vx *= -1;
@@ -197,8 +198,8 @@
         var radius = b.r * Math.min(mWidth, mHeight);
 
         var grad = mctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-        grad.addColorStop(0, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0.06)');
-        grad.addColorStop(0.5, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0.03)');
+        grad.addColorStop(0, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0.18)');
+        grad.addColorStop(0.4, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0.08)');
         grad.addColorStop(1, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0)');
 
         mctx.fillStyle = grad;

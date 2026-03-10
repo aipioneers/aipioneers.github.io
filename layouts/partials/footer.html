@@ -3,7 +3,14 @@
     <div class="footer-grid">
       <div>
         <h4>AI Pioneers</h4>
-        <p>Building open-source tools that help developers work with AI. Scan, index, and search your projects from the terminal.</p>
+        <p>{{ .Site.Params.description }}</p>
+        {{ with .Site.Data.social }}
+          <ul class="footer-links" style="margin-top: 1rem;">
+            {{ range . }}
+              <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} ↗</a></li>
+            {{ end }}
+          </ul>
+        {{ end }}
       </div>
       <div>
         <h4>Quick Links</h4>
@@ -11,12 +18,12 @@
           <li><a href="{{ "/products/" | relURL }}">Products</a></li>
           <li><a href="{{ "/about/" | relURL }}">About</a></li>
           <li><a href="{{ "/blog/" | relURL }}">Blog</a></li>
-          <li><a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">Contribute on GitHub ↗</a></li>
         </ul>
       </div>
       <div>
         <h4>Connect</h4>
         <ul class="footer-links">
+          <li><a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">Contribute on GitHub ↗</a></li>
           {{ range .Site.Data.social }}
             <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} ↗</a></li>
           {{ end }}

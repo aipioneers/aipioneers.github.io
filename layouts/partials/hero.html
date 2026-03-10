@@ -1,0 +1,31 @@
+<section class="hero">
+  <canvas id="hero-particles" aria-hidden="true"></canvas>
+
+  <!-- Decorative SVG elements -->
+  <svg class="hero-decoration hero-decoration--circle" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="200" cy="200" r="180" stroke="currentColor" stroke-width="0.5" />
+    <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 6" />
+    <circle cx="200" cy="200" r="60" stroke="currentColor" stroke-width="0.5" />
+  </svg>
+
+  <svg class="hero-decoration hero-decoration--grid" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    {{ range seq 0 6 }}
+    <line x1="0" y1="{{ mul . 50 }}" x2="300" y2="{{ mul . 50 }}" stroke="currentColor" stroke-width="0.3" stroke-dasharray="2 8" />
+    <line x1="{{ mul . 50 }}" y1="0" x2="{{ mul . 50 }}" y2="300" stroke="currentColor" stroke-width="0.3" stroke-dasharray="2 8" />
+    {{ end }}
+  </svg>
+
+  <svg class="hero-decoration hero-decoration--lines" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="0" y1="0" x2="200" y2="200" stroke="currentColor" stroke-width="0.4" />
+    <line x1="40" y1="0" x2="200" y2="160" stroke="currentColor" stroke-width="0.3" />
+    <line x1="0" y1="40" x2="160" y2="200" stroke="currentColor" stroke-width="0.3" />
+  </svg>
+
+  <div class="hero-gradient"></div>
+
+  <div class="hero-content">
+    <h1>Pioneers</h1>
+    <p class="tagline">{{ .Site.Params.description }}</p>
+    <a href="{{ "/products/" | relURL }}" class="btn btn-primary">Explore our tools</a>
+  </div>
+</section>

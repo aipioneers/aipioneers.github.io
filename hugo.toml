@@ -37,7 +37,7 @@ title = "AI Pioneers"
 
 [markup]
   [markup.highlight]
-    style = "monokai"
+    style = "github"
     lineNos = false
   [markup.goldmark]
     [markup.goldmark.renderer]

@@ -1,17 +1,16 @@
 <nav class="nav" aria-label="Main navigation">
   <div class="container">
-    <a href="{{ "/" | relURL }}" class="nav-logo" aria-label="AI Pioneers home">
-      <span>AI</span> Pioneers
-    </a>
+    <a href="{{ "/" | relURL }}" class="nav-logo" aria-label="Pioneers home">Pioneers</a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       &#9776;
     </button>
     <ul class="nav-links">
+      {{ $currentPage := . }}
       {{ range .Site.Menus.main }}
         <li>
           <a href="{{ .URL }}"
              {{ if .Params.external }}target="_blank" rel="noopener noreferrer"{{ end }}
-             {{ if eq $.RelPermalink .URL }}class="active" aria-current="page"{{ end }}>
+             {{ if eq $currentPage.RelPermalink .URL }}class="active" aria-current="page"{{ end }}>
             {{ .Name }}{{ if .Params.external }} ↗{{ end }}
           </a>
         </li>

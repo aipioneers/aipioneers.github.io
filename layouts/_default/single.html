@@ -2,7 +2,7 @@
 <div class="page-content">
   <div class="content-narrow">
     {{ if eq .Section "blog" }}
-      <div class="post-header">
+      <div class="post-header reveal">
         <h1>{{ .Title }}</h1>
         <div class="post-meta">
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
@@ -13,16 +13,18 @@
           {{ end }}
         </div>
       </div>
-      <div class="post-content">
+      <div class="post-content reveal">
         {{ .Content }}
       </div>
       <div class="post-footer">
         <a href="{{ "/blog/" | relURL }}">&larr; Back to blog</a>
       </div>
     {{ else }}
-      <h1>{{ .Title }}</h1>
-      <div class="page-content">
-        {{ .Content }}
+      <div class="reveal">
+        <h1>{{ .Title }}</h1>
+        <div class="page-content">
+          {{ .Content }}
+        </div>
       </div>
     {{ end }}
   </div>

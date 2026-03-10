@@ -1,0 +1,13 @@
+name: code-explore
+slug: code-explore
+tagline: "Scan, index, and search all your programming projects from the terminal."
+description: "A developer knowledge base CLI that discovers git repositories, generates AI summaries with local Ollama, and provides hybrid fulltext + semantic search across hundreds of projects."
+status: active
+url: "https://code.pioneers.ai"
+github: "https://github.com/aipioneers/code-explore"
+language: Python
+install: "pip install code-explore"
+install_url: "https://code.pioneers.ai"
+featured: true
+sort_order: 1
+category: "CLI Tools"

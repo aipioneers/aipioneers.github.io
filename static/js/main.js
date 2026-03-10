@@ -146,6 +146,93 @@
     }, { passive: true });
   }
 
+  /* --- Mesh Gradient Background --- */
+  var meshCanvas = document.getElementById('hero-mesh');
+
+  if (meshCanvas && !prefersReducedMotion) {
+    var mctx = meshCanvas.getContext('2d');
+    var mdpr = Math.min(window.devicePixelRatio || 1, 2);
+    var mWidth, mHeight;
+    var meshAnimId = null;
+
+    var blobs = [
+      { x: 0.3, y: 0.3, r: 0.45, vx: 0.0003, vy: 0.0002, color: [0, 113, 227] },    // blue
+      { x: 0.7, y: 0.6, r: 0.5, vx: -0.0002, vy: 0.0003, color: [88, 86, 214] },     // indigo
+      { x: 0.5, y: 0.2, r: 0.4, vx: 0.0002, vy: -0.0002, color: [0, 199, 190] },     // teal
+      { x: 0.2, y: 0.7, r: 0.35, vx: 0.0003, vy: -0.0001, color: [175, 82, 222] },   // purple
+      { x: 0.8, y: 0.3, r: 0.38, vx: -0.0001, vy: 0.0002, color: [50, 173, 230] },   // sky
+    ];
+
+    function meshResize() {
+      var rect = meshCanvas.parentElement.getBoundingClientRect();
+      mWidth = rect.width;
+      mHeight = rect.height;
+      meshCanvas.width = mWidth * mdpr;
+      meshCanvas.height = mHeight * mdpr;
+      meshCanvas.style.width = mWidth + 'px';
+      meshCanvas.style.height = mHeight + 'px';
+      mctx.setTransform(mdpr, 0, 0, mdpr, 0, 0);
+    }
+
+    function drawMesh() {
+      mctx.clearRect(0, 0, mWidth, mHeight);
+
+      for (var i = 0; i < blobs.length; i++) {
+        var b = blobs[i];
+
+        // Organic movement with sine modulation
+        b.x += b.vx + Math.sin(Date.now() * 0.0001 + i * 2) * 0.0001;
+        b.y += b.vy + Math.cos(Date.now() * 0.00012 + i * 3) * 0.0001;
+
+        // Soft bounce at edges
+        if (b.x < 0.05 || b.x > 0.95) b.vx *= -1;
+        if (b.y < 0.05 || b.y > 0.95) b.vy *= -1;
+
+        // Clamp
+        b.x = Math.max(0.05, Math.min(0.95, b.x));
+        b.y = Math.max(0.05, Math.min(0.95, b.y));
+
+        var cx = b.x * mWidth;
+        var cy = b.y * mHeight;
+        var radius = b.r * Math.min(mWidth, mHeight);
+
+        var grad = mctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+        grad.addColorStop(0, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0.06)');
+        grad.addColorStop(0.5, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0.03)');
+        grad.addColorStop(1, 'rgba(' + b.color[0] + ',' + b.color[1] + ',' + b.color[2] + ', 0)');
+
+        mctx.fillStyle = grad;
+        mctx.fillRect(0, 0, mWidth, mHeight);
+      }
+
+      meshAnimId = requestAnimationFrame(drawMesh);
+    }
+
+    function initMesh() {
+      meshResize();
+      drawMesh();
+      // Fade in
+      requestAnimationFrame(function () {
+        meshCanvas.classList.add('visible');
+      });
+    }
+
+    window.addEventListener('resize', function () {
+      clearTimeout(meshCanvas._resizeTimer);
+      meshCanvas._resizeTimer = setTimeout(meshResize, 200);
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        cancelAnimationFrame(meshAnimId);
+      } else {
+        drawMesh();
+      }
+    });
+
+    initMesh();
+  }
+
   /* --- Particle System with Connection Lines --- */
   var canvas = document.getElementById('hero-particles');
 

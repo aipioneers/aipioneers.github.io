@@ -1,0 +1,11 @@
+name: adapt
+slug: adapt
+tagline: "Observe. Adapt. Contribute. — CLI for the Adaptation Lifecycle."
+description: "A developer CLI that guides contributors through a structured adaptation lifecycle: observe a codebase, analyze patterns, plan changes, implement, validate, and contribute — all from the terminal."
+status: active
+github: "https://github.com/aipioneers/adapt"
+language: TypeScript
+install: "npx adapt-cli"
+featured: true
+sort_order: 2
+category: "CLI Tools"

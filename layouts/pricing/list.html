@@ -1,0 +1,211 @@
+{{ define "main" }}
+
+<section class="pricing-hero">
+  <div class="container">
+    <div class="reveal">
+      <h1>Pricing</h1>
+      <p class="pricing-hero-sub">Free forever for individuals. Affordable plans for teams.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="pricing-grid">
+
+      <!-- Free -->
+      <div class="pricing-card reveal">
+        <div class="pricing-card-header">
+          <h3>Free</h3>
+          <div class="pricing-price">
+            <span class="pricing-amount">$0</span>
+            <span class="pricing-period">forever</span>
+          </div>
+          <p class="pricing-desc">For individual developers exploring their codebases.</p>
+        </div>
+        <ul class="pricing-features">
+          <li class="pricing-feature">CLI — local, unlimited</li>
+          <li class="pricing-feature">Up to 50 cloud projects</li>
+          <li class="pricing-feature">Dashboard — read-only</li>
+          <li class="pricing-feature">GitHub SSO</li>
+          <li class="pricing-feature">Community support</li>
+        </ul>
+        <a href="https://app.pioneers.ai/signup" class="btn btn-outline">Get started</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-card pricing-card--popular reveal">
+        <span class="pricing-badge">Popular</span>
+        <div class="pricing-card-header">
+          <h3>Pro</h3>
+          <div class="pricing-price">
+            <span class="pricing-amount">$12</span>
+            <span class="pricing-period">/month</span>
+          </div>
+          <p class="pricing-desc">For developers who want cloud-powered search and alerts.</p>
+        </div>
+        <ul class="pricing-features">
+          <li class="pricing-feature included">Everything in Free, plus:</li>
+          <li class="pricing-feature">Unlimited cloud projects</li>
+          <li class="pricing-feature">Hosted AI models</li>
+          <li class="pricing-feature">Full dashboard</li>
+          <li class="pricing-feature">Adaptation alerts (email)</li>
+          <li class="pricing-feature">Email support</li>
+        </ul>
+        <a href="https://app.pioneers.ai/signup?plan=pro" class="btn btn-primary">Start 14-day trial</a>
+      </div>
+
+      <!-- Team -->
+      <div class="pricing-card pricing-card--highlighted reveal">
+        <span class="pricing-badge pricing-badge--team">14-day trial</span>
+        <div class="pricing-card-header">
+          <h3>Team</h3>
+          <div class="pricing-price">
+            <span class="pricing-amount">$8</span>
+            <span class="pricing-period">/seat/month</span>
+          </div>
+          <p class="pricing-desc">For teams sharing knowledge and tracking upstreams together.</p>
+        </div>
+        <ul class="pricing-features">
+          <li class="pricing-feature included">Everything in Pro, plus:</li>
+          <li class="pricing-feature">Shared team index</li>
+          <li class="pricing-feature">Adaptation board</li>
+          <li class="pricing-feature">Activity feed</li>
+          <li class="pricing-feature">Alerts (email + Slack)</li>
+          <li class="pricing-feature">GitHub + Google SSO</li>
+          <li class="pricing-feature">Member roles &amp; permissions</li>
+          <li class="pricing-feature">Priority support</li>
+        </ul>
+        <a href="https://app.pioneers.ai/signup?plan=team" class="btn btn-primary">Start free trial</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card reveal">
+        <div class="pricing-card-header">
+          <h3>Enterprise</h3>
+          <div class="pricing-price">
+            <span class="pricing-amount">Custom</span>
+          </div>
+          <p class="pricing-desc">For organizations that need full control and compliance.</p>
+        </div>
+        <ul class="pricing-features">
+          <li class="pricing-feature included">Everything in Team, plus:</li>
+          <li class="pricing-feature">Self-hosted deployment</li>
+          <li class="pricing-feature">SAML / OIDC SSO</li>
+          <li class="pricing-feature">Audit logs</li>
+          <li class="pricing-feature">Custom AI models</li>
+          <li class="pricing-feature">SLA &amp; dedicated support</li>
+        </ul>
+        <a href="mailto:enterprise@pioneers.ai" class="btn btn-outline">Contact us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Feature Comparison -->
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Compare Plans</h2>
+    </div>
+    <div class="comparison-table-wrap reveal">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Pro</th>
+            <th>Team</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CLI (local, unlimited)</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>Cloud projects</td>
+            <td>50</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>Hosted AI models</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>Dashboard</td>
+            <td>Read-only</td>
+            <td>Full</td>
+            <td>Full</td>
+            <td>Full</td>
+          </tr>
+          <tr>
+            <td>Adaptation alerts</td>
+            <td><span class="dash">—</span></td>
+            <td>Email</td>
+            <td>Email + Slack</td>
+            <td>Custom</td>
+          </tr>
+          <tr>
+            <td>Shared team index</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>Adaptation board</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>SSO</td>
+            <td>GitHub</td>
+            <td>GitHub</td>
+            <td>GitHub + Google</td>
+            <td>SAML / OIDC</td>
+          </tr>
+          <tr>
+            <td>Self-hosted</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">&#10003;</span></td>
+          </tr>
+          <tr>
+            <td>Support</td>
+            <td>Community</td>
+            <td>Email</td>
+            <td>Priority</td>
+            <td>SLA + Dedicated</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-block reveal">
+      <h2>Start building your team's knowledge base.</h2>
+      <p>14-day free trial. No credit card required.</p>
+      <a href="https://app.pioneers.ai/signup?plan=team" class="btn btn-primary">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,179 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="teams-hero">
+  <div class="container">
+    <div class="teams-hero-content reveal">
+      <h1>Your team's codebase,<br>one search away.</h1>
+      <p class="teams-hero-sub">Shared project index. Coordinated upstream tracking. No setup.</p>
+      <div class="teams-hero-cta">
+        <a href="https://app.pioneers.ai/signup?plan=team" class="btn btn-primary">Start free trial</a>
+        <a href="{{ "/pricing/" | relURL }}" class="btn btn-secondary">View pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Terminal Preview -->
+<section class="section">
+  <div class="container">
+    <div class="terminal-preview reveal">
+      <div class="terminal-bar">
+        <span class="terminal-dot terminal-dot--red"></span>
+        <span class="terminal-dot terminal-dot--yellow"></span>
+        <span class="terminal-dot terminal-dot--green"></span>
+        <span class="terminal-title">Terminal</span>
+      </div>
+      <div class="terminal-body">
+        <code><span class="terminal-prompt">$</span> pioneers login</code>
+        <code class="terminal-output">Authenticated as @tobias (AI Pioneers Team)</code>
+        <code>&nbsp;</code>
+        <code><span class="terminal-prompt">$</span> cex config set backend cloud</code>
+        <code class="terminal-output">Backend set to cloud. Your searches now use the team index.</code>
+        <code>&nbsp;</code>
+        <code><span class="terminal-prompt">$</span> cex search "JWT authentication"</code>
+        <code class="terminal-output">Found 8 projects across 3 team members:</code>
+        <code class="terminal-output">&nbsp; #1&nbsp; auth-service&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @maria&nbsp;&nbsp; Python&nbsp;&nbsp; score: 0.94</code>
+        <code class="terminal-output">&nbsp; #2&nbsp; api-gateway&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @tobias&nbsp; Go&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; score: 0.87</code>
+        <code class="terminal-output">&nbsp; #3&nbsp; user-management&nbsp;&nbsp;&nbsp; @alex&nbsp;&nbsp;&nbsp; Python&nbsp;&nbsp; score: 0.81</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Blocks -->
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="features-grid">
+
+      <div class="feature-block reveal">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="22" r="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="30" cy="22" r="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M18 30c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M30 30c-2 0-4 .7-5.5 1.8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M38 36v-1c0-3-4-5-8-5" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <h3>Shared Knowledge Base</h3>
+        <p>Every <code>cex scan</code> contributes to your team's searchable index. Find who built what, in which language, with which patterns — across everyone's projects.</p>
+      </div>
+
+      <div class="feature-block reveal">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 32v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M32 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12.7 12.7l5.6 5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M29.7 29.7l5.6 5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12.7 35.3l5.6-5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M29.7 18.3l5.6-5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Upstream Tracking</h3>
+        <p>Track changes across all your upstreams. Assess relevance as a team. Get alerts when a security patch or breaking change lands — before it's too late.</p>
+      </div>
+
+      <div class="feature-block reveal">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="14" width="16" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+            <rect x="26" y="14" width="16" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M22 20h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14 32v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M34 32v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14 26v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M34 26v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10 38h28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 8l-4 6h8l-4-6z" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <h3>Works With Your CLI</h3>
+        <p>No new tool to learn. Run <code>pioneers login</code>, and your existing CLI gets superpowers. Everything still works offline — the cloud is optional.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>How It Works</h2>
+      <p>Three steps. No infrastructure to manage.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item reveal">
+        <span class="step-number">1</span>
+        <h3>Login</h3>
+        <p>Run <code>pioneers login</code> in your terminal. Authenticates via GitHub — takes 10 seconds.</p>
+      </div>
+      <div class="step-item reveal">
+        <span class="step-number">2</span>
+        <h3>Scan</h3>
+        <p>Run <code>cex scan</code> as usual. Project metadata syncs automatically to your team's shared index.</p>
+      </div>
+      <div class="step-item reveal">
+        <span class="step-number">3</span>
+        <h3>Search</h3>
+        <p>Search across the entire team's projects. See who built what, where, and with which stack.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy -->
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="privacy-block reveal">
+      <h2>Your code stays on your machine.</h2>
+      <p>The cloud index contains only metadata: project name, languages, dependencies, patterns, and AI summaries. Source code never leaves your laptop. Not a single line.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <h3>What data leaves my machine?</h3>
+        <p>Only project metadata: name, languages, dependencies, detected patterns, and AI-generated summaries. Never source code, file contents, or secrets.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Can I self-host?</h3>
+        <p>Yes, on the Enterprise plan. You get the full backend to run on your own infrastructure.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>What happens if I cancel?</h3>
+        <p>Your CLI keeps working exactly as before — all local features are free forever. Cloud search and team features stop, but your local index stays intact.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Do I need Ollama for the cloud backend?</h3>
+        <p>No. Pro and Team plans include hosted AI models for summaries and semantic search. Ollama is only needed for local-only usage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="cta-block reveal">
+      <h2>Try it free for 14 days.</h2>
+      <p>Full Team features, no credit card required.</p>
+      <a href="https://app.pioneers.ai/signup?plan=team" class="btn btn-primary">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

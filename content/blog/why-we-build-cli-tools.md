@@ -10,6 +10,8 @@ There's no shortage of developer platforms. Dashboards, SaaS products, browser e
 
 AI Pioneers builds CLI tools. Here's why.
 
+<img src="/img/blog/cli-philosophy.svg" alt="Four principles: Terminal-first, Composable, Local-first, Open Source — connected to AI Pioneers CLI Tools" style="width:100%; margin: 2rem 0;">
+
 ## The Terminal Is Already Open
 
 Developers live in the terminal. Git, npm, pip, docker, kubectl — the tools that actually ship software are all command-line programs. A CLI doesn't interrupt your flow. It fits into the environment you're already working in.

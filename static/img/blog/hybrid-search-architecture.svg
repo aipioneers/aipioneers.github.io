@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .box { fill: #f5f5f7; stroke: #d2d2d7; stroke-width: 1.5; rx: 14; }
+    .box-accent { fill: #0071e3; stroke: none; rx: 14; }
+    .box-result { fill: #ffffff; stroke: #0071e3; stroke-width: 2; rx: 14; }
+    .label { font-size: 14px; font-weight: 600; fill: #1d1d1f; text-anchor: middle; dominant-baseline: central; }
+    .label-white { fill: #ffffff; }
+    .label-accent { fill: #0071e3; }
+    .sublabel { font-size: 11px; fill: #86868b; text-anchor: middle; dominant-baseline: central; }
+    .sublabel-white { fill: rgba(255,255,255,0.8); }
+    .arrow { stroke: #d2d2d7; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    .arrow-blue { stroke: #0071e3; stroke-width: 2; fill: none; marker-end: url(#arr-blue); }
+    .arrow-left { stroke: #6e6e73; stroke-width: 1.5; fill: none; marker-end: url(#arr-gray); }
+    .rank { font-size: 11px; fill: #6e6e73; font-family: 'SF Mono', 'Fira Code', monospace; text-anchor: middle; dominant-baseline: central; }
+    .divider { stroke: #e8e8ed; stroke-width: 1; }
+    .section-label { font-size: 11px; fill: #86868b; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d2d2d7"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0071e3"/>
+    </marker>
+    <marker id="arr-gray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6e6e73"/>
+    </marker>
+  </defs>
+
+  <!-- Query input -->
+  <rect class="box-accent" x="260" y="20" width="200" height="50" rx="14"/>
+  <text class="label label-white" x="360" y="39">Search Query</text>
+  <text class="sublabel sublabel-white" x="360" y="55">"REST API auth"</text>
+
+  <!-- Split arrows -->
+  <path class="arrow" d="M 310 70 L 170 110"/>
+  <path class="arrow" d="M 410 70 L 550 110"/>
+
+  <!-- FULLTEXT PATH -->
+  <text class="section-label" x="60" y="100">FULLTEXT</text>
+
+  <!-- SQLite FTS5 -->
+  <rect class="box" x="70" y="112" width="200" height="56" rx="14"/>
+  <text class="label" x="170" y="133">SQLite FTS5</text>
+  <text class="sublabel" x="170" y="151">Porter stemming + Unicode</text>
+
+  <path class="arrow" d="M 170 168 L 170 200"/>
+
+  <!-- FTS Results -->
+  <rect class="box" x="70" y="200" width="200" height="120" rx="14"/>
+  <text class="sublabel" x="170" y="220">Ranked results</text>
+  <line class="divider" x1="86" y1="232" x2="254" y2="232"/>
+  <text class="rank" x="100" y="252">#1</text>
+  <text class="rank" x="190" y="252">auth-service</text>
+  <text class="rank" x="100" y="274">#2</text>
+  <text class="rank" x="190" y="274">api-gateway</text>
+  <text class="rank" x="100" y="296">#3</text>
+  <text class="rank" x="190" y="296">user-manager</text>
+
+  <!-- SEMANTIC PATH -->
+  <text class="section-label" x="458" y="100">SEMANTIC</text>
+
+  <!-- Ollama + LanceDB -->
+  <rect class="box" x="450" y="112" width="200" height="56" rx="14"/>
+  <text class="label" x="550" y="133">LanceDB Vectors</text>
+  <text class="sublabel" x="550" y="151">Ollama embeddings + cosine</text>
+
+  <path class="arrow" d="M 550 168 L 550 200"/>
+
+  <!-- Semantic Results -->
+  <rect class="box" x="450" y="200" width="200" height="120" rx="14"/>
+  <text class="sublabel" x="550" y="220">Ranked results</text>
+  <line class="divider" x1="466" y1="232" x2="634" y2="232"/>
+  <text class="rank" x="480" y="252">#1</text>
+  <text class="rank" x="570" y="252">user-manager</text>
+  <text class="rank" x="480" y="274">#2</text>
+  <text class="rank" x="570" y="274">auth-service</text>
+  <text class="rank" x="480" y="296">#3</text>
+  <text class="rank" x="570" y="296">token-handler</text>
+
+  <!-- Merge arrows to RRF -->
+  <path class="arrow-blue" d="M 220 320 L 310 380"/>
+  <path class="arrow-blue" d="M 500 320 L 410 380"/>
+
+  <!-- RRF Fusion -->
+  <rect class="box-accent" x="270" y="376" width="180" height="56" rx="14"/>
+  <text class="label label-white" x="360" y="397">Reciprocal Rank</text>
+  <text class="sublabel sublabel-white" x="360" y="415">Fusion (k=60)</text>
+
+  <path class="arrow-blue" d="M 360 432 L 360 454"/>
+
+  <!-- Final Results -->
+  <rect class="box-result" x="240" y="456" width="240" height="50" rx="14"/>
+  <text class="label label-accent" x="360" y="475">auth-service</text>
+  <text class="sublabel" x="360" y="493">Best combined rank across both systems</text>
+</svg>

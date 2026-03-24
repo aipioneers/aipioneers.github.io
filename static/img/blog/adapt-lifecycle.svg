@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .node { fill: #f5f5f7; stroke: #d2d2d7; stroke-width: 1.5; rx: 12; }
+    .node-active { fill: #0071e3; stroke: none; }
+    .node-reject { fill: #fff; stroke: #d2d2d7; stroke-width: 1.5; stroke-dasharray: 6 3; rx: 12; }
+    .label { font-size: 13px; font-weight: 500; fill: #1d1d1f; text-anchor: middle; dominant-baseline: central; }
+    .label-active { fill: #ffffff; }
+    .label-reject { fill: #86868b; }
+    .arrow { stroke: #d2d2d7; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .arrow-accent { stroke: #0071e3; stroke-width: 2; fill: none; marker-end: url(#arrowhead-accent); }
+    .arrow-reject { stroke: #d2d2d7; stroke-width: 1; fill: none; stroke-dasharray: 6 3; marker-end: url(#arrowhead); }
+    .subtitle { font-size: 11px; fill: #86868b; text-anchor: middle; dominant-baseline: central; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d2d2d7"/>
+    </marker>
+    <marker id="arrowhead-accent" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0071e3"/>
+    </marker>
+  </defs>
+
+  <!-- Row 1: Main lifecycle -->
+  <!-- Observed -->
+  <rect class="node" x="10" y="60" width="100" height="44" rx="12"/>
+  <text class="label" x="60" y="82">Observed</text>
+  <text class="subtitle" x="60" y="46">Track</text>
+
+  <!-- Arrow -->
+  <path class="arrow-accent" d="M 110 82 L 132 82"/>
+
+  <!-- Analyzed -->
+  <rect class="node" x="140" y="60" width="100" height="44" rx="12"/>
+  <text class="label" x="190" y="82">Analyzed</text>
+  <text class="subtitle" x="190" y="46">Classify</text>
+
+  <path class="arrow-accent" d="M 240 82 L 262 82"/>
+
+  <!-- Assessed -->
+  <rect class="node" x="270" y="60" width="100" height="44" rx="12"/>
+  <text class="label" x="320" y="82">Assessed</text>
+  <text class="subtitle" x="320" y="46">Evaluate</text>
+
+  <path class="arrow-accent" d="M 370 82 L 392 82"/>
+
+  <!-- Planned -->
+  <rect class="node" x="400" y="60" width="100" height="44" rx="12"/>
+  <text class="label" x="450" y="82">Planned</text>
+  <text class="subtitle" x="450" y="46">Strategy</text>
+
+  <path class="arrow-accent" d="M 500 82 L 522 82"/>
+
+  <!-- Implemented -->
+  <rect class="node" x="530" y="60" width="114" height="44" rx="12"/>
+  <text class="label" x="587" y="82">Implemented</text>
+  <text class="subtitle" x="587" y="46">Build</text>
+
+  <path class="arrow-accent" d="M 644 82 L 666 82"/>
+
+  <!-- Validated -->
+  <rect class="node" x="674" y="60" width="100" height="44" rx="12"/>
+  <text class="label" x="724" y="82">Validated</text>
+  <text class="subtitle" x="724" y="46">Verify</text>
+
+  <path class="arrow-accent" d="M 774 82 L 786 82 L 786 142 L 774 142"/>
+
+  <!-- Row 2: Contributed + Merged -->
+  <!-- Contributed -->
+  <rect class="node" x="674" y="120" width="100" height="44" rx="12"/>
+  <text class="label" x="724" y="142">Contributed</text>
+  <text class="subtitle" x="724" y="176">PR upstream</text>
+
+  <path class="arrow-accent" d="M 674 142 L 652 142"/>
+
+  <!-- Merged -->
+  <rect class="node-active" x="530" y="120" width="114" height="44" rx="12"/>
+  <text class="label label-active" x="587" y="142">Merged</text>
+
+  <!-- Rejected node -->
+  <rect class="node-reject" x="270" y="240" width="100" height="44" rx="12"/>
+  <text class="label label-reject" x="320" y="262">Rejected</text>
+
+  <!-- Reject arrows from each node -->
+  <path class="arrow-reject" d="M 60 104 L 60 262 L 270 262"/>
+  <path class="arrow-reject" d="M 190 104 L 190 232 L 270 232 L 270 240"/>
+  <path class="arrow-reject" d="M 320 104 L 320 240"/>
+  <path class="arrow-reject" d="M 450 104 L 450 262 L 370 262"/>
+  <path class="arrow-reject" d="M 587 104 L 587 200 L 370 200 L 370 252"/>
+  <path class="arrow-reject" d="M 724 164 L 724 262 L 370 262"/>
+</svg>

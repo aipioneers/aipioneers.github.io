@@ -16,11 +16,9 @@ Most teams handle upstream tracking informally — someone glances at a repo, ma
 
 code-adapt introduces a structured lifecycle:
 
-```
-observed → analyzed → assessed → planned → implemented → validated → contributed → merged
-```
+<img src="/img/blog/adapt-lifecycle.svg" alt="The adaptation lifecycle: observed → analyzed → assessed → planned → implemented → validated → contributed → merged, with rejection possible from any stage" style="width:100%; margin: 2rem 0;">
 
-Each stage has a clear purpose, and the CLI guides you through every transition.
+Each stage has a clear purpose, and the CLI guides you through every transition. The state machine is enforced in code — you can't skip stages or make invalid transitions.
 
 ## How It Works
 

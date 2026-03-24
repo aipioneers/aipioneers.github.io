@@ -632,6 +632,15 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   font-size: 0.9em;
   border: 1px solid var(--border-light);
 }
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  background: var(--bg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
 .post-footer {
   margin-top: var(--space-xl);
   padding-top: var(--space-md);

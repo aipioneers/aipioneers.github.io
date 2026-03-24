@@ -3,4 +3,4 @@ title: "Products & Tools"
 description: "Explore AI Pioneers' open-source tools for developers."
 ---
 
-Everything we build is open source. Each tool is designed to help developers work more effectively with AI — from code search to project analysis.
+Everything we build is open source. Python CLIs designed to help developers understand and evolve their codebases — from searching across projects to tracking upstream changes.

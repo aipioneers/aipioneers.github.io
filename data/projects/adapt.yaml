@@ -1,11 +1,16 @@
-name: adapt
-slug: adapt
-tagline: "Observe. Adapt. Contribute. — CLI for the Adaptation Lifecycle."
-description: "A developer CLI that guides contributors through a structured adaptation lifecycle: observe a codebase, analyze patterns, plan changes, implement, validate, and contribute — all from the terminal."
+name: code-adapt
+slug: code-adapt
+tagline: "Observe. Adapt. Contribute."
+description: "A CLI that guides developers through a structured adaptation lifecycle: track upstream changes, analyze their relevance, plan adaptations, implement, and contribute back — all from the terminal."
 status: active
-github: "https://github.com/aipioneers/adapt"
-language: TypeScript
-install: "npx adapt-cli"
+github: "https://github.com/aipioneers/code-adapt"
+language: Python
+install: "pip install code-adapt"
 featured: true
 sort_order: 2
 category: "CLI Tools"
+features:
+  - "Track upstream commits, PRs, and releases"
+  - "Classify changes and assess relevance automatically"
+  - "Generate adaptation plans with risk scoring"
+  - "Implement changes and open PRs upstream"

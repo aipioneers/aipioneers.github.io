@@ -5,10 +5,10 @@
   <div class="container">
     <div class="section-title reveal">
       <h2>Our Tools</h2>
-      <p>Open-source projects for developers working with AI.</p>
+      <p>Open-source CLIs for developers working with AI.</p>
     </div>
     <div class="project-grid">
-      {{ range .Site.Data.projects }}
+      {{ range sort .Site.Data.projects "sort_order" }}
         {{ if .featured }}
           <div class="reveal">
             {{ partial "project-card.html" . }}
@@ -21,18 +21,38 @@
 
 <section class="section bg-secondary">
   <div class="container">
-    <div class="quickstart reveal">
-      <h3>Quick Start</h3>
-      <p>Install code-explore and start searching your projects.</p>
-      <div class="code-block" onclick="copyText(this, 'curl -fsSL https://code.pioneers.ai | bash')">
-        curl -fsSL https://code.pioneers.ai | bash
+    <div class="section-title reveal">
+      <h2>Get Started</h2>
+      <p>Install from PyPI and start in seconds.</p>
+    </div>
+    <div class="quickstart-grid">
+      <div class="quickstart reveal">
+        <h3>code-explore</h3>
+        <p>Build a searchable knowledge base of all your projects.</p>
+        <div class="code-block" onclick="copyText(this, 'pip install code-explore')">
+          pip install code-explore
+        </div>
+        <div class="code-block code-block--usage">
+          cex scan ~/Projects<br>
+          cex search "REST API auth"
+        </div>
+      </div>
+      <div class="quickstart reveal">
+        <h3>code-adapt</h3>
+        <p>Track upstream changes and adapt them for your project.</p>
+        <div class="code-block" onclick="copyText(this, 'pip install code-adapt')">
+          pip install code-adapt
+        </div>
+        <div class="code-block code-block--usage">
+          cadp init<br>
+          cadp observe upstream-repo
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Trigger hero decoration visibility after page load
   document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
       document.querySelectorAll('.hero-decoration').forEach(function(el) {

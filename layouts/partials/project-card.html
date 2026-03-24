@@ -4,6 +4,16 @@
     <span class="badge badge-{{ .status }}">{{ .status }}</span>
   </div>
   <p class="project-card-tagline">{{ .tagline }}</p>
+  {{ with .description }}
+    <p class="project-card-description">{{ . }}</p>
+  {{ end }}
+  {{ with .features }}
+    <ul class="project-card-features">
+      {{ range . }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  {{ end }}
   <div class="project-card-meta">
     {{ with .language }}<span class="tag">{{ . }}</span>{{ end }}
     {{ with .category }}<span class="tag">{{ . }}</span>{{ end }}

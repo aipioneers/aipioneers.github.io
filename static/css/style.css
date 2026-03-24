@@ -425,10 +425,40 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 .badge-planned { background: rgba(0, 113, 227, 0.1); color: var(--blue); }
 .badge-archived { background: rgba(110, 110, 115, 0.1); color: var(--gray); }
 .project-card-tagline {
+  color: var(--fg);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+  line-height: 1.4;
+}
+.project-card-description {
   color: var(--fg-secondary);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-bottom: var(--space-sm);
-  line-height: 1.5;
+  line-height: 1.6;
+}
+.project-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-sm);
+}
+.project-card-features li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--fg-secondary);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+.project-card-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
 }
 .project-card-meta {
   display: flex;
@@ -475,13 +505,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 .project-card-links a { font-size: 0.85rem; color: var(--accent); font-weight: 500; }
 
 /* ===== Quick Start ===== */
+.quickstart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
 .quickstart {
   background: var(--bg);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: var(--space-lg) var(--space-lg);
-  max-width: 600px;
-  margin: 0 auto;
   text-align: center;
   box-shadow: var(--shadow-md);
 }
@@ -510,6 +545,20 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 }
 .quickstart .code-block:hover::after { color: var(--accent); }
 .quickstart .code-block.copied::after { content: 'copied!'; color: var(--green); }
+.quickstart .code-block--usage {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-secondary);
+  text-align: left;
+  cursor: default;
+  line-height: 1.8;
+  margin-top: var(--space-xs);
+}
+.quickstart .code-block--usage::after { display: none; }
 
 /* ===== Page Content ===== */
 .page-header {

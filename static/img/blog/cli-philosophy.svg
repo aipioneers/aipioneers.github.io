@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .card { fill: #ffffff; stroke: #e8e8ed; stroke-width: 1.5; rx: 16; }
+    .card:hover { stroke: #0071e3; }
+    .card-header { fill: #f5f5f7; rx: 16; }
+    .title { font-size: 15px; font-weight: 600; fill: #1d1d1f; }
+    .body { font-size: 12px; fill: #6e6e73; }
+    .icon { font-size: 28px; }
+    .accent { fill: #0071e3; }
+    .tag { fill: #f5f5f7; stroke: none; rx: 8; }
+    .tag-text { font-size: 10px; fill: #6e6e73; text-anchor: middle; dominant-baseline: central; font-weight: 500; }
+    .connector { stroke: #e8e8ed; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    .center-box { fill: #0071e3; rx: 20; }
+    .center-label { font-size: 14px; font-weight: 700; fill: #ffffff; text-anchor: middle; dominant-baseline: central; }
+    .center-sub { font-size: 11px; fill: rgba(255,255,255,0.8); text-anchor: middle; dominant-baseline: central; }
+  </style>
+
+  <!-- Card 1: Terminal-first -->
+  <rect class="card" x="20" y="20" width="200" height="140"/>
+  <text class="icon" x="40" y="62">&#9000;&#65039;</text>
+  <text class="title" x="40" y="88">Terminal-First</text>
+  <text class="body" x="40" y="108">Works where developers</text>
+  <text class="body" x="40" y="124">already are. No browser,</text>
+  <text class="body" x="40" y="140">no new tab, no login.</text>
+
+  <!-- Card 2: Composable -->
+  <rect class="card" x="500" y="20" width="200" height="140"/>
+  <text class="icon" x="520" y="62">&#128279;</text>
+  <text class="title" x="520" y="88">Composable</text>
+  <text class="body" x="520" y="108">Every command supports</text>
+  <text class="body" x="520" y="124">--json. Pipe it, script it,</text>
+  <text class="body" x="520" y="140">integrate into CI.</text>
+
+  <!-- Card 3: Local-first -->
+  <rect class="card" x="20" y="220" width="200" height="140"/>
+  <text class="icon" x="40" y="262">&#128272;</text>
+  <text class="title" x="40" y="288">Local-First</text>
+  <text class="body" x="40" y="308">All data stays on your</text>
+  <text class="body" x="40" y="324">machine. YAML, JSON,</text>
+  <text class="body" x="40" y="340">SQLite. No cloud required.</text>
+
+  <!-- Card 4: Open Source -->
+  <rect class="card" x="500" y="220" width="200" height="140"/>
+  <text class="icon" x="520" y="262">&#128214;</text>
+  <text class="title" x="520" y="288">Open Source</text>
+  <text class="body" x="520" y="308">MIT licensed. No open core,</text>
+  <text class="body" x="520" y="324">no paywall. Fork it, vendor</text>
+  <text class="body" x="520" y="340">it, contribute back.</text>
+
+  <!-- Center circle -->
+  <rect class="center-box" x="280" y="140" width="160" height="100" rx="20"/>
+  <text class="center-label" x="360" y="180">AI Pioneers</text>
+  <text class="center-sub" x="360" y="200">CLI Tools</text>
+
+  <!-- Connectors -->
+  <line class="connector" x1="220" y1="90" x2="280" y2="170"/>
+  <line class="connector" x1="500" y1="90" x2="440" y2="170"/>
+  <line class="connector" x1="220" y1="290" x2="280" y2="210"/>
+  <line class="connector" x1="500" y1="290" x2="440" y2="210"/>
+
+  <!-- Tags on connectors -->
+  <rect class="tag" x="224" y="118" width="70" height="20" rx="8"/>
+  <text class="tag-text" x="259" y="128">code-adapt</text>
+  <rect class="tag" x="424" y="118" width="82" height="20" rx="8"/>
+  <text class="tag-text" x="465" y="128">code-explore</text>
+  <rect class="tag" x="224" y="238" width="56" height="20" rx="8"/>
+  <text class="tag-text" x="252" y="248">.adapt/</text>
+  <rect class="tag" x="438" y="238" width="44" height="20" rx="8"/>
+  <text class="tag-text" x="460" y="248">MIT</text>
+</svg>

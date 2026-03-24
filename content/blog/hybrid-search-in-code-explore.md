@@ -12,6 +12,8 @@ Fulltext search would match the literal string "JWT" in project names, READMEs, 
 
 code-explore doesn't choose. It runs both and fuses the results.
 
+<img src="/img/blog/hybrid-search-architecture.svg" alt="Architecture diagram: search query splits into SQLite FTS5 and LanceDB semantic paths, merged via Reciprocal Rank Fusion" style="width:100%; margin: 2rem 0;">
+
 ## The Two Search Engines
 
 ### SQLite FTS5 — Fast and Literal
@@ -47,6 +49,8 @@ score(result) = Σ 1 / (k + rank + 1)
 
 For each result, sum the reciprocal of its rank in each list, offset by a constant `k` (default: 60). Results that appear high in *both* lists get the best scores. Results that rank well in only one system still surface, but lower.
 
+<img src="/img/blog/rrf-scoring.svg" alt="Scoring example showing how RRF combines ranks from fulltext and semantic search into a final score" style="width:100%; margin: 2rem 0;">
+
 Why RRF over a weighted average?
 
 - **No calibration needed** — fulltext and semantic scores are on completely different scales. RRF only uses rank positions, which are always comparable.
@@ -62,6 +66,14 @@ Not everyone runs Ollama locally. code-explore handles this cleanly:
 3. **No index at all** → scan first with `cex scan`
 
 No error messages, no broken workflows. You always get results.
+
+## The Full Pipeline
+
+Under the hood, `cex scan` runs a four-stage pipeline before search is even possible:
+
+<img src="/img/blog/explore-pipeline.svg" alt="code-explore pipeline: Discover → Analyze → Summarize → Index → Search" style="width:100%; margin: 2rem 0;">
+
+Each stage is incremental — only changed projects are re-processed on subsequent scans.
 
 ## Try It
 

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .step { fill: #f5f5f7; stroke: #d2d2d7; stroke-width: 1.5; rx: 14; }
+    .step-active { fill: #0071e3; stroke: none; rx: 14; }
+    .label { font-size: 14px; font-weight: 600; fill: #1d1d1f; text-anchor: middle; dominant-baseline: central; }
+    .label-white { fill: #ffffff; }
+    .sublabel { font-size: 10.5px; fill: #86868b; text-anchor: middle; dominant-baseline: central; }
+    .sublabel-white { fill: rgba(255,255,255,0.8); }
+    .icon { font-size: 22px; text-anchor: middle; dominant-baseline: central; }
+    .arrow { stroke: #0071e3; stroke-width: 2; fill: none; marker-end: url(#pipeline-arr); }
+    .cmd { font-size: 13px; fill: #0071e3; font-family: 'SF Mono', 'Fira Code', monospace; text-anchor: middle; font-weight: 500; }
+  </style>
+  <defs>
+    <marker id="pipeline-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0071e3"/>
+    </marker>
+  </defs>
+
+  <!-- Command label -->
+  <text class="cmd" x="400" y="24">cex scan ~/Projects</text>
+
+  <!-- Step 1: Discover -->
+  <rect class="step" x="20" y="50" width="140" height="90" rx="14"/>
+  <text class="icon" x="90" y="80">&#128269;</text>
+  <text class="label" x="90" y="104">Discover</text>
+  <text class="sublabel" x="90" y="120">Find git repos</text>
+  <text class="sublabel" x="90" y="134">recursively</text>
+
+  <path class="arrow" d="M 160 95 L 182 95"/>
+
+  <!-- Step 2: Analyze -->
+  <rect class="step" x="190" y="50" width="140" height="90" rx="14"/>
+  <text class="icon" x="260" y="80">&#128200;</text>
+  <text class="label" x="260" y="104">Analyze</text>
+  <text class="sublabel" x="260" y="120">Languages, deps,</text>
+  <text class="sublabel" x="260" y="134">patterns, metrics</text>
+
+  <path class="arrow" d="M 330 95 L 352 95"/>
+
+  <!-- Step 3: Summarize -->
+  <rect class="step" x="360" y="50" width="140" height="90" rx="14"/>
+  <text class="icon" x="430" y="80">&#129302;</text>
+  <text class="label" x="430" y="104">Summarize</text>
+  <text class="sublabel" x="430" y="120">AI summaries +</text>
+  <text class="sublabel" x="430" y="134">tags via Ollama</text>
+
+  <path class="arrow" d="M 500 95 L 522 95"/>
+
+  <!-- Step 4: Index -->
+  <rect class="step" x="530" y="50" width="140" height="90" rx="14"/>
+  <text class="icon" x="600" y="80">&#128451;</text>
+  <text class="label" x="600" y="104">Index</text>
+  <text class="sublabel" x="600" y="120">FTS5 + vector</text>
+  <text class="sublabel" x="600" y="134">embeddings</text>
+
+  <path class="arrow" d="M 670 95 L 692 95"/>
+
+  <!-- Step 5: Search -->
+  <rect class="step-active" x="700" y="50" width="80" height="90" rx="14"/>
+  <text class="icon" x="740" y="80" style="filter: brightness(10);">&#9889;</text>
+  <text class="label label-white" x="740" y="104">Search</text>
+  <text class="sublabel sublabel-white" x="740" y="120">Hybrid</text>
+  <text class="sublabel sublabel-white" x="740" y="134">RRF</text>
+
+  <!-- Bottom annotation -->
+  <text class="sublabel" x="400" y="170">One command runs the entire pipeline. Each stage is incremental — only changed projects are re-processed.</text>
+</svg>

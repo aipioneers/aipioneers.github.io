@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .mono { font-family: 'SF Mono', 'Fira Code', monospace; }
+    .bg { fill: #f5f5f7; rx: 16; }
+    .row { fill: #ffffff; rx: 10; }
+    .row-highlight { fill: #f0f7ff; stroke: #0071e3; stroke-width: 1.5; rx: 10; }
+    .header-text { font-size: 12px; font-weight: 600; fill: #86868b; text-transform: uppercase; letter-spacing: 0.06em; }
+    .cell { font-size: 13px; fill: #1d1d1f; }
+    .cell-dim { font-size: 13px; fill: #86868b; }
+    .cell-accent { font-size: 13px; fill: #0071e3; font-weight: 600; }
+    .formula-bg { fill: #ffffff; stroke: #e8e8ed; stroke-width: 1.5; rx: 12; }
+    .formula { font-size: 14px; fill: #1d1d1f; text-anchor: middle; dominant-baseline: central; }
+    .formula-accent { fill: #0071e3; font-weight: 600; }
+    .title { font-size: 16px; font-weight: 600; fill: #1d1d1f; }
+    .bar { rx: 4; }
+    .bar-fts { fill: #0071e3; opacity: 0.3; }
+    .bar-sem { fill: #0071e3; opacity: 0.6; }
+    .bar-total { fill: #0071e3; }
+  </style>
+
+  <!-- Title -->
+  <text class="title" x="24" y="30">Reciprocal Rank Fusion — Scoring Example</text>
+
+  <!-- Formula -->
+  <rect class="formula-bg" x="20" y="46" width="640" height="36"/>
+  <text class="formula mono" x="340" y="64">score(result) = <tspan class="formula-accent">1/(k + rank_fts + 1)</tspan> + <tspan class="formula-accent">1/(k + rank_sem + 1)</tspan>    where k = 60</text>
+
+  <!-- Table background -->
+  <rect class="bg" x="20" y="96" width="640" height="232"/>
+
+  <!-- Headers -->
+  <text class="header-text" x="44" y="120">Project</text>
+  <text class="header-text" x="196" y="120">FTS Rank</text>
+  <text class="header-text" x="296" y="120">Semantic Rank</text>
+  <text class="header-text" x="420" y="120">RRF Score</text>
+  <text class="header-text" x="540" y="120">Combined</text>
+
+  <!-- Row 1: auth-service (winner) -->
+  <rect class="row-highlight" x="32" y="132" width="616" height="40"/>
+  <text class="cell" x="44" y="156">auth-service</text>
+  <text class="cell mono" x="196" y="156">#1</text>
+  <text class="cell mono" x="296" y="156">#2</text>
+  <text class="cell-dim mono" x="420" y="156">1/62 + 1/63</text>
+  <text class="cell-accent mono" x="540" y="156">0.03198</text>
+  <!-- Bar -->
+  <rect class="bar-total" x="610" y="145" width="30" height="12" rx="4"/>
+
+  <!-- Row 2: user-manager -->
+  <rect class="row" x="32" y="180" width="616" height="40"/>
+  <text class="cell" x="44" y="204">user-manager</text>
+  <text class="cell mono" x="196" y="204">#3</text>
+  <text class="cell mono" x="296" y="204">#1</text>
+  <text class="cell-dim mono" x="420" y="204">1/64 + 1/62</text>
+  <text class="cell mono" x="540" y="204">0.03184</text>
+  <rect class="bar-total" x="610" y="193" width="29" height="12" rx="4" opacity="0.85"/>
+
+  <!-- Row 3: api-gateway -->
+  <rect class="row" x="32" y="228" width="616" height="40"/>
+  <text class="cell" x="44" y="252">api-gateway</text>
+  <text class="cell mono" x="196" y="252">#2</text>
+  <text class="cell mono" x="296" y="252">#5</text>
+  <text class="cell-dim mono" x="420" y="252">1/63 + 1/66</text>
+  <text class="cell mono" x="540" y="252">0.03101</text>
+  <rect class="bar-total" x="610" y="241" width="27" height="12" rx="4" opacity="0.7"/>
+
+  <!-- Row 4: token-handler -->
+  <rect class="row" x="32" y="276" width="616" height="40"/>
+  <text class="cell" x="44" y="300">token-handler</text>
+  <text class="cell-dim mono" x="196" y="300">---</text>
+  <text class="cell mono" x="296" y="300">#3</text>
+  <text class="cell-dim mono" x="420" y="300">0 + 1/64</text>
+  <text class="cell mono" x="540" y="300">0.01563</text>
+  <rect class="bar-total" x="610" y="289" width="14" height="12" rx="4" opacity="0.4"/>
+</svg>

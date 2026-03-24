@@ -800,3 +800,352 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   .svg-draw { stroke-dashoffset: 0; animation: none; }
   .scroll-scale { transform: none; opacity: 1; }
 }
+
+/* ===== Teams Page ===== */
+.teams-hero {
+  padding: var(--space-2xl) 0 var(--space-xl);
+  text-align: center;
+}
+.teams-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+}
+.teams-hero-sub {
+  font-size: 1.25rem;
+  color: var(--fg-secondary);
+  max-width: 500px;
+  margin: 0 auto var(--space-lg);
+}
+.teams-hero-cta { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+
+/* Terminal Preview */
+.terminal-preview {
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+.terminal-bar {
+  background: var(--bg-tertiary);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.terminal-dot--red { background: #ff5f57; }
+.terminal-dot--yellow { background: #febc2e; }
+.terminal-dot--green { background: #28c840; }
+.terminal-title {
+  font-size: 0.75rem;
+  color: var(--fg-tertiary);
+  margin-left: auto;
+  margin-right: auto;
+}
+.terminal-body {
+  background: #1d1d1f;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.terminal-body code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #e0e0e0;
+  background: none;
+  border: none;
+  padding: 0;
+  display: block;
+  line-height: 1.7;
+}
+.terminal-prompt { color: #28c840; }
+.terminal-output { color: #86868b; }
+
+/* Feature Blocks */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.feature-block {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+}
+.feature-icon {
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+}
+.feature-block h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-xs);
+}
+.feature-block p {
+  color: var(--fg-secondary);
+  font-size: 0.95rem;
+}
+.feature-block code {
+  font-size: 0.85em;
+}
+
+/* Steps */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.step-item { text-align: center; }
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+.step-item h3 { margin-bottom: var(--space-xs); }
+.step-item p { color: var(--fg-secondary); font-size: 0.9rem; }
+.step-item code { font-size: 0.85em; }
+
+/* Privacy Block */
+.privacy-block {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-lg) 0;
+}
+.privacy-block h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: var(--space-sm);
+}
+.privacy-block p {
+  color: var(--fg-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* FAQ */
+.faq-list {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.faq-item {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-item h3 { font-size: 1rem; margin-bottom: var(--space-xs); }
+.faq-item p { color: var(--fg-secondary); font-size: 0.95rem; margin-bottom: 0; }
+
+/* CTA Block */
+.cta-block {
+  text-align: center;
+  padding: var(--space-lg) 0;
+}
+.cta-block h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: var(--space-xs);
+}
+.cta-block p {
+  color: var(--fg-secondary);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-md);
+}
+
+/* ===== Pricing Page ===== */
+.pricing-hero {
+  padding: var(--space-xl) 0 var(--space-lg);
+  text-align: center;
+}
+.pricing-hero h1 { margin-bottom: var(--space-xs); }
+.pricing-hero-sub {
+  font-size: 1.2rem;
+  color: var(--fg-secondary);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  align-items: start;
+}
+.pricing-card {
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--duration-normal) cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--duration-normal) var(--ease-apple);
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.pricing-card--popular {
+  border-color: var(--accent);
+  border-width: 2px;
+  box-shadow: var(--shadow-md);
+}
+.pricing-card--highlighted {
+  border-color: var(--border);
+}
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 980px;
+  white-space: nowrap;
+}
+.pricing-badge--team {
+  background: var(--green);
+}
+.pricing-card-header {
+  margin-bottom: var(--space-md);
+}
+.pricing-card-header h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-xs);
+}
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: var(--space-xs);
+}
+.pricing-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+.pricing-period {
+  font-size: 0.9rem;
+  color: var(--fg-tertiary);
+}
+.pricing-desc {
+  font-size: 0.9rem;
+  color: var(--fg-secondary);
+  margin-bottom: 0;
+}
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md);
+  flex: 1;
+}
+.pricing-feature {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--fg);
+  border-bottom: 1px solid var(--border-light);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.pricing-feature:last-child { border-bottom: none; }
+.pricing-feature::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 600;
+}
+.pricing-feature.included {
+  color: var(--fg-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding-left: 0;
+}
+.pricing-feature.included::before { display: none; }
+.pricing-card .btn {
+  width: 100%;
+  text-align: center;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--fg);
+  border: 1.5px solid var(--border);
+  padding: 0.85rem 2.25rem;
+  border-radius: 980px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.btn-outline:hover {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+/* Comparison Table */
+.comparison-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+.comparison-table th,
+.comparison-table td {
+  padding: 0.85rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.comparison-table th {
+  background: var(--bg-tertiary);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-secondary);
+}
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+.comparison-table tr:last-child td { border-bottom: none; }
+.check { color: var(--green); font-weight: 700; }
+.dash { color: var(--fg-tertiary); }
+
+/* ===== Pricing Responsive ===== */
+@media (max-width: 1024px) {
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .features-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+  .teams-hero h1 { font-size: 2rem; }
+}

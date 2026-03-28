@@ -1,0 +1,18 @@
+name: autoskill
+slug: autoskill
+tagline: "Generalist AI skill framework — one AI, any software. Open source core, premium factory."
+description: "A pluggable AI skill framework where LLMs autonomously learn to operate any application. The open-source core ships with BrowserSkill, TerminalSkill, universal memory, and a plugin system. The premium Skill Factory adds composite workflows, session recording, chat-based building, and 24 ready-to-use procurement scenarios."
+status: beta
+github: "https://github.com/aipioneers/autoskill"
+language: Python
+install: "pip install autoskill"
+featured: true
+sort_order: 1
+category: "Automation"
+features:
+  - "Open Source: 7 atomic skills, universal memory, plugin system, unified CLI"
+  - "Premium: Composite skill chains — build complex YAML workflows, no code required"
+  - "Premium: Session recording — record once, generate reusable skills automatically"
+  - "Premium: Chat-based factory — describe skills in natural language (EN + DE)"
+  - "Premium: Multi-portal scenarios — run across dozens of portals simultaneously"
+  - "Premium: 24 built-in procurement scenarios, priority support, and custom development"

@@ -9,7 +9,7 @@ language: Python
 install: "pip install code-explore"
 install_url: "https://code.pioneers.ai"
 featured: true
-sort_order: 1
+sort_order: 3
 category: "CLI Tools"
 features:
   - "Scan directories and extract languages, dependencies, patterns"

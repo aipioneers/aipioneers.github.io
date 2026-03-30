@@ -362,8 +362,8 @@
       var ph = photo.naturalHeight * pScale;
       var px = (width - pw) / 2;
       var py = (height - ph) / 2 - height * 0.02;
-      // Fade in: max ~15% opacity — subtle but recognizable
-      var ghostAlpha = Math.min((progress - 0.15) / 0.85, 1) * 0.15;
+      // Fade in: max ~30% opacity — clearly recognizable
+      var ghostAlpha = Math.min((progress - 0.15) / 0.85, 1) * 0.30;
       ctx.save();
       ctx.globalAlpha = ghostAlpha;
       ctx.drawImage(photo, px, py, pw, ph);

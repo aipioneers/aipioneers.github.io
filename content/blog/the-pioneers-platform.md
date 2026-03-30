@@ -1,7 +1,7 @@
 ---
-title: "Three Tools, One Ecosystem: How AI Pioneers Fits Together"
+title: "Three Tools, One Ecosystem: How Pioneers Fits Together"
 date: 2026-03-29
-author: "AI Pioneers"
+author: "Pioneers"
 description: "code-explore finds knowledge across your projects. code-adapt tracks what's changing upstream. autoskill automates the rest. Here's how the three tools work together — and where the platform is headed."
 tags: ["ecosystem", "vision", "platform", "code-explore", "code-adapt", "autoskill"]
 ---
@@ -102,7 +102,7 @@ The platform is expanding in two directions:
 
 **For individuals**: the open-source tools keep getting better. More skill backends (desktop automation is next), smarter search, deeper analysis. Everything runs locally, everything is MIT licensed.
 
-**For teams**: the AI Pioneers cloud platform adds collaboration. Shared skill memory across organizations. Team analytics with health scoring. AI-powered Q&A over your codebase. A plugin marketplace. Workflow orchestration. Enterprise features like SAML SSO and audit logging.
+**For teams**: the Pioneers cloud platform adds collaboration. Shared skill memory across organizations. Team analytics with health scoring. AI-powered Q&A over your codebase. A plugin marketplace. Workflow orchestration. Enterprise features like SAML SSO and audit logging.
 
 The core philosophy doesn't change: open-source tools that work offline, with a cloud layer for teams that need coordination. No lock-in. No black boxes.
 

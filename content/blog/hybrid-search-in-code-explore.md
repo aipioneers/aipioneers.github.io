@@ -1,7 +1,7 @@
 ---
 title: "How code-explore Combines Fulltext and Semantic Search"
 date: 2026-03-20
-author: "AI Pioneers"
+author: "Pioneers"
 description: "A look at how code-explore's hybrid search merges SQLite FTS5 and LanceDB vector search using Reciprocal Rank Fusion — and why that matters for finding the right project."
 tags: ["code-explore", "search", "technical"]
 ---

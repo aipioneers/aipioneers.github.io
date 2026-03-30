@@ -1,7 +1,7 @@
 name: autoskill
 slug: autoskill
-tagline: "Generalist AI skill framework — one AI, any software. Open source core, premium factory."
-description: "A pluggable AI skill framework where LLMs autonomously learn to operate any application. The open-source core ships with BrowserSkill, TerminalSkill, universal memory, and a plugin system. The premium Skill Factory adds composite workflows, session recording, chat-based building, and 24 ready-to-use procurement scenarios."
+tagline: "AI that teaches itself to use any software."
+description: "A generalist skill framework where LLMs autonomously learn to operate applications — browsers, terminals, and anything you can plug in. Give it a task in plain language, and autoskill figures out the interface, executes the steps, and remembers what worked. The next run is faster because the AI already knows how."
 status: beta
 github: "https://github.com/aipioneers/autoskill"
 language: Python
@@ -10,9 +10,13 @@ featured: true
 sort_order: 1
 category: "Automation"
 features:
-  - "Open Source: 7 atomic skills, universal memory, plugin system, unified CLI"
-  - "Premium: Composite skill chains — build complex YAML workflows, no code required"
-  - "Premium: Session recording — record once, generate reusable skills automatically"
-  - "Premium: Chat-based factory — describe skills in natural language (EN + DE)"
-  - "Premium: Multi-portal scenarios — run across dozens of portals simultaneously"
-  - "Premium: 24 built-in procurement scenarios, priority support, and custom development"
+  - "BrowserSkill — AI navigates websites, logs in, extracts data. No selectors, no per-site config."
+  - "TerminalSkill — generates and executes shell commands from natural language with adaptive safety."
+  - "Universal memory — learns from every run. First execution explores, second execution flies."
+  - "Destructive command blocker — keyword + LLM two-layer safety gate for terminal operations."
+  - "Adaptive trust — new tools start in sandbox mode, graduate to live execution after 3 successes."
+  - "Plugin system — add custom skill backends in under 50 lines of Python."
+  - "Unified CLI — auto-detects whether a task needs a browser or terminal."
+  - "Streaming execution — watch the AI work in real-time, intervene when needed."
+  - "Checkpoint recovery — save and restore execution state on failure."
+  - "Self-evolution — skills learn from failures and improve autonomously."

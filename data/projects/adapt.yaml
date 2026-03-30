@@ -1,7 +1,7 @@
 name: code-adapt
 slug: code-adapt
-tagline: "Observe. Adapt. Contribute."
-description: "A CLI that guides developers through a structured adaptation lifecycle: track upstream changes, analyze their relevance, plan adaptations, implement, and contribute back — all from the terminal."
+tagline: "Never miss an upstream change again."
+description: "A CLI that brings structure to tracking upstream repositories. Observe commits, PRs, and releases across GitHub, GitLab, Gitea, gitcode.com, and Codeberg. Classify changes automatically, assess relevance against your project, generate adaptation plans with risk scoring, and contribute improvements back — all from the terminal."
 status: active
 github: "https://github.com/aipioneers/code-adapt"
 language: Python
@@ -10,7 +10,11 @@ featured: true
 sort_order: 2
 category: "CLI Tools"
 features:
-  - "Track upstream commits, PRs, and releases"
-  - "Classify changes and assess relevance automatically"
-  - "Generate adaptation plans with risk scoring"
-  - "Implement changes and open PRs upstream"
+  - "Multi-provider — GitHub, GitLab, Gitea, gitcode.com, Codeberg, and self-hosted instances."
+  - "Structured lifecycle — observed, analyzed, assessed, planned, implemented, validated, contributed."
+  - "Auto-classification — security fixes, bugfixes, refactors, and features sorted by regex + heuristics."
+  - "Relevance scoring — risk assessment against your project's modules and policies."
+  - "Adaptation plans — concrete strategies with implementation branches and draft PRs."
+  - "Git-tracked state — all data lives in .adapt/ as YAML and JSON. No database, no server."
+  - "Dual output — rich terminal tables for humans, --json for scripts and CI."
+  - "Xinchuang compliance scoring — check stack compatibility against approved technology lists."

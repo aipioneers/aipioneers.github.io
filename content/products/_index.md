@@ -1,6 +1,6 @@
 ---
 title: "Products & Tools"
-description: "Explore AI Pioneers' open-source tools for developers."
+description: "Open-source developer tools for codebase intelligence, upstream tracking, and AI-driven automation."
 ---
 
-Everything we build is open source. Python CLIs designed to help developers understand and evolve their codebases — from searching across projects to tracking upstream changes.
+Three Python CLIs, one ecosystem. Search across hundreds of projects, track what's changing upstream, and automate the work that shouldn't be manual. Everything runs locally, everything is MIT licensed, everything works offline.

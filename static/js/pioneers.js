@@ -129,26 +129,28 @@
   }
 
   /* ================================================================
-     Load all silhouette images, then initialise the animation
+     Load all silhouette PNGs + reference photos, then initialise
      ================================================================ */
   var silhouettePoints = new Array(PIONEERS.length);
+  var photoImages = new Array(PIONEERS.length); // original photos for ghost overlay
   var imagesLoaded = 0;
+  var totalToLoad = PIONEERS.length * 2; // silhouette + photo per pioneer
 
-  function onAllImagesLoaded() {
-    initAnimation();
+  function checkAllLoaded() {
+    imagesLoaded++;
+    if (imagesLoaded === totalToLoad) initAnimation();
   }
 
   for (var p = 0; p < PIONEERS.length; p++) {
     (function (idx) {
-      var img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = function () {
-        silhouettePoints[idx] = sampleImagePixels(img);
-        imagesLoaded++;
-        if (imagesLoaded === PIONEERS.length) onAllImagesLoaded();
+      // Load silhouette PNG
+      var sil = new Image();
+      sil.crossOrigin = 'anonymous';
+      sil.onload = function () {
+        silhouettePoints[idx] = sampleImagePixels(sil);
+        checkAllLoaded();
       };
-      img.onerror = function () {
-        // Fallback: generate a circle silhouette if image fails
+      sil.onerror = function () {
         var pts = [];
         for (var i = 0; i < PARTICLE_COUNT; i++) {
           var angle = Math.random() * Math.PI * 2;
@@ -156,10 +158,16 @@
           pts.push({ x: 0.5 + Math.cos(angle) * rad, y: 0.45 + Math.sin(angle) * rad });
         }
         silhouettePoints[idx] = pts;
-        imagesLoaded++;
-        if (imagesLoaded === PIONEERS.length) onAllImagesLoaded();
+        checkAllLoaded();
       };
-      img.src = BASE_PATH + PIONEERS[idx].img + '.png';
+      sil.src = BASE_PATH + PIONEERS[idx].img + '.png';
+
+      // Load reference photo (grayscale JPEG)
+      var photo = new Image();
+      photo.crossOrigin = 'anonymous';
+      photo.onload = function () { photoImages[idx] = photo; checkAllLoaded(); };
+      photo.onerror = function () { photoImages[idx] = null; checkAllLoaded(); };
+      photo.src = BASE_PATH + PIONEERS[idx].img + '-photo.jpg';
     })(p);
   }
 
@@ -343,6 +351,24 @@
         progress = 0;
         if (elapsed >= FADEIN_MS) { state = 'hero'; stateStart = now; }
         break;
+    }
+
+    // --- Ghost photo behind particles ---
+    if (progress > 0.3 && pioneerIdx >= 0 && photoImages[pioneerIdx]) {
+      var photo = photoImages[pioneerIdx];
+      var silH = Math.min(height * 0.78, 580);
+      var silW = silH * (OFF_W / OFF_H);
+      var pScale = Math.min(silW / photo.naturalWidth, silH / photo.naturalHeight);
+      var pw = photo.naturalWidth * pScale;
+      var ph = photo.naturalHeight * pScale;
+      var px = (width - pw) / 2;
+      var py = (height - ph) / 2 - height * 0.02;
+      // Fade in gently: max ~8% opacity
+      var ghostAlpha = Math.min((progress - 0.3) / 0.7, 1) * 0.08;
+      ctx.save();
+      ctx.globalAlpha = ghostAlpha;
+      ctx.drawImage(photo, px, py, pw, ph);
+      ctx.restore();
     }
 
     // --- Draw particles ---

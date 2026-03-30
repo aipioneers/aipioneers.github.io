@@ -1,16 +1,16 @@
 ---
 title: "Why We Build CLI Tools for Developers"
 date: 2026-03-10
-author: "AI Pioneers"
-description: "AI Pioneers builds open-source command-line tools. Here's why we chose the terminal over web apps, and what we think developer tooling should look like."
+author: "Pioneers"
+description: "Pioneers builds open-source command-line tools. Here's why we chose the terminal over web apps, and what we think developer tooling should look like."
 tags: ["vision", "open-source", "developer-tools"]
 ---
 
 There's no shortage of developer platforms. Dashboards, SaaS products, browser extensions — each adding another tab, another login, another subscription. We went a different direction.
 
-AI Pioneers builds CLI tools. Here's why.
+Pioneers builds CLI tools. Here's why.
 
-<img src="/img/blog/cli-philosophy.svg" alt="Four principles: Terminal-first, Composable, Local-first, Open Source — connected to AI Pioneers CLI Tools" style="width:100%; margin: 2rem 0;">
+<img src="/img/blog/cli-philosophy.svg" alt="Four principles: Terminal-first, Composable, Local-first, Open Source — connected to Pioneers CLI Tools" style="width:100%; margin: 2rem 0;">
 
 ## The Terminal Is Already Open
 

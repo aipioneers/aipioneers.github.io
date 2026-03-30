@@ -1,7 +1,7 @@
 ---
 title: "Introducing code-adapt: A CLI for the Adaptation Lifecycle"
 date: 2026-03-24
-author: "AI Pioneers"
+author: "Pioneers"
 description: "Tracking upstream changes manually is tedious and error-prone. code-adapt brings structure to the process — observe, analyze, assess, plan, implement, and contribute back, all from the terminal."
 tags: ["release", "code-adapt", "cli"]
 ---

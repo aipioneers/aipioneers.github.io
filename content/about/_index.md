@@ -1,11 +1,11 @@
 ---
-title: "About AI Pioneers"
-description: "Learn about AI Pioneers' mission to build open-source AI tools for developers."
+title: "About"
+description: "Our mission: open-source tools that help developers work with AI."
 ---
 
 ## Our Mission
 
-AI Pioneers builds open-source tools that help developers harness the power of AI in their daily work. We believe that the best developer tools are transparent, fast, and work offline — no cloud lock-in, no data leaving your machine.
+Pioneers builds open-source tools that help developers harness the power of AI in their daily work. We believe that the best developer tools are transparent, fast, and work offline — no cloud lock-in, no data leaving your machine.
 
 Our tools run locally using models like Ollama, giving developers full control over their AI-assisted workflow. Whether you're searching across hundreds of repositories or generating project summaries, everything stays on your hardware.
 

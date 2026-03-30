@@ -1,7 +1,7 @@
 ---
 title: "Introducing autoskill: AI That Teaches Itself to Use Any Software"
 date: 2026-03-28
-author: "AI Pioneers"
+author: "Pioneers"
 description: "autoskill is a generalist AI skill framework with pluggable backends — BrowserSkill for web automation, TerminalSkill for CLI programs, and a universal memory layer that works across all skill types."
 tags: ["release", "autoskill", "automation", "llm", "self-learning"]
 ---
@@ -195,7 +195,7 @@ Requires Python 3.12+ and a supported LLM backend (OpenAI, Ollama, vLLM, or any 
 
 - **DesktopSkill** — native UI control for desktop applications
 - **Skill marketplace** — share and reuse learned skills across teams
-- **Cloud orchestration** via the AI Pioneers platform
+- **Cloud orchestration** via the Pioneers platform
 - **Shared skill memory** across organizations
 - **Scheduled execution** with alerts and reporting
 

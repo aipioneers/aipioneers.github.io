@@ -237,7 +237,7 @@
   /* --- Particle System with Connection Lines --- */
   var canvas = document.getElementById('hero-particles');
 
-  if (canvas && !prefersReducedMotion) {
+  if (canvas && !prefersReducedMotion && !window.__pioneersActive) {
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var particles = [];

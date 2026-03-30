@@ -88,26 +88,44 @@
     oc.drawImage(img, dx, dy, dw, dh);
 
     var data = oc.getImageData(0, 0, OFF_W, OFF_H).data;
-    var filled = [];
+    var edges = [];
+    var interior = [];
 
-    // Sample every pixel — collect dark pixels (the silhouette)
+    // Classify each dark pixel as edge or interior
+    function isDark(x, y) {
+      if (x < 0 || x >= OFF_W || y < 0 || y >= OFF_H) return false;
+      var i = (y * OFF_W + x) * 4;
+      return data[i + 3] > 128 && data[i] < 80 && data[i + 1] < 80 && data[i + 2] < 80;
+    }
+
     for (var y = 0; y < OFF_H; y += 1) {
       for (var x = 0; x < OFF_W; x += 1) {
-        var idx = (y * OFF_W + x) * 4;
-        var r = data[idx], g = data[idx + 1], b = data[idx + 2], a = data[idx + 3];
-        // Black pixels on the silhouette (alpha > 128 and dark)
-        if (a > 128 && r < 80 && g < 80 && b < 80) {
-          filled.push({ x: x / OFF_W, y: y / OFF_H });
+        if (!isDark(x, y)) continue;
+        var pt = { x: x / OFF_W, y: y / OFF_H };
+        // Edge pixel: at least one non-dark neighbour
+        if (!isDark(x - 1, y) || !isDark(x + 1, y) ||
+            !isDark(x, y - 1) || !isDark(x, y + 1)) {
+          edges.push(pt);
+        } else {
+          interior.push(pt);
         }
       }
     }
 
-    // Fisher-Yates shuffle, pick PARTICLE_COUNT
-    for (var i = filled.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = filled[i]; filled[i] = filled[j]; filled[j] = t;
+    // Shuffle both arrays (Fisher-Yates)
+    function shuffle(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+      }
     }
-    return filled.slice(0, PARTICLE_COUNT);
+    shuffle(edges);
+    shuffle(interior);
+
+    // 40% edge particles for sharp outline, 60% interior for fill
+    var edgeCount = Math.min(Math.floor(PARTICLE_COUNT * 0.4), edges.length);
+    var intCount  = Math.min(PARTICLE_COUNT - edgeCount, interior.length);
+    return edges.slice(0, edgeCount).concat(interior.slice(0, intCount));
   }
 
   /* ================================================================

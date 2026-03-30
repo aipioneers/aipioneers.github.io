@@ -336,6 +336,52 @@ main { flex: 1; }
   50% { transform: translateY(12px); opacity: 0.2; }
 }
 
+/* ===== Pioneer Quote Overlay ===== */
+.pioneer-quote {
+  position: absolute;
+  z-index: 5;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-apple);
+  pointer-events: none;
+}
+.pioneer-quote.visible {
+  opacity: 1;
+}
+.pioneer-name {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.pioneer-years {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--fg-tertiary);
+  margin-bottom: 0.5rem;
+}
+.pioneer-text {
+  font-size: 1rem;
+  color: var(--fg-secondary);
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .pioneer-quote { bottom: 12%; }
+  .pioneer-name { font-size: 0.95rem; }
+  .pioneer-text { font-size: 0.9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pioneer-quote { display: none; }
+}
+
 /* ===== Buttons ===== */
 .btn {
   display: inline-block;

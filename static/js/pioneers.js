@@ -131,20 +131,16 @@
      Load all silhouette PNGs + reference photos, then initialise
      ================================================================ */
   var silhouettePoints = new Array(PIONEERS.length);
-  var photoImages = new Array(PIONEERS.length); // original photos for ghost overlay
   var imagesLoaded = 0;
-  var totalToLoad = PIONEERS.length * 2; // silhouette + photo per pioneer
 
   function checkAllLoaded() {
     imagesLoaded++;
-    if (imagesLoaded === totalToLoad) initAnimation();
+    if (imagesLoaded === PIONEERS.length) initAnimation();
   }
 
   for (var p = 0; p < PIONEERS.length; p++) {
     (function (idx) {
-      // Load silhouette PNG
       var sil = new Image();
-      // no crossOrigin needed — same-origin images
       sil.onload = function () {
         silhouettePoints[idx] = sampleImagePixels(sil);
         checkAllLoaded();
@@ -160,13 +156,6 @@
         checkAllLoaded();
       };
       sil.src = BASE_PATH + PIONEERS[idx].img + '.png';
-
-      // Load reference photo (grayscale JPEG)
-      var photo = new Image();
-      // no crossOrigin needed — same-origin images
-      photo.onload = function () { photoImages[idx] = photo; checkAllLoaded(); };
-      photo.onerror = function () { photoImages[idx] = null; checkAllLoaded(); };
-      photo.src = BASE_PATH + PIONEERS[idx].img + '-photo.jpg';
     })(p);
   }
 
@@ -350,24 +339,6 @@
         progress = 0;
         if (elapsed >= FADEIN_MS) { state = 'hero'; stateStart = now; }
         break;
-    }
-
-    // --- Ghost photo behind particles ---
-    if (progress > 0.15 && pioneerIdx >= 0 && photoImages[pioneerIdx]) {
-      var photo = photoImages[pioneerIdx];
-      var silH = Math.min(height * 0.78, 580);
-      var silW = silH * (OFF_W / OFF_H);
-      var pScale = Math.min(silW / photo.naturalWidth, silH / photo.naturalHeight);
-      var pw = photo.naturalWidth * pScale;
-      var ph = photo.naturalHeight * pScale;
-      var px = (width - pw) / 2;
-      var py = (height - ph) / 2 - height * 0.02;
-      // Fade in: max ~30% opacity — clearly recognizable
-      var ghostAlpha = Math.min((progress - 0.15) / 0.85, 1) * 0.30;
-      ctx.save();
-      ctx.globalAlpha = ghostAlpha;
-      ctx.drawImage(photo, px, py, pw, ph);
-      ctx.restore();
     }
 
     // --- Draw particles ---

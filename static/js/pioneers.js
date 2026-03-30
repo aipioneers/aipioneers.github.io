@@ -65,9 +65,8 @@
   var PARTICLE_COUNT = 2500;
   var OFF_W = 400;
   var OFF_H = 500;
-  var BASE_PATH = (document.querySelector('script[src*="pioneers"]') || {}).src || '';
-  // Derive base URL from script's own location
-  BASE_PATH = BASE_PATH.replace(/js\/pioneers\.js.*$/, '') + 'img/pioneers/';
+  // Use root-relative path — works on any page
+  var BASE_PATH = '/img/pioneers/';
 
   function sampleImagePixels(img) {
     var off = document.createElement('canvas');
@@ -145,7 +144,7 @@
     (function (idx) {
       // Load silhouette PNG
       var sil = new Image();
-      sil.crossOrigin = 'anonymous';
+      // no crossOrigin needed — same-origin images
       sil.onload = function () {
         silhouettePoints[idx] = sampleImagePixels(sil);
         checkAllLoaded();
@@ -164,7 +163,7 @@
 
       // Load reference photo (grayscale JPEG)
       var photo = new Image();
-      photo.crossOrigin = 'anonymous';
+      // no crossOrigin needed — same-origin images
       photo.onload = function () { photoImages[idx] = photo; checkAllLoaded(); };
       photo.onerror = function () { photoImages[idx] = null; checkAllLoaded(); };
       photo.src = BASE_PATH + PIONEERS[idx].img + '-photo.jpg';
@@ -354,7 +353,7 @@
     }
 
     // --- Ghost photo behind particles ---
-    if (progress > 0.3 && pioneerIdx >= 0 && photoImages[pioneerIdx]) {
+    if (progress > 0.15 && pioneerIdx >= 0 && photoImages[pioneerIdx]) {
       var photo = photoImages[pioneerIdx];
       var silH = Math.min(height * 0.78, 580);
       var silW = silH * (OFF_W / OFF_H);
@@ -363,8 +362,8 @@
       var ph = photo.naturalHeight * pScale;
       var px = (width - pw) / 2;
       var py = (height - ph) / 2 - height * 0.02;
-      // Fade in gently: max ~8% opacity
-      var ghostAlpha = Math.min((progress - 0.3) / 0.7, 1) * 0.08;
+      // Fade in: max ~15% opacity — subtle but recognizable
+      var ghostAlpha = Math.min((progress - 0.15) / 0.85, 1) * 0.15;
       ctx.save();
       ctx.globalAlpha = ghostAlpha;
       ctx.drawImage(photo, px, py, pw, ph);

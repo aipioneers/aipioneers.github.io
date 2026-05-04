@@ -96,6 +96,20 @@ main { flex: 1; }
 .section-title p { color: var(--fg-secondary); font-size: 1.2rem; }
 .bg-secondary { background: var(--bg-secondary); }
 
+/* ===== Hero neuron canvas ===== */
+.hero-neurons {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+  opacity: 0.85;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-neurons { display: none; }
+}
+
 /* ===== Manifesto video section ===== */
 .manifesto-section {
   position: relative;
@@ -111,7 +125,19 @@ main { flex: 1; }
   pointer-events: none;
   z-index: 0;
 }
-.manifesto-section .container { position: relative; z-index: 1; }
+.manifesto-section .container { position: relative; z-index: 2; }
+#manifesto-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+  opacity: 0.7;
+}
+@media (prefers-reduced-motion: reduce) {
+  #manifesto-canvas { display: none; }
+}
 .manifesto-video {
   max-width: 1100px;
   margin: 0 auto;

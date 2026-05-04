@@ -1,6 +1,5 @@
 <section class="hero">
-  <canvas id="hero-mesh" aria-hidden="true"></canvas>
-  <canvas id="hero-particles" aria-hidden="true"></canvas>
+  <canvas class="hero-neurons" data-neurons aria-hidden="true"></canvas>
 
   <!-- Decorative SVG elements with draw-in animation -->
   <svg class="hero-decoration hero-decoration--circle" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -24,12 +23,6 @@
 
   <div class="hero-gradient"></div>
 
-  <div class="pioneer-quote" aria-live="polite">
-    <span class="pioneer-name"></span>
-    <span class="pioneer-years"></span>
-    <p class="pioneer-text"></p>
-  </div>
-
   <div class="hero-content">
     <h1 class="hero-title">
       <span class="hero-word">Pioneers</span>
@@ -46,6 +39,4 @@
   <div class="hero-scroll-indicator" aria-hidden="true">
     <span></span>
   </div>
-
-  <script src="{{ "js/pioneers.js" | relURL }}"></script>
 </section>

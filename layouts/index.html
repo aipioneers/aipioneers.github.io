@@ -1,6 +1,30 @@
 {{ define "main" }}
 {{ partial "hero.html" . }}
 
+<section class="section manifesto-section">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>The Spirit of AI Pioneers</h2>
+      <p>From Kitty Hawk to a thousand moonshots. Pioneers never have a single face.</p>
+    </div>
+    <div class="manifesto-video reveal">
+      <video
+        controls
+        preload="metadata"
+        playsinline
+        poster="{{ "images/manifesto-poster.jpg" | relURL }}"
+        class="manifesto-video__player">
+        <source src="{{ "videos/spirit-of-ai-pioneers.mp4" | relURL }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="manifesto-cta reveal">
+      <p>We're looking for the best of the best — those who lie awake because an idea won't let them go.</p>
+      <a href="/teams/" class="btn btn-primary">Join the pioneers</a>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="section-title reveal">

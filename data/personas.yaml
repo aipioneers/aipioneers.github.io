@@ -1,0 +1,68 @@
+# AI Pioneers — Buyer Personas
+# Schema: see specs/005-pioneers-vertical-pivot/data-model.md
+
+- slug: gesellschafter_beirat
+  label_de: Geschäftsführender Gesellschafter + Beirat
+  company_size_band: 50–500 Mitarbeiter
+  typical_industries:
+    - maschinenbau
+    - hidden_champions
+    - familienunternehmen
+  primary_motive: "Will eine ehrliche Einordnung, was KI in den nächsten 24 Monaten für sein konkretes Unternehmen bedeutet — ohne Workshop-Folklore."
+  typical_objections:
+    - "Wir haben schon eine Strategieberatung beauftragt."
+    - "Wir warten ab, bis sich der Hype legt."
+    - "Wir haben kein internes Team für Umsetzung."
+
+- slug: geschaeftsfuehrer
+  label_de: Geschäftsführer / inhabergeführt
+  company_size_band: 50–500 Mitarbeiter
+  typical_industries:
+    - maschinenbau
+    - technischer_handel
+    - softwarehaus
+  primary_motive: "Hat persönlich entschieden, dass Wachstum nicht durch Recruiting kommt. Sucht etwas, das funktioniert."
+  typical_objections:
+    - "Meine Leute haben Angst vor KI."
+    - "Das funktioniert vielleicht bei großen Konzernen, nicht bei uns."
+    - "Wir hatten schon zwei gescheiterte KI-Projekte."
+
+- slug: cio_hr
+  label_de: CIO / IT-Leitung + Geschäftsführung
+  company_size_band: 100–2 000 Mitarbeiter
+  typical_industries:
+    - maschinenbau
+    - hidden_champions
+    - familienunternehmen_generationenwechsel
+  primary_motive: "Renteneintrittswelle trifft die Schlüsselpersonen. Confluence und SharePoint haben das Versprechen nicht eingelöst."
+  typical_objections:
+    - "Was sagt der Betriebsrat dazu?"
+    - "Wir können keine sensiblen Daten in die Cloud geben."
+    - "Wir haben schon ein Wissensmanagement-Tool."
+
+- slug: cfo_coo
+  label_de: CFO / COO klassischer Mittelständler
+  company_size_band: 100–1 000 Mitarbeiter
+  typical_industries:
+    - maschinenbau
+    - technischer_handel
+    - logistik
+  primary_motive: "Margen sind unter Druck. Kennt die Zahlen genau, weiß wo es weh tut, sucht jemanden, der liefert."
+  typical_objections:
+    - "Wir nutzen SAP/MS Dynamics/abas — passt das?"
+    - "Was kostet das pro Prozess?"
+    - "Wie messen Sie den Erfolg?"
+
+- slug: compliance_gf
+  label_de: Compliance-Beauftragte + Geschäftsführung
+  company_size_band: 50–2 000 Mitarbeiter
+  typical_industries:
+    - stadtwerke
+    - versicherung_mittelstand
+    - kritis
+    - gesundheit
+  primary_motive: "Aufsicht oder Auditor steht im Nacken. Will operativ Pflichten erfüllt sehen, nicht beraten werden."
+  typical_objections:
+    - "Wir nutzen schon eine Compliance-Software."
+    - "Haftungsfragen — wer steht gerade?"
+    - "DSGVO, AI Act, NIS-2 — alles gleichzeitig?"

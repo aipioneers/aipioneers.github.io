@@ -1,0 +1,20 @@
+{{/*
+  Vertical hero partial.
+  Renders a vertical's pain statement + primary CTA.
+  Expected context: a vertical record from data/verticals.yaml passed as `.`
+*/}}
+<section class="vertical-hero">
+  <div class="container">
+    <p class="vertical-eyebrow">{{ .name_de }}</p>
+    <h1 class="vertical-pain">{{ .pain_de }}</h1>
+
+    {{ if eq .state "coming_soon" }}
+      <p class="vertical-state vertical-state--coming">Bald verfügbar — derzeit in Closed Beta vorbereitet.</p>
+    {{ else }}
+      <div class="vertical-cta">
+        <a href="#angebot" class="btn btn-primary">Angebot ansehen</a>
+        <a href="#case-studies" class="btn btn-outline">Cases lesen</a>
+      </div>
+    {{ end }}
+  </div>
+</section>

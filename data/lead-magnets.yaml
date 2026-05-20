@@ -1,0 +1,43 @@
+# AI Pioneers — Lead Magnets per Vertical
+# Each ships as a gated PDF wired to Beehiiv.
+# Schema: see specs/005-pioneers-vertical-pivot/data-model.md
+
+- slug: transformation_5_fragen
+  vertical_slug: transformation
+  title_de: "Die 5 strategischen Fragen, die KI in den nächsten 24 Monaten erzwingt"
+  pdf_path: /lead-magnets/transformation.pdf
+  pages: 12
+  email_capture_list_id: beehiiv_list_transformation_PLACEHOLDER
+  live_since: null
+
+- slug: workforce_selbsttest
+  vertical_slug: workforce
+  title_de: "Welche Tätigkeiten lassen sich in 12 Monaten KI-augmentieren? Selbsttest in 12 Fragen"
+  pdf_path: /lead-magnets/workforce.pdf
+  pages: 14
+  email_capture_list_id: beehiiv_list_workforce_PLACEHOLDER
+  live_since: null
+
+- slug: knowledge_risiko_check
+  vertical_slug: knowledge
+  title_de: "Wo sitzt das gefährdete Wissen in Ihrem Unternehmen? Risiko-Selbstcheck"
+  pdf_path: /lead-magnets/knowledge.pdf
+  pages: 10
+  email_capture_list_id: beehiiv_list_knowledge_PLACEHOLDER
+  live_since: null
+
+- slug: compliance_nis2_stadtwerke
+  vertical_slug: compliance
+  title_de: "NIS-2 für Stadtwerke: Was bis wann zu tun ist. Pflichten-Check"
+  pdf_path: /lead-magnets/compliance-nis2.pdf
+  pages: 15
+  email_capture_list_id: beehiiv_list_compliance_PLACEHOLDER
+  live_since: null
+
+- slug: efficiency_top7_prozesse
+  vertical_slug: efficiency
+  title_de: "Top-7-Prozesse, die KI bei mittelständischen Maschinenbauern automatisieren kann"
+  pdf_path: /lead-magnets/efficiency.pdf
+  pages: 12
+  email_capture_list_id: beehiiv_list_efficiency_PLACEHOLDER
+  live_since: null

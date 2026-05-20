@@ -1,0 +1,60 @@
+# AI Pioneers — Vertical Catalogue (single source of truth)
+# Used by Hugo templates to render nav, hero, pricing pages.
+# Schema: see specs/005-pioneers-vertical-pivot/data-model.md
+
+- slug: transformation
+  name_de: Transformation
+  pain_de: "Sie wissen, dass KI Ihr Geschäft verändert — aber nicht, was Sie tun sollen."
+  buyer_persona_slug: gesellschafter_beirat
+  phase_introduced: 1
+  state: live_path
+  live_at: 2026-08-01
+  subdomain_at: null
+  compliance_regimes: []
+
+- slug: workforce
+  name_de: Workforce
+  pain_de: "Wachstum trotz Fachkräftemangel — KI als Workforce Multiplier."
+  buyer_persona_slug: geschaeftsfuehrer
+  phase_introduced: 2
+  state: coming_soon
+  live_at: null
+  subdomain_at: null
+  compliance_regimes: []
+
+- slug: knowledge
+  name_de: Knowledge
+  pain_de: "Wissen sichern, bevor es in den Ruhestand geht."
+  buyer_persona_slug: cio_hr
+  phase_introduced: 3
+  state: coming_soon
+  live_at: null
+  subdomain_at: null
+  compliance_regimes: []
+
+- slug: compliance
+  name_de: Compliance
+  pain_de: "NIS-2, DORA, AI Act — wir betreiben Ihr Compliance-System."
+  buyer_persona_slug: compliance_gf
+  phase_introduced: 3
+  state: coming_soon
+  live_at: null
+  subdomain_at: null
+  compliance_regimes:
+    - nis-2
+    - dora
+    - eu-ai-act
+    - csrd
+    - lieferkettengesetz
+    - iso-27001
+    - bsi-grundschutz
+
+- slug: efficiency
+  name_de: Efficiency
+  pain_de: "Prozesse, die seit Jahren nicht hinterfragt wurden — KI-getrieben automatisiert."
+  buyer_persona_slug: cfo_coo
+  phase_introduced: 4
+  state: coming_soon
+  live_at: null
+  subdomain_at: null
+  compliance_regimes: []

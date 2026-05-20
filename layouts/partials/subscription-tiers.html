@@ -1,0 +1,28 @@
+{{/*
+  Subscription tier chooser.
+  Renders the 1m / 12m / 24m commitment tiers for a subscription product.
+  Expected context: a product record (must have commitment_tiers + stripe_price_ids).
+*/}}
+{{ if gt (len .commitment_tiers) 0 }}
+  <div class="tier-chooser" data-sku="{{ .sku }}">
+    <p class="tier-chooser-label">Commitment wählen</p>
+    <ul class="tier-list">
+      <li class="tier tier--1m">
+        <span class="tier-name">1 Monat</span>
+        <span class="tier-note">jederzeit kündbar</span>
+        <span class="tier-premium">+ ca. 35 %</span>
+      </li>
+      <li class="tier tier--12m">
+        <span class="tier-name">12 Monate</span>
+        <span class="tier-note">1 Jahr Bindung</span>
+        <span class="tier-premium">+ ca. 12 %</span>
+      </li>
+      <li class="tier tier--24m tier--recommended">
+        <span class="tier-name">24 Monate</span>
+        <span class="tier-note">2 Jahre Bindung — Basispreis</span>
+        <span class="tier-premium">Basis</span>
+      </li>
+    </ul>
+    <p class="tier-footer">Nach Bindung: rollend monatlich, 3 Monate Kündigungsfrist zum Quartalsende.</p>
+  </div>
+{{ end }}

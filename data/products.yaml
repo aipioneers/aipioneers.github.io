@@ -1,0 +1,191 @@
+# AI Pioneers — Product Catalogue
+# Source: specs/005-pioneers-vertical-pivot/contracts/product-catalog.md
+# Stripe Price IDs are placeholders; real IDs filled after T045/T072/T083/T094/T102.
+
+# ===== TRANSFORMATION =====
+- sku: transformation_insight
+  vertical_slug: transformation
+  class: assessment
+  name_de: Transformation Insight
+  price_min_eur: 18000
+  price_max_eur: 25000
+  margin_pct_target: 85
+  duration: "4–6 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: transformation_plan
+  vertical_slug: transformation
+  class: implementation
+  name_de: Transformation Plan
+  price_min_eur: 45000
+  price_max_eur: 80000
+  margin_pct_target: 65
+  duration: "8–12 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: transformation_companion
+  vertical_slug: transformation
+  class: subscription
+  name_de: Transformation Companion
+  price_min_eur: 4500
+  price_max_eur: 9000
+  margin_pct_target: 80
+  duration: monatlich
+  commitment_tiers: [1m, 12m, 24m]
+  stripe_price_ids:
+    1m: price_t_comp_1m_PLACEHOLDER
+    12m: price_t_comp_12m_PLACEHOLDER
+    24m: price_t_comp_24m_PLACEHOLDER
+
+# ===== WORKFORCE =====
+- sku: workforce_assessment
+  vertical_slug: workforce
+  class: assessment
+  name_de: Workforce Assessment
+  price_min_eur: 9800
+  price_max_eur: 9800
+  margin_pct_target: 85
+  duration: "4 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: workforce_implementation
+  vertical_slug: workforce
+  class: implementation
+  name_de: Workforce Implementation
+  price_min_eur: 35000
+  price_max_eur: 80000
+  margin_pct_target: 65
+  duration: "8–16 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: workforce_subscription
+  vertical_slug: workforce
+  class: subscription
+  name_de: Workforce Subscription
+  price_min_eur: 1800
+  price_max_eur: 4500
+  margin_pct_target: 80
+  duration: monatlich
+  commitment_tiers: [1m, 12m, 24m]
+  stripe_price_ids:
+    1m: price_w_sub_1m_PLACEHOLDER
+    12m: price_w_sub_12m_PLACEHOLDER
+    24m: price_w_sub_24m_PLACEHOLDER
+
+# ===== KNOWLEDGE =====
+- sku: knowledge_audit
+  vertical_slug: knowledge
+  class: assessment
+  name_de: Knowledge Audit
+  price_min_eur: 8500
+  price_max_eur: 8500
+  margin_pct_target: 85
+  duration: "4 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: knowledge_unternehmens_gpt
+  vertical_slug: knowledge
+  class: implementation
+  name_de: Unternehmens-GPT
+  price_min_eur: 30000
+  price_max_eur: 60000
+  margin_pct_target: 65
+  duration: "8–14 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: knowledge_subscription
+  vertical_slug: knowledge
+  class: subscription
+  name_de: Knowledge Subscription
+  price_min_eur: 1500
+  price_max_eur: 3500
+  margin_pct_target: 80
+  duration: monatlich
+  commitment_tiers: [1m, 12m, 24m]
+  stripe_price_ids:
+    1m: price_k_sub_1m_PLACEHOLDER
+    12m: price_k_sub_12m_PLACEHOLDER
+    24m: price_k_sub_24m_PLACEHOLDER
+
+# ===== COMPLIANCE =====
+- sku: compliance_assessment
+  vertical_slug: compliance
+  class: assessment
+  name_de: Compliance Assessment
+  price_min_eur: 6000
+  price_max_eur: 12000
+  margin_pct_target: 85
+  duration: "2–4 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+  note: "Preis pro gewähltem Regulierungsregime (eine pro Engagement)."
+
+- sku: compliance_companion
+  vertical_slug: compliance
+  class: implementation
+  name_de: Compliance Companion
+  price_min_eur: 22000
+  price_max_eur: 48000
+  margin_pct_target: 65
+  duration: "6–12 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: compliance_subscription
+  vertical_slug: compliance
+  class: subscription
+  name_de: Compliance Subscription
+  price_min_eur: 1200
+  price_max_eur: 3000
+  margin_pct_target: 80
+  duration: monatlich
+  commitment_tiers: [1m, 12m, 24m]
+  stripe_price_ids:
+    1m: price_c_sub_1m_PLACEHOLDER
+    12m: price_c_sub_12m_PLACEHOLDER
+    24m: price_c_sub_24m_PLACEHOLDER
+
+# ===== EFFICIENCY =====
+- sku: efficiency_scan
+  vertical_slug: efficiency
+  class: assessment
+  name_de: Efficiency Scan
+  price_min_eur: 7500
+  price_max_eur: 7500
+  margin_pct_target: 85
+  duration: "3 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+
+- sku: efficiency_sprint
+  vertical_slug: efficiency
+  class: implementation
+  name_de: Efficiency Sprint
+  price_min_eur: 25000
+  price_max_eur: 50000
+  margin_pct_target: 65
+  duration: "6–10 Wochen"
+  commitment_tiers: []
+  stripe_price_ids: {}
+  note: "Pro automatisiertem Prozess."
+
+- sku: efficiency_subscription
+  vertical_slug: efficiency
+  class: subscription
+  name_de: Efficiency Subscription
+  price_min_eur: 800
+  price_max_eur: 2500
+  margin_pct_target: 80
+  duration: monatlich
+  commitment_tiers: [1m, 12m, 24m]
+  stripe_price_ids:
+    1m: price_e_sub_1m_PLACEHOLDER
+    12m: price_e_sub_12m_PLACEHOLDER
+    24m: price_e_sub_24m_PLACEHOLDER
+  note: "Pro Prozess."

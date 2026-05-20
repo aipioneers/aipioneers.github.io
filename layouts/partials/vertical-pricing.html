@@ -1,0 +1,58 @@
+{{/*
+  Vertical pricing partial.
+  Renders all products for a given vertical_slug in three columns (assessment / implementation / subscription).
+  Expected context: vertical_slug passed as `.`
+  Reads from site.Data.products.
+*/}}
+{{ $verticalSlug := . }}
+{{ $assessment := where site.Data.products "vertical_slug" $verticalSlug | where "class" "assessment" }}
+{{ $implementation := where site.Data.products "vertical_slug" $verticalSlug | where "class" "implementation" }}
+{{ $subscription := where site.Data.products "vertical_slug" $verticalSlug | where "class" "subscription" }}
+
+<section id="angebot" class="vertical-pricing section">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Drei Schritte</h2>
+      <p>Assessment, Implementation, Subscription — festpreislich, keine Tagessätze.</p>
+    </div>
+
+    <div class="pricing-grid">
+      {{ range $assessment }}
+        <article class="pricing-card pricing-card--assessment">
+          <span class="pricing-class">Assessment</span>
+          <h3>{{ .name_de }}</h3>
+          <p class="pricing-duration">{{ .duration }}</p>
+          <p class="pricing-band">
+            {{ if eq .price_min_eur .price_max_eur }}
+              € {{ .price_min_eur }}
+            {{ else }}
+              € {{ .price_min_eur }} – € {{ .price_max_eur }}
+            {{ end }}
+          </p>
+          {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
+        </article>
+      {{ end }}
+
+      {{ range $implementation }}
+        <article class="pricing-card pricing-card--implementation">
+          <span class="pricing-class">Implementation</span>
+          <h3>{{ .name_de }}</h3>
+          <p class="pricing-duration">{{ .duration }}</p>
+          <p class="pricing-band">€ {{ .price_min_eur }} – € {{ .price_max_eur }}</p>
+          {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
+        </article>
+      {{ end }}
+
+      {{ range $subscription }}
+        <article class="pricing-card pricing-card--subscription">
+          <span class="pricing-class">Subscription</span>
+          <h3>{{ .name_de }}</h3>
+          <p class="pricing-duration">{{ .duration }}</p>
+          <p class="pricing-band">€ {{ .price_min_eur }} – € {{ .price_max_eur }} / Monat</p>
+          {{ partial "subscription-tiers.html" . }}
+          {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

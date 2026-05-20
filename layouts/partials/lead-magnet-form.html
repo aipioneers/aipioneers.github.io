@@ -1,0 +1,25 @@
+{{/*
+  Lead-magnet email-capture form (Beehiiv-gated PDF).
+  Expected context: a lead-magnet record from data/lead-magnets.yaml passed as `.`
+*/}}
+<section class="lead-magnet">
+  <div class="container">
+    <div class="lead-magnet-card">
+      <div class="lead-magnet-text">
+        <p class="lead-magnet-eyebrow">PDF — {{ .pages }} Seiten</p>
+        <h3>{{ .title_de }}</h3>
+        <p class="lead-magnet-desc">Direkt per E-Mail. Kein Spam. Abmeldung mit einem Klick.</p>
+      </div>
+      <form class="lead-magnet-form"
+            action="https://app.beehiiv.com/forms/{{ .email_capture_list_id }}/submissions"
+            method="POST"
+            target="_blank"
+            rel="noopener">
+        <label for="lm-email-{{ .slug }}">E-Mail-Adresse</label>
+        <input id="lm-email-{{ .slug }}" type="email" name="email" required placeholder="name@firma.de">
+        <input type="hidden" name="lead_magnet" value="{{ .slug }}">
+        <button type="submit" class="btn btn-primary">PDF anfordern</button>
+      </form>
+    </div>
+  </div>
+</section>

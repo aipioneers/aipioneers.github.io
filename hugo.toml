@@ -3,9 +3,9 @@ languageCode = "en"
 title = "AI Pioneers"
 
 [params]
-  description = "Building open-source tools that help developers work with AI."
+  description = "Vertical-AI für den DACH-Mittelstand. Solo Founder, betrieben durch KI-Teams."
   github = "https://github.com/aipioneers"
-  tagline = "Open-source AI developer tools"
+  tagline = "Pioniere bauen, was es noch nicht gibt."
 
 [sitemap]
   changefreq = "weekly"
@@ -13,27 +13,55 @@ title = "AI Pioneers"
 
 [menu]
   [[menu.main]]
-    name = "Home"
-    url = "/"
+    name = "Transformation"
+    url = "/transformation/"
     weight = 10
+    [menu.main.params]
+      vertical = true
   [[menu.main]]
-    name = "Products"
-    url = "/products/"
-    weight = 20
+    name = "Workforce"
+    url = "/workforce/"
+    weight = 11
+    [menu.main.params]
+      vertical = true
+      coming_soon = true
   [[menu.main]]
-    name = "About"
-    url = "/about/"
+    name = "Knowledge"
+    url = "/knowledge/"
+    weight = 12
+    [menu.main.params]
+      vertical = true
+      coming_soon = true
+  [[menu.main]]
+    name = "Compliance"
+    url = "/compliance/"
+    weight = 13
+    [menu.main.params]
+      vertical = true
+      coming_soon = true
+  [[menu.main]]
+    name = "Efficiency"
+    url = "/efficiency/"
+    weight = 14
+    [menu.main.params]
+      vertical = true
+      coming_soon = true
+  [[menu.main]]
+    name = "Manifest"
+    url = "/manifest/"
     weight = 30
+  [[menu.main]]
+    name = "Cases"
+    url = "/cases/"
+    weight = 40
   [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 40
-  [[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/aipioneers"
     weight = 50
-    [menu.main.params]
-      external = true
+  [[menu.main]]
+    name = "Founder"
+    url = "/founder/"
+    weight = 60
 
 [markup]
   [markup.highlight]

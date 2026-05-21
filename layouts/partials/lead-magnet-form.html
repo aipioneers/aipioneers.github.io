@@ -1,25 +1,39 @@
 {{/*
-  Lead-magnet email-capture form (Beehiiv-gated PDF).
+  Lead-magnet section.
   Expected context: a lead-magnet record from data/lead-magnets.yaml passed as `.`
+  If the Beehiiv list ID is still a PLACEHOLDER, renders a "coming soon" notice
+  instead of a broken form. Once Beehiiv is wired (real list ID replaces PLACEHOLDER),
+  the real form renders automatically.
 */}}
+{{ $isReady := and .email_capture_list_id (not (in .email_capture_list_id "PLACEHOLDER")) }}
 <section class="lead-magnet">
   <div class="container">
     <div class="lead-magnet-card">
       <div class="lead-magnet-text">
         <p class="lead-magnet-eyebrow">PDF — {{ .pages }} Seiten</p>
         <h3>{{ .title_de }}</h3>
-        <p class="lead-magnet-desc">Direkt per E-Mail. Kein Spam. Abmeldung mit einem Klick.</p>
+        {{ if $isReady }}
+          <p class="lead-magnet-desc">Direkt per E-Mail. Kein Spam. Abmeldung mit einem Klick.</p>
+        {{ else }}
+          <p class="lead-magnet-desc">In Vorbereitung — Newsletter-Abo geht ab Phase 1 live, das PDF folgt zeitnah.</p>
+        {{ end }}
       </div>
-      <form class="lead-magnet-form"
-            action="https://app.beehiiv.com/forms/{{ .email_capture_list_id }}/submissions"
-            method="POST"
-            target="_blank"
-            rel="noopener">
-        <label for="lm-email-{{ .slug }}">E-Mail-Adresse</label>
-        <input id="lm-email-{{ .slug }}" type="email" name="email" required placeholder="name@firma.de">
-        <input type="hidden" name="lead_magnet" value="{{ .slug }}">
-        <button type="submit" class="btn btn-primary">PDF anfordern</button>
-      </form>
+      {{ if $isReady }}
+        <form class="lead-magnet-form"
+              action="https://app.beehiiv.com/forms/{{ .email_capture_list_id }}/submissions"
+              method="POST"
+              target="_blank"
+              rel="noopener">
+          <label for="lm-email-{{ .slug }}">E-Mail-Adresse</label>
+          <input id="lm-email-{{ .slug }}" type="email" name="email" required placeholder="name@firma.de">
+          <input type="hidden" name="lead_magnet" value="{{ .slug }}">
+          <button type="submit" class="btn btn-primary">PDF anfordern</button>
+        </form>
+      {{ else }}
+        <div class="lead-magnet-pending">
+          <p><em>Bald verfügbar.</em></p>
+        </div>
+      {{ end }}
     </div>
   </div>
 </section>

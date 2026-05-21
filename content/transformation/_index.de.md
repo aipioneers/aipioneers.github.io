@@ -1,6 +1,6 @@
 ---
 title: "Transformation — KI-Strategie für den Mittelstand"
-description: "Big-4-Tiefe, Mittelstand-Pragmatik, Solo-Founder-Preis. Drei Schritte: Insight → Plan → Companion."
+description: "Big-4-Tiefe, Mittelstand-Pragmatik. Drei Schritte: Insight → Plan → Companion."
 slug: transformation
 date: 2026-05-21
 ---
@@ -31,5 +31,5 @@ Wir liefern arbeitende KI-Teams, paketiert pro Schmerzpunkt,
 mit dokumentierter Governance und EU-residenter Infrastruktur.
 
 Wir konkurrieren nicht mit Implementern.
-Wir konkurrieren mit Big-4-Strategieberatungen — zu einem Fünftel des Preises,
-in Wochen statt Quartalen, mit klarer KI-Expertise statt generischer Strategie-Rhetorik.
+Wir konkurrieren mit Big-4-Strategieberatungen — in Wochen statt Quartalen,
+mit klarer KI-Expertise statt generischer Strategie-Rhetorik.

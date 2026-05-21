@@ -16,18 +16,15 @@ something that actually works.
 
 Three products in the proven three-step structure:
 
-- **Workforce Assessment** (€ 9 800, 4 weeks): prioritised roadmap of the top-3
+- **Workforce Assessment** (4 weeks): prioritised roadmap of the top-3
   AI-augmentable activities in your company, with impact and effort estimates.
-- **Workforce Implementation** (€ 35 000 – 80 000, 8–16 weeks): the top-3 use cases
+- **Workforce Implementation** (8–16 weeks): the top-3 use cases
   delivered as running AI workforce — back-office processing, reporting, routine
   communication. Shipped as Paperclip-Companies with documented governance.
-- **Workforce Subscription** (€ 1 800 – 4 500 / month, three commitment tiers):
+- **Workforce Subscription** (monthly, three commitment tiers):
   operation, evolution, additional use cases.
 
 ## Status
 
 Phase 2 (months 10–15). Currently **in preparation**. We open this vertical once
 the Transformation phase has cleared its validation gates.
-
-If you would like to be among the first Workforce customers, [contact the founder
-directly](/en/founder/).

@@ -16,7 +16,7 @@ sumptus sine commodo competitivo — nisi in violatione, quae existentiam minatu
 
 Non "adiuvamus ut obtemperetis", sed **"systema obtemperationis vestrae regimus"**.
 Fines orientati ad eventus, paginati, praevidibiles. Adversarii nostri sunt consultores
-secundum dies, nos pretium fixum cum claris terminis responsabilitatis offerimus.
+secundum dies, nos cum claris terminis responsabilitatis offerimus.
 
 ## Septem regimina, unum per opus
 
@@ -26,16 +26,14 @@ sequentia adiri possunt — sine fasciculo, sine dilutione.
 
 ## Producta
 
-- **Aestimatio Obtemperationis** (€ 6 000 – 12 000 per regimen, duae ad quattuor
-  septimanas): examinatio maturitatis pro uno regimine electo, plan actionum.
-- **Comes Obtemperationis** (€ 22 000 – 48 000, sex ad duodecim septimanas):
+- **Aestimatio Obtemperationis** (duae ad quattuor septimanas per regimen):
+  examinatio maturitatis pro uno regimine electo, plan actionum.
+- **Comes Obtemperationis** (sex ad duodecim septimanas):
   constructio systematis obtemperationis artificialis pro illo regimine.
-- **Subscriptio Obtemperationis** (€ 1 200 – 3 000 mensiliter): operatio continua,
+- **Subscriptio Obtemperationis** (mensiliter): operatio continua,
   renovationes legum, auxilium in examinationibus.
 
 ## Status
 
 Phasis III (menses sedecim ad viginti quattuor). **In praeparatione.** Praerequisitum:
-assecuratio de damnis pecuniariis € 2M / € 5M omnia septem regimina tegens.
-
-Pro industriis regulatis: [scribe ad conditorem](/la/founder/).
+assecuratio de damnis pecuniariis omnia septem regimina tegens.

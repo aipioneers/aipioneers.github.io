@@ -16,7 +16,7 @@ default without competitive upside — except in violation, where it becomes exi
 
 Not "we help you become compliant", but **"we operate your compliance system"**.
 Outcome-oriented, packaged, predictable. Competitors are day-rate consultancies —
-we deliver fixed prices with clear scope-of-responsibility boundaries.
+we deliver fixed-price engagements with clear scope-of-responsibility boundaries.
 
 ## Seven regimes, one per engagement
 
@@ -26,16 +26,14 @@ Other regimes follow as separate engagements — no bundles, no dilution.
 
 ## Products
 
-- **Compliance Assessment** (€ 6 000 – 12 000 per regime, 2–4 weeks): maturity check
+- **Compliance Assessment** (2–4 weeks per regime): maturity check
   for one chosen regime, action plan.
-- **Compliance Companion** (€ 22 000 – 48 000, 6–12 weeks): build of an AI-driven
+- **Compliance Companion** (6–12 weeks): build of an AI-driven
   compliance system for that regime.
-- **Compliance Subscription** (€ 1 200 – 3 000 / month): ongoing operation,
+- **Compliance Subscription** (monthly): ongoing operation,
   regulatory updates, audit support.
 
 ## Status
 
 Phase 3 (months 16–24). **In preparation.** Pre-requisite: financial-loss liability
-insurance € 2M / € 5M scoped to all seven regimes.
-
-For regulated industries (Stadtwerke, insurance, KRITIS): [contact founder](/en/founder/).
+insurance scoped to all seven regimes.

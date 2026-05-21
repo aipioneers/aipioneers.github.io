@@ -1,6 +1,7 @@
 {{/*
-  Vertical pricing partial. Multilingual via i18n.
-  Expected context: vertical_slug passed as `.`
+  Vertical pricing partial — awareness phase, no prices.
+  Shows the three steps (Assessment / Implementation / Subscription)
+  with name + duration only. Pricing is on-request.
 */}}
 {{ $verticalSlug := . }}
 {{ $verticalProducts := where site.Data.products "vertical_slug" $verticalSlug }}
@@ -21,14 +22,6 @@
           <span class="pricing-class">{{ i18n "vertical_pricing_class_assessment" }}</span>
           <h3>{{ .name_de }}</h3>
           <p class="pricing-duration">{{ .duration }}</p>
-          <p class="pricing-band">
-            {{ if eq .price_min_eur .price_max_eur }}
-              € {{ .price_min_eur }}
-            {{ else }}
-              € {{ .price_min_eur }} – € {{ .price_max_eur }}
-            {{ end }}
-          </p>
-          {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
         </article>
       {{ end }}
 
@@ -37,8 +30,6 @@
           <span class="pricing-class">{{ i18n "vertical_pricing_class_implementation" }}</span>
           <h3>{{ .name_de }}</h3>
           <p class="pricing-duration">{{ .duration }}</p>
-          <p class="pricing-band">€ {{ .price_min_eur }} – € {{ .price_max_eur }}</p>
-          {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
         </article>
       {{ end }}
 
@@ -47,9 +38,6 @@
           <span class="pricing-class">{{ i18n "vertical_pricing_class_subscription" }}</span>
           <h3>{{ .name_de }}</h3>
           <p class="pricing-duration">{{ .duration }}</p>
-          <p class="pricing-band">€ {{ .price_min_eur }} – € {{ .price_max_eur }} {{ i18n "vertical_pricing_per_month" }}</p>
-          {{ partial "subscription-tiers.html" . }}
-          {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
         </article>
       {{ end }}
     </div>

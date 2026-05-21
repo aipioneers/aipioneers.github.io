@@ -15,18 +15,15 @@ Recruiting löst es nicht. Outsourcing löst es nicht. Sie suchen etwas, das tat
 
 Drei Produkte in der bewährten Drei-Schritt-Logik:
 
-- **Workforce Assessment** (€ 9 800, 4 Wochen): priorisierte Roadmap der Top-3
+- **Workforce Assessment** (4 Wochen): priorisierte Roadmap der Top-3
   KI-augmentierbaren Tätigkeiten in Ihrem Unternehmen, mit Wirkungs- und Aufwandsschätzung.
-- **Workforce Implementation** (€ 35 000 – 80 000, 8–16 Wochen): Umsetzung als
+- **Workforce Implementation** (8–16 Wochen): Umsetzung als
   laufende KI-Workforce — Sachbearbeitung, Auswertung, Routine-Kommunikation. Lieferung
   als Paperclip-Companies mit dokumentiertem Governance-Modell.
-- **Workforce Subscription** (€ 1 800 – 4 500 / Monat, drei Commitment-Tiers): Betrieb,
+- **Workforce Subscription** (monatlich, drei Commitment-Tiers): Betrieb,
   Weiterentwicklung, neue Use-Cases.
 
 ## Status
 
 Phase 2 (Monate 10–15). Aktuell **in Vorbereitung**. Wir öffnen, sobald die
 Transformation-Phase die Validierungs-Gates erreicht hat.
-
-Wenn Sie zu den ersten Workforce-Kunden gehören möchten, kontaktieren Sie den
-[Founder direkt](/founder/).

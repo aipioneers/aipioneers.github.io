@@ -16,21 +16,19 @@ efficax sit.
 
 Tres producta in eadem tribus gradibus structura:
 
-- **Aestimatio Operis** (€ 9 800, quattuor septimanis): index priorificatus
+- **Aestimatio Operis** (quattuor septimanis): index priorificatus
   trium principalium operum quae intelligentia artificialis augere potest, cum
   aestimatione efficaciae et oneris.
-- **Implementatio Operis** (€ 35 000 – 80 000, octo usque ad sedecim septimanas):
+- **Implementatio Operis** (octo usque ad sedecim septimanas):
   illa tria opera ut continuata turma artificialis — administratio, computatio,
   communicatio consueta. Tradita ut Paperclip-Societates cum gubernatione documentata.
-- **Subscriptio Operis** (€ 1 800 – 4 500 mensiliter, tres gradus impegnationis):
+- **Subscriptio Operis** (mensiliter, tres gradus impegnationis):
   operatio, evolutio, novi usus.
 
 ## Status
 
 Phasis II (menses decem ad quindecim). Nunc **in praeparatione**. Hanc
 verticem aperimus postquam phasis Transformationis fines suos pertulit.
-
-Si cupis inter primos clientes esse, [scribe directe ad conditorem](/la/founder/).
 
 ---
 

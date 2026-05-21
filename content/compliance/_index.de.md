@@ -17,7 +17,7 @@ existenzbedrohend.
 
 Nicht "wir helfen euch compliant zu werden", sondern **"wir betreiben euer
 Compliance-System"**. Outcome-orientiert, paketiert, planbar. Wettbewerber sind
-Beratungen mit Tagessätzen — wir liefern Festpreise mit klarer Verantwortungsabgrenzung.
+Beratungen mit Tagessätzen — wir liefern festpreislich mit klarer Verantwortungsabgrenzung.
 
 ## Sieben Regime, eines pro Engagement
 
@@ -28,16 +28,14 @@ adressiert werden — kein Bundle, keine Verwässerung.
 
 ## Produkte
 
-- **Compliance Assessment** (€ 6 000 – 12 000 pro Regime, 2–4 Wochen): Reifegrad-Check
+- **Compliance Assessment** (2–4 Wochen pro Regime): Reifegrad-Check
   für ein gewähltes Regelwerk, Maßnahmenplan.
-- **Compliance Companion** (€ 22 000 – 48 000, 6–12 Wochen): Aufbau eines KI-gestützten
+- **Compliance Companion** (6–12 Wochen): Aufbau eines KI-gestützten
   Compliance-Systems für dieses Regime.
-- **Compliance Subscription** (€ 1 200 – 3 000 / Monat): laufender Betrieb,
+- **Compliance Subscription** (monatlich): laufender Betrieb,
   Regelwerks-Updates, Audit-Support.
 
 ## Status
 
 Phase 3 (Monate 16–24). **In Vorbereitung.** Voraussetzung für Live-Gang:
-Vermögensschadenshaftpflicht-Police über € 2M / € 5M.
-
-Für regulierte Branchen (Stadtwerke, Versicherung, KRITIS): [Founder kontaktieren](/founder/).
+Vermögensschadenshaftpflicht-Police für alle sieben Regime.

@@ -1,6 +1,6 @@
 ---
 title: "Efficiency — Prozesse, die seit Jahren nicht hinterfragt wurden, KI-getrieben automatisiert"
-description: "Festpreis pro Prozess. Erfolgsmessung in EUR oder Stunden. Drei Schritte: Scan, Sprint, Subscription."
+description: "Erfolgsmessung in EUR oder Stunden. Drei Schritte: Scan, Sprint, Subscription."
 slug: efficiency
 date: 2026-05-21
 translationKey: vertical-efficiency
@@ -14,7 +14,7 @@ operative Realität sind 200 Excel-Tabellen, manuelle Übergaben, Doppelerfassun
 
 ## Wie wir uns unterscheiden
 
-Festpreis pro Prozess. Erfolgsmessung in **EUR oder Stunden**, nicht in
+Festpreislich pro Prozess. Erfolgsmessung in **EUR oder Stunden**, nicht in
 "Use-Cases umgesetzt". Vergleichbar mit Lean-Beratung — aber durchgängig KI-getrieben
 und mit Paperclip-Companies betrieben.
 
@@ -25,15 +25,13 @@ sagen wir ehrlich nein — die Tiefe der Integration ist nicht beliebig skalierb
 
 ## Produkte
 
-- **Efficiency Scan** (€ 7 500, 3 Wochen): strukturierte Analyse von 5–8 Kernprozessen.
-  Priorisierte Liste mit ROI-Schätzung pro Prozess.
-- **Efficiency Sprint** (€ 25 000 – 50 000 pro Prozess, 6–10 Wochen): vollständige
+- **Efficiency Scan** (3 Wochen): strukturierte Analyse von 5–8 Kernprozessen.
+  Priorisierte Liste pro Prozess.
+- **Efficiency Sprint** (6–10 Wochen pro Prozess): vollständige
   Automatisierung eines Prozesses mit Paperclip-Workern, ggf. inkl. RPA und API-Integration.
-- **Efficiency Subscription** (€ 800 – 2 500 / Monat / Prozess): Betrieb und Optimierung.
+- **Efficiency Subscription** (monatlich pro Prozess): Betrieb und Optimierung.
 
 ## Status
 
 Phase 4 (Monate 25–36). **In Vorbereitung.** Letztes Vertical der Roadmap — wir öffnen,
 wenn die Company-Templates der ersten vier Verticals stabil sind.
-
-[Founder kontaktieren](/founder/) für Vorab-Gespräch.

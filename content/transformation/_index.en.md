@@ -1,6 +1,6 @@
 ---
 title: "Transformation — AI strategy for the Mittelstand"
-description: "Big-4 depth, Mittelstand pragmatism, solo-founder pricing. Three steps: Insight, Plan, Companion."
+description: "Big-4 depth, Mittelstand pragmatism. Three steps: Insight, Plan, Companion."
 slug: transformation
 date: 2026-05-21
 translationKey: vertical-transformation
@@ -31,5 +31,5 @@ We deliver working AI teams, packaged per pain point,
 with documented governance and EU-resident infrastructure.
 
 We don't compete with implementers.
-We compete with Big-4 strategy firms — at one-fifth the price,
-in weeks not quarters, with explicit AI expertise rather than generic strategy rhetoric.
+We compete with Big-4 strategy firms — in weeks not quarters,
+with explicit AI expertise rather than generic strategy rhetoric.

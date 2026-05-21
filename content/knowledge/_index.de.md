@@ -14,16 +14,14 @@ das Versprechen nicht eingelöst — sie verschlimmern es oft, weil sie Inhalte 
 
 ## Was wir hier liefern werden
 
-- **Knowledge Audit** (€ 8 500, 4 Wochen): Wo sitzt welches Wissen? Wer ist Bottleneck?
+- **Knowledge Audit** (4 Wochen): Wo sitzt welches Wissen? Wer ist Bottleneck?
   Liefert eine Wissens-Karte und Risiko-Bewertung.
-- **Unternehmens-GPT** (€ 30 000 – 60 000, 8–14 Wochen): hauseigenes KI-Wissenssystem auf
+- **Unternehmens-GPT** (8–14 Wochen): hauseigenes KI-Wissenssystem auf
   Basis bestehender Daten + Wissensextraktion durch strukturierte Interviews. Betriebsrat-
   freundlicher Modus als Default.
-- **Knowledge Subscription** (€ 1 500 – 3 500 / Monat): Pflege, Erweiterung, neue Quellen,
+- **Knowledge Subscription** (monatlich): Pflege, Erweiterung, neue Quellen,
   Modell-Updates.
 
 ## Status
 
 Phase 3 (Monate 16–24). **In Vorbereitung.** Wir öffnen, sobald Workforce stabil läuft.
-
-[Founder kontaktieren](/founder/) für Vorab-Gespräch.

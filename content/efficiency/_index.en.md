@@ -1,6 +1,6 @@
 ---
 title: "Efficiency — process automation that finally measures itself"
-description: "Fixed price per process. Outcome measured in EUR or hours. Three steps: Scan, Sprint, Subscription."
+description: "Outcome measured in EUR or hours. Three steps: Scan, Sprint, Subscription."
 slug: efficiency
 date: 2026-05-21
 translationKey: vertical-efficiency
@@ -14,7 +14,7 @@ reality is 200 Excel sheets, manual handovers, double entries.
 
 ## How we differ
 
-Fixed price per process. Outcome measured in **EUR or hours**, not in "use cases
+Fixed-price per process. Outcome measured in **EUR or hours**, not in "use cases
 delivered". Comparable to lean consulting — but consistently AI-driven and operated
 through Paperclip-Companies.
 
@@ -25,15 +25,13 @@ say no honestly — integration depth is not infinitely scalable.
 
 ## Products
 
-- **Efficiency Scan** (€ 7 500, 3 weeks): structured analysis of 5–8 core processes.
-  Prioritised list with ROI estimate per process.
-- **Efficiency Sprint** (€ 25 000 – 50 000 per process, 6–10 weeks): full automation of
+- **Efficiency Scan** (3 weeks): structured analysis of 5–8 core processes.
+  Prioritised list per process.
+- **Efficiency Sprint** (6–10 weeks per process): full automation of
   one process with Paperclip workers, plus RPA and API integration as needed.
-- **Efficiency Subscription** (€ 800 – 2 500 / month / process): operation and optimisation.
+- **Efficiency Subscription** (monthly per process): operation and optimisation.
 
 ## Status
 
 Phase 4 (months 25–36). **In preparation.** Last vertical on the roadmap — we open once
 the company templates of the first four verticals are stable.
-
-[Contact the founder](/en/founder/) for a pre-conversation.

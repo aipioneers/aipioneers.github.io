@@ -1,6 +1,6 @@
 ---
 title: "Efficientia — processus annis nondum interrogati, arte artificiali automatizati"
-description: "Pretium fixum per processum. Eventus in euros vel horas. Tres gradus."
+description: "Eventus in euros vel horas. Tres gradus."
 slug: efficiency
 date: 2026-05-21
 translationKey: vertical-efficiency
@@ -24,16 +24,14 @@ sincere dicimus non — profunditas integrationis infinite scalabilis non est.
 
 ## Producta
 
-- **Examinatio Efficientiae** (€ 7 500, tres septimanas): analysis quinque ad octo
-  processuum principalium. Index priorificatus cum aestimatione ROI per processum.
-- **Cursus Efficientiae** (€ 25 000 – 50 000 per processum, sex ad decem septimanas):
+- **Examinatio Efficientiae** (tres septimanas): analysis quinque ad octo
+  processuum principalium. Index priorificatus per processum.
+- **Cursus Efficientiae** (sex ad decem septimanas per processum):
   plena automatizatio unius processus.
-- **Subscriptio Efficientiae** (€ 800 – 2 500 mensiliter per processum): operatio
+- **Subscriptio Efficientiae** (mensiliter per processum): operatio
   et optimizatio.
 
 ## Status
 
 Phasis IV (menses viginti quinque ad triginta sex). **In praeparatione.** Ultima vertex
 in mappa — aperimus postquam exemplaria primarum quattuor verticum stabilia erunt.
-
-[Conditori scribe](/la/founder/) ad colloquium praeparatorium.

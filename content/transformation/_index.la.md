@@ -1,6 +1,6 @@
 ---
 title: "Transformatio — Consilium de intelligentia artificiali pro mediae classis negotiatoribus"
-description: "Profunditas societatum maximarum, pragmatismus mediae classis, pretium unius hominis. Tres gradus: Perspectio, Consilium, Comes."
+description: "Profunditas societatum maximarum, pragmatismus mediae classis. Tres gradus: Perspectio, Consilium, Comes."
 slug: transformation
 date: 2026-05-21
 translationKey: vertical-transformation
@@ -32,9 +32,8 @@ Nos damus turmas artificiales operantes, in singulos dolores divisas,
 cum gubernatione documentata et infrastructura intra Europam manente.
 
 Non certamus cum implementoribus.
-Certamus cum strategorum societatibus maximis — quinta parte pretii,
-intra septimanas, non intra trimestria, cum claritate de arte artificiali
-loco rhetoricae generalis.
+Certamus cum strategorum societatibus maximis — intra septimanas, non intra
+trimestria, cum claritate de arte artificiali loco rhetoricae generalis.
 
 ---
 

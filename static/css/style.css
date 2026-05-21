@@ -96,6 +96,41 @@ main { flex: 1; }
 .section-title p { color: var(--fg-secondary); font-size: 1.2rem; }
 .bg-secondary { background: var(--bg-secondary); }
 
+/* ===== Language switcher ===== */
+.lang-switcher {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: var(--space-sm);
+  align-items: center;
+}
+.lang-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--fg-tertiary);
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out);
+}
+.lang-link:hover {
+  color: var(--fg);
+  border-color: var(--border-light);
+}
+.lang-link--active {
+  color: var(--fg);
+  border-color: var(--border-light);
+  background: var(--bg-secondary);
+}
+@media (max-width: 768px) {
+  .lang-switcher {
+    margin-left: 0;
+    margin-top: var(--space-xs);
+  }
+}
+
 /* ===== Manifest-Anriss (homepage section 1) ===== */
 .section--narrative { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
 .manifest-intro { text-align: center; }

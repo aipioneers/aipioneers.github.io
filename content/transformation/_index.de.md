@@ -2,9 +2,7 @@
 title: "Transformation — KI-Strategie für den Mittelstand"
 description: "Big-4-Tiefe, Mittelstand-Pragmatik, Solo-Founder-Preis. Drei Schritte: Insight → Plan → Companion."
 slug: transformation
-type: verticals
-layout: single
-date: 2026-08-01
+date: 2026-05-21
 ---
 
 ## Der Schmerzpunkt

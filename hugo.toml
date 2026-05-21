@@ -1,67 +1,12 @@
 baseURL = "https://pioneers.ai/"
-languageCode = "en"
 title = "AI Pioneers"
 
-[params]
-  description = "Vertical-AI für den DACH-Mittelstand. Solo Founder, betrieben durch KI-Teams."
-  github = "https://github.com/aipioneers"
-  tagline = "Pioniere bauen, was es noch nicht gibt."
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = false
 
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
-
-[menu]
-  [[menu.main]]
-    name = "Transformation"
-    url = "/transformation/"
-    weight = 10
-    [menu.main.params]
-      vertical = true
-  [[menu.main]]
-    name = "Workforce"
-    url = "/workforce/"
-    weight = 11
-    [menu.main.params]
-      vertical = true
-      coming_soon = true
-  [[menu.main]]
-    name = "Knowledge"
-    url = "/knowledge/"
-    weight = 12
-    [menu.main.params]
-      vertical = true
-      coming_soon = true
-  [[menu.main]]
-    name = "Compliance"
-    url = "/compliance/"
-    weight = 13
-    [menu.main.params]
-      vertical = true
-      coming_soon = true
-  [[menu.main]]
-    name = "Efficiency"
-    url = "/efficiency/"
-    weight = 14
-    [menu.main.params]
-      vertical = true
-      coming_soon = true
-  [[menu.main]]
-    name = "Manifest"
-    url = "/manifest/"
-    weight = 30
-  [[menu.main]]
-    name = "Cases"
-    url = "/cases/"
-    weight = 40
-  [[menu.main]]
-    name = "Blog"
-    url = "/blog/"
-    weight = 50
-  [[menu.main]]
-    name = "Founder"
-    url = "/founder/"
-    weight = 60
 
 [markup]
   [markup.highlight]
@@ -70,3 +15,165 @@ title = "AI Pioneers"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# ============================================================
+# Languages
+# ============================================================
+
+[languages]
+
+  # ---------- Deutsch (Default) ----------
+  [languages.de]
+    languageName = "Deutsch"
+    languageCode = "de"
+    weight = 1
+    title = "AI Pioneers"
+    [languages.de.params]
+      description = "Vertical-AI für den DACH-Mittelstand. Solo Founder, betrieben durch KI-Teams."
+      tagline = "Pioniere bauen, was es noch nicht gibt."
+      github = "https://github.com/aipioneers"
+    [[languages.de.menu.main]]
+      name = "Transformation"
+      url = "/transformation/"
+      weight = 10
+    [[languages.de.menu.main]]
+      name = "Workforce"
+      url = "/workforce/"
+      weight = 11
+    [[languages.de.menu.main]]
+      name = "Knowledge"
+      url = "/knowledge/"
+      weight = 12
+    [[languages.de.menu.main]]
+      name = "Compliance"
+      url = "/compliance/"
+      weight = 13
+    [[languages.de.menu.main]]
+      name = "Efficiency"
+      url = "/efficiency/"
+      weight = 14
+    [[languages.de.menu.main]]
+      name = "Manifest"
+      url = "/manifest/"
+      weight = 30
+    [[languages.de.menu.main]]
+      name = "Founder"
+      url = "/founder/"
+      weight = 40
+
+  # ---------- English ----------
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    weight = 2
+    title = "AI Pioneers"
+    [languages.en.params]
+      description = "Vertical-AI for the German-speaking Mittelstand. Solo founder, run by AI teams."
+      tagline = "Pioneers build what does not yet exist."
+      github = "https://github.com/aipioneers"
+    [[languages.en.menu.main]]
+      name = "Transformation"
+      url = "/en/transformation/"
+      weight = 10
+    [[languages.en.menu.main]]
+      name = "Workforce"
+      url = "/en/workforce/"
+      weight = 11
+    [[languages.en.menu.main]]
+      name = "Knowledge"
+      url = "/en/knowledge/"
+      weight = 12
+    [[languages.en.menu.main]]
+      name = "Compliance"
+      url = "/en/compliance/"
+      weight = 13
+    [[languages.en.menu.main]]
+      name = "Efficiency"
+      url = "/en/efficiency/"
+      weight = 14
+    [[languages.en.menu.main]]
+      name = "Manifesto"
+      url = "/en/manifest/"
+      weight = 30
+    [[languages.en.menu.main]]
+      name = "Founder"
+      url = "/en/founder/"
+      weight = 40
+
+  # ---------- Latina ----------
+  [languages.la]
+    languageName = "Latina"
+    languageCode = "la"
+    weight = 3
+    title = "AI Pioneers — Pionarii"
+    [languages.la.params]
+      description = "Intelligentia artificialis verticaliter applicata negotiatoribus mediae classis Germaniae, Austriae, Helvetiae."
+      tagline = "Pionarii faciunt quod nondum est."
+      github = "https://github.com/aipioneers"
+    [[languages.la.menu.main]]
+      name = "Transformatio"
+      url = "/la/transformation/"
+      weight = 10
+    [[languages.la.menu.main]]
+      name = "Vis Operis"
+      url = "/la/workforce/"
+      weight = 11
+    [[languages.la.menu.main]]
+      name = "Scientia"
+      url = "/la/knowledge/"
+      weight = 12
+    [[languages.la.menu.main]]
+      name = "Obtemperatio"
+      url = "/la/compliance/"
+      weight = 13
+    [[languages.la.menu.main]]
+      name = "Efficientia"
+      url = "/la/efficiency/"
+      weight = 14
+    [[languages.la.menu.main]]
+      name = "Manifestum"
+      url = "/la/manifest/"
+      weight = 30
+    [[languages.la.menu.main]]
+      name = "Conditor"
+      url = "/la/founder/"
+      weight = 40
+
+  # ---------- Ἀρχαία Ἑλληνική (Altgriechisch) ----------
+  [languages.grc]
+    languageName = "Ἑλληνική"
+    languageCode = "grc"
+    weight = 4
+    title = "AI Pioneers — Πρωτοπόροι"
+    [languages.grc.params]
+      description = "Νοῦς τεχνητὸς κατὰ τέχνας μερισμένος, τοῖς μέσοις ἐπιχειρηματίαις τῆς γερμανικῆς γλώσσης."
+      tagline = "Οἱ πρωτοπόροι ποιοῦσιν ὃ μήπω ἐστίν."
+      github = "https://github.com/aipioneers"
+    [[languages.grc.menu.main]]
+      name = "Μεταμόρφωσις"
+      url = "/grc/transformation/"
+      weight = 10
+    [[languages.grc.menu.main]]
+      name = "Ἐργατικὴ Δύναμις"
+      url = "/grc/workforce/"
+      weight = 11
+    [[languages.grc.menu.main]]
+      name = "Ἐπιστήμη"
+      url = "/grc/knowledge/"
+      weight = 12
+    [[languages.grc.menu.main]]
+      name = "Πειθαρχία"
+      url = "/grc/compliance/"
+      weight = 13
+    [[languages.grc.menu.main]]
+      name = "Ἀποτέλεσμα"
+      url = "/grc/efficiency/"
+      weight = 14
+    [[languages.grc.menu.main]]
+      name = "Μανιφέστον"
+      url = "/grc/manifest/"
+      weight = 30
+    [[languages.grc.menu.main]]
+      name = "Κτίστης"
+      url = "/grc/founder/"
+      weight = 40

@@ -5,9 +5,10 @@
   Reads from site.Data.products.
 */}}
 {{ $verticalSlug := . }}
-{{ $assessment := where site.Data.products "vertical_slug" $verticalSlug | where "class" "assessment" }}
-{{ $implementation := where site.Data.products "vertical_slug" $verticalSlug | where "class" "implementation" }}
-{{ $subscription := where site.Data.products "vertical_slug" $verticalSlug | where "class" "subscription" }}
+{{ $verticalProducts := where site.Data.products "vertical_slug" $verticalSlug }}
+{{ $assessment := where $verticalProducts "class" "assessment" }}
+{{ $implementation := where $verticalProducts "class" "implementation" }}
+{{ $subscription := where $verticalProducts "class" "subscription" }}
 
 <section id="angebot" class="vertical-pricing section">
   <div class="container">

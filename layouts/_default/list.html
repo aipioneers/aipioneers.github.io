@@ -1,26 +1,99 @@
 {{ define "main" }}
-<div class="page-header">
-  <div class="container">
-    <h1>{{ .Title }}</h1>
-    {{ with .Description }}<p>{{ . }}</p>{{ end }}
-  </div>
-</div>
+{{ $verticalSlugs := slice "transformation" "workforce" "knowledge" "compliance" "efficiency" }}
+{{ if in $verticalSlugs .Section }}
+  {{/* ===== Vertical hub layout ===== */}}
+  {{ $slug := .Section }}
+  {{ $vertical := index (where site.Data.verticals "slug" $slug) 0 }}
+  {{ $leadMagnetData := index site.Data "lead-magnets" }}
+  {{ $leadMagnet := index (where $leadMagnetData "vertical_slug" $slug) 0 }}
 
-<section class="section">
-  <div class="content-narrow">
-    {{ if .Pages }}
-      <div class="blog-list">
-        {{ range .Pages.ByDate.Reverse }}
-          {{ if not .Draft }}
-            {{ partial "blog-card.html" . }}
-          {{ end }}
-        {{ end }}
-      </div>
-    {{ else }}
-      <div class="empty-state">
-        <p>No posts yet — check back soon.</p>
-      </div>
+  <section class="vertical-hero">
+    <div class="container">
+      {{ with $vertical }}<p class="vertical-eyebrow">{{ .name_de }}</p>{{ end }}
+      <h1 class="vertical-pain">{{ .Title }}</h1>
+      {{ if and $vertical (ne $vertical.state "live_path") (ne $vertical.state "live_subdomain") }}
+        <p class="vertical-state vertical-state--coming">Bald verfügbar — derzeit in Closed Beta vorbereitet.</p>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="vertical-narrative section">
+    <div class="container content-narrow">
+      {{ .Content }}
+    </div>
+  </section>
+
+  {{ if and $vertical (or (eq $vertical.state "live_path") (eq $vertical.state "live_subdomain")) }}
+    {{ partial "vertical-pricing.html" $slug }}
+
+    {{ if $leadMagnet }}
+      {{ partial "lead-magnet-form.html" $leadMagnet }}
     {{ end }}
+
+    <section id="case-studies" class="vertical-cases section bg-secondary">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Cases</h2>
+          <p>Anonymisiert oder mit Nennung — beides nach Kundenwunsch.</p>
+        </div>
+        <div class="case-grid">
+          {{ $caseSection := printf "%s/case-studies" $slug }}
+          {{ range where site.RegularPages "Section" $caseSection }}
+            <article class="case-card">
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              <p>{{ .Summary }}</p>
+            </article>
+          {{ else }}
+            <p class="case-empty">Cases werden veröffentlicht, sobald die ersten Engagements abgeschlossen und freigegeben sind.</p>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+
+    <section class="vertical-articles section bg-secondary">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>Artikel</h2>
+        </div>
+        <ul class="article-list">
+          {{ range where site.RegularPages "Section" $slug }}
+            {{ if in (string .RelPermalink) "/artikel/" }}
+              <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <span class="article-meta">{{ .Date.Format "Januar 2006" }}</span>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+  {{ end }}
+
+{{ else }}
+  {{/* ===== Default list layout (blog etc.) ===== */}}
+  <div class="page-header">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </div>
   </div>
-</section>
+
+  <section class="section">
+    <div class="content-narrow">
+      {{ if .Pages }}
+        <div class="blog-list">
+          {{ range .Pages.ByDate.Reverse }}
+            {{ if not .Draft }}
+              {{ partial "blog-card.html" . }}
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="empty-state">
+          <p>No posts yet — check back soon.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
 {{ end }}

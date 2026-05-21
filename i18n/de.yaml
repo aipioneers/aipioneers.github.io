@@ -1,0 +1,100 @@
+# Hugo i18n — Deutsch (Default)
+
+# ===== Hero =====
+hero_cta_primary: "Transformation ansehen"
+hero_cta_secondary: "Manifest lesen"
+
+# ===== Homepage sections =====
+home_manifest_eyebrow: "Manifest"
+home_manifest_lede: "Wir glauben nicht an den KI-Hype. Wir glauben an Pionierarbeit im deutschsprachigen Mittelstand. AI Pioneers ist eine Vertical-AI-Plattform, geführt von einem Menschen, betrieben durch KI-Teams — spezialisiert auf fünf konkrete operative Schmerzpunkte."
+home_manifest_link: "Das vollständige Manifest →"
+
+home_verticals_title: "Fünf Verticals, ein scharfer Schmerzpunkt pro Vertical"
+home_verticals_subtitle: "Keine generische KI-Beratung. Jede Vertical adressiert einen konkreten Mittelstands-Schmerz mit Festpreis-Engagements."
+
+home_state_live: "Live"
+home_state_coming: "Bald verfügbar"
+
+home_spotlight_eyebrow: "Phase 1 — Live"
+home_spotlight_title: "Transformation"
+home_spotlight_subtitle: "Drei Schritte für Geschäftsführer im DACH-Mittelstand: Insight, Plan, Companion. Festpreislich, in Wochen statt Quartalen."
+home_spotlight_step1: "1 — Assessment"
+home_spotlight_step2: "2 — Implementation"
+home_spotlight_step3: "3 — Subscription"
+home_spotlight_insight_deliverable: "30-seitiges Strategiepapier, 4–6 Wochen."
+home_spotlight_insight_body: "Externe Marktrecherche, interner Datenblick, strategische Bewertung. Liefert konkrete Handlungsoptionen + priorisierten 24-Monats-Fahrplan."
+home_spotlight_plan_deliverable: "150-Seiten-Buch, gebunden, 8–12 Wochen."
+home_spotlight_plan_body: "Detaillierter 24-Monats-Transformationsplan inkl. Use-Case-Roadmap, Governance, Organisation, Generationenübergabe."
+home_spotlight_companion_deliverable: "Monatliche Begleitung, 1m / 12m / 24m."
+home_spotlight_companion_body: "Sparring, Quartals-Reviews, Use-Case-Validierung. Endet, wenn die Geschäftsführung autonom ist (typisch 12–18 Monate)."
+home_spotlight_cta_primary: "Zur Transformation-Seite"
+home_spotlight_cta_secondary: "Artikel lesen"
+
+home_spirit_title: "The Spirit of AI Pioneers"
+home_spirit_subtitle: "Von Kitty Hawk zu tausend Moonshots. Pioniere haben nie ein einzelnes Gesicht."
+home_spirit_video_fallback: "Ihr Browser unterstützt das Video-Tag nicht."
+home_spirit_cta_text: "Wir suchen die, die nachts wach liegen, weil eine Idee nicht weichen will."
+home_spirit_cta_button: "Founder kennenlernen"
+
+home_founder_eyebrow: "Founder"
+home_founder_name: "Tobias Oberrauch"
+home_founder_p1: "25+ Jahre IT. Zuletzt CEO der KI-Sparte eines börsennotierten Mittelstands-Konzerns. Solo Founder von AI Pioneers — eine Person, sechs KI-Companies, fünf Verticals, ein klarer Fokus auf den DACH-Mittelstand."
+home_founder_p2: "Kundenkontakt, Verhandlung, Vertrag, Eskalation, Beziehungspflege: persönlich, immer. Alles andere: Paperclip-AI-Teams mit drei Quality Gates pro Lieferung."
+home_founder_link: "Mehr zur Person →"
+
+home_oss_title: "Open Source — woher wir kommen"
+home_oss_subtitle: "Drei Werkzeuge, mit denen AI Pioneers selbst arbeitet. Frei nutzbar, von der Community getragen, von uns gepflegt."
+home_oss_install_eyebrow: "Installation per pip"
+
+home_beta_badge: "Closed Beta"
+home_beta_title: "Noch nicht im offenen Verkauf."
+home_beta_p1: "Die Open-Source-CLIs sind frei und sofort nutzbar. Die Vertical-AI-Plattform und die Cloud-Begleitung sind aktuell in Closed Beta mit einem kleinen Kreis Mittelstands-Pioniere, die mit uns das Modell verfeinern. Keine Preislisten, keine Sales-Calls, keine Roadmap-Versprechen. Wir öffnen, sobald es trägt."
+home_beta_p2: "Mitlesen: auf GitHub. Mitbauen: die Tür ist nicht verschlossen — aber wir hören, wenn jemand klopft."
+home_beta_cta_github: "Auf GitHub mitlesen"
+home_beta_cta_founder: "Founder kontaktieren"
+
+# ===== Vertical hub =====
+vertical_coming_soon: "Bald verfügbar — derzeit in Closed Beta vorbereitet."
+vertical_pricing_title: "Drei Schritte"
+vertical_pricing_subtitle: "Assessment, Implementation, Subscription — festpreislich, keine Tagessätze."
+vertical_pricing_class_assessment: "Assessment"
+vertical_pricing_class_implementation: "Implementation"
+vertical_pricing_class_subscription: "Subscription"
+vertical_pricing_per_month: "/ Monat"
+
+vertical_tier_chooser_label: "Commitment wählen"
+vertical_tier_1m_name: "1 Monat"
+vertical_tier_1m_note: "jederzeit kündbar"
+vertical_tier_1m_premium: "+ ca. 35 %"
+vertical_tier_12m_name: "12 Monate"
+vertical_tier_12m_note: "1 Jahr Bindung"
+vertical_tier_12m_premium: "+ ca. 12 %"
+vertical_tier_24m_name: "24 Monate"
+vertical_tier_24m_note: "2 Jahre Bindung — Basispreis"
+vertical_tier_24m_premium: "Basis"
+vertical_tier_footer: "Nach Bindung: rollend monatlich, 3 Monate Kündigungsfrist zum Quartalsende."
+
+vertical_cases_title: "Cases"
+vertical_cases_subtitle: "Anonymisiert oder mit Nennung — beides nach Kundenwunsch."
+vertical_cases_empty: "Cases werden veröffentlicht, sobald die ersten Engagements abgeschlossen und freigegeben sind."
+
+vertical_articles_title: "Artikel"
+vertical_usecases_title: "Use Cases"
+
+# ===== Lead magnet =====
+lead_magnet_eyebrow: "PDF"
+lead_magnet_pages_suffix: "Seiten"
+lead_magnet_desc_ready: "Direkt per E-Mail. Kein Spam. Abmeldung mit einem Klick."
+lead_magnet_desc_pending: "In Vorbereitung — Newsletter-Abo geht ab Phase 1 live, das PDF folgt zeitnah."
+lead_magnet_email_label: "E-Mail-Adresse"
+lead_magnet_email_placeholder: "name@firma.de"
+lead_magnet_submit: "PDF anfordern"
+lead_magnet_pending_short: "Bald verfügbar."
+
+# ===== Nav + Footer =====
+nav_aria_main: "Hauptnavigation"
+nav_aria_toggle: "Navigation umschalten"
+lang_switcher_aria: "Sprache wählen"
+footer_quick_links: "Schnellzugriff"
+footer_links_label: "Links"
+footer_copyright: "AI Pioneers — Vertical-AI für den DACH-Mittelstand."

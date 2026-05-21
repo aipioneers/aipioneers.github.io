@@ -1,10 +1,15 @@
-# AI Pioneers — Vertical Catalogue (single source of truth)
-# Used by Hugo templates to render nav, hero, pricing pages.
-# Schema: see specs/005-pioneers-vertical-pivot/data-model.md
+# AI Pioneers — Vertical Catalogue (single source of truth, multilingual)
+# Templates use `name_<lang>` / `pain_<lang>` via printf lookup.
 
 - slug: transformation
   name_de: Transformation
+  name_en: Transformation
+  name_la: Transformatio
+  name_grc: Μεταμόρφωσις
   pain_de: "Sie wissen, dass KI Ihr Geschäft verändert — aber nicht, was Sie tun sollen."
+  pain_en: "You know that AI is reshaping your business — but not what to do next."
+  pain_la: "Scis intelligentiam artificialem negotium tuum mutare — sed quid agendum sit nescis."
+  pain_grc: "Οἶδας ὅτι ὁ τεχνητὸς νοῦς μεταβάλλει τὰ ἔργα σου — ἀλλὰ τί χρὴ ποιεῖν οὐκ οἶδας."
   buyer_persona_slug: gesellschafter_beirat
   phase_introduced: 1
   state: live_path
@@ -14,7 +19,13 @@
 
 - slug: workforce
   name_de: Workforce
+  name_en: Workforce
+  name_la: Vis Operis
+  name_grc: Ἐργατικὴ Δύναμις
   pain_de: "Wachstum trotz Fachkräftemangel — KI als Workforce Multiplier."
+  pain_en: "Growth despite skilled-labour scarcity — AI as workforce multiplier."
+  pain_la: "Incrementum in penuria artificum — intelligentia artificialis ut multiplicator operis."
+  pain_grc: "Αὔξησις ἐν τῇ τῶν τεχνιτῶν σπάνει — ὁ τεχνητὸς νοῦς ὡς πληθυντὴς ἔργου."
   buyer_persona_slug: geschaeftsfuehrer
   phase_introduced: 2
   state: coming_soon
@@ -24,7 +35,13 @@
 
 - slug: knowledge
   name_de: Knowledge
+  name_en: Knowledge
+  name_la: Scientia
+  name_grc: Ἐπιστήμη
   pain_de: "Wissen sichern, bevor es in den Ruhestand geht."
+  pain_en: "Preserve expertise before it walks out into retirement."
+  pain_la: "Scientiam servare priusquam in otium recedit."
+  pain_grc: "Σῴζειν τὴν ἐμπειρίαν πρὶν εἰς ἡσυχίαν ἀπιοῦσα."
   buyer_persona_slug: cio_hr
   phase_introduced: 3
   state: coming_soon
@@ -34,7 +51,13 @@
 
 - slug: compliance
   name_de: Compliance
+  name_en: Compliance
+  name_la: Obtemperatio
+  name_grc: Πειθαρχία
   pain_de: "NIS-2, DORA, AI Act — wir betreiben Ihr Compliance-System."
+  pain_en: "NIS-2, DORA, AI Act — we operate your compliance system."
+  pain_la: "NIS-2, DORA, AI Act — systema obtemperationis vestrae regimus."
+  pain_grc: "NIS-2, DORA, AI Act — τὸ σύστημα τῆς πειθαρχίας ὑμῶν διοικοῦμεν."
   buyer_persona_slug: compliance_gf
   phase_introduced: 3
   state: coming_soon
@@ -51,7 +74,13 @@
 
 - slug: efficiency
   name_de: Efficiency
+  name_en: Efficiency
+  name_la: Efficientia
+  name_grc: Ἀποτέλεσμα
   pain_de: "Prozesse, die seit Jahren nicht hinterfragt wurden — KI-getrieben automatisiert."
+  pain_en: "Processes left unquestioned for years — automated, AI-driven."
+  pain_la: "Processus annis nondum interrogati — arte artificiali automatizati."
+  pain_grc: "Διεργασίαι ἐτῶν ἀνερωτήτων — τέχνῃ νοητικῇ αὐτοματισθεῖσαι."
   buyer_persona_slug: cfo_coo
   phase_introduced: 4
   state: coming_soon

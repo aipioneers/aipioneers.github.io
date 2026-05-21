@@ -1,18 +1,20 @@
 {{ define "main" }}
 {{ $verticalSlugs := slice "transformation" "workforce" "knowledge" "compliance" "efficiency" }}
+{{ $lang := .Site.Language.Lang }}
 {{ if in $verticalSlugs .Section }}
   {{/* ===== Vertical hub layout ===== */}}
   {{ $slug := .Section }}
   {{ $vertical := index (where site.Data.verticals "slug" $slug) 0 }}
   {{ $leadMagnetData := index site.Data "lead-magnets" }}
   {{ $leadMagnet := index (where $leadMagnetData "vertical_slug" $slug) 0 }}
+  {{ $nameField := printf "name_%s" $lang }}
 
   <section class="vertical-hero">
     <div class="container">
-      {{ with $vertical }}<p class="vertical-eyebrow">{{ .name_de }}</p>{{ end }}
+      {{ with $vertical }}<p class="vertical-eyebrow">{{ index . $nameField }}</p>{{ end }}
       <h1 class="vertical-pain">{{ .Title }}</h1>
       {{ if and $vertical (ne $vertical.state "live_path") (ne $vertical.state "live_subdomain") }}
-        <p class="vertical-state vertical-state--coming">Bald verfügbar — derzeit in Closed Beta vorbereitet.</p>
+        <p class="vertical-state vertical-state--coming">{{ i18n "vertical_coming_soon" }}</p>
       {{ end }}
     </div>
   </section>
@@ -33,8 +35,8 @@
     <section id="case-studies" class="vertical-cases section bg-secondary">
       <div class="container">
         <div class="section-title reveal">
-          <h2>Cases</h2>
-          <p>Anonymisiert oder mit Nennung — beides nach Kundenwunsch.</p>
+          <h2>{{ i18n "vertical_cases_title" }}</h2>
+          <p>{{ i18n "vertical_cases_subtitle" }}</p>
         </div>
         <div class="case-grid">
           {{ $caseSection := printf "%s/case-studies" $slug }}
@@ -44,7 +46,7 @@
               <p>{{ .Summary }}</p>
             </article>
           {{ else }}
-            <p class="case-empty">Cases werden veröffentlicht, sobald die ersten Engagements abgeschlossen und freigegeben sind.</p>
+            <p class="case-empty">{{ i18n "vertical_cases_empty" }}</p>
           {{ end }}
         </div>
       </div>
@@ -53,7 +55,7 @@
     <section class="vertical-articles section bg-secondary">
       <div class="container">
         <div class="section-title reveal">
-          <h2>Artikel</h2>
+          <h2>{{ i18n "vertical_articles_title" }}</h2>
         </div>
         <ul class="article-list">
           {{ range where site.RegularPages "Section" $slug }}

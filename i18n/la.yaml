@@ -1,0 +1,100 @@
+# Hugo i18n — Latina
+
+# ===== Hero =====
+hero_cta_primary: "Transformatio"
+hero_cta_secondary: "Manifestum"
+
+# ===== Homepage sections =====
+home_manifest_eyebrow: "Manifestum"
+home_manifest_lede: "Non credimus rumoribus de intelligentia artificiali. Credimus operi pionariorum apud mediae classis negotiatores Germaniae, Austriae, Helvetiae. AI Pioneers est plataforma intelligentiae artificialis verticaliter applicata, ab uno homine recta, ab turmis artificialibus operata — specialiter ad quinque dolores operativos."
+home_manifest_link: "Manifestum integrum →"
+
+home_verticals_title: "Quinque vertices, unus dolor acer in singulis"
+home_verticals_subtitle: "Non consultatio generalis. Quaelibet vertex ad unum specificum dolorem mediae classis, cum pretiis fixis."
+
+home_state_live: "Vivit"
+home_state_coming: "Mox apparebit"
+
+home_spotlight_eyebrow: "Phasis I — vivit"
+home_spotlight_title: "Transformatio"
+home_spotlight_subtitle: "Tres gradus pro gerentibus negotiatoribus mediae classis: Perspectio, Consilium, Comes. Pretium fixum, intra septimanas non trimestria."
+home_spotlight_step1: "I — Aestimatio"
+home_spotlight_step2: "II — Implementatio"
+home_spotlight_step3: "III — Subscriptio"
+home_spotlight_insight_deliverable: "Pagina strategica triginta paginarum, quattuor ad sex septimanas."
+home_spotlight_insight_body: "Exquisitio externa mercatus, perspectio interna datorum, aestimatio strategica. Optiones concretae + mappa viginti quattuor mensium priorificata."
+home_spotlight_plan_deliverable: "Liber compactus centum quinquaginta paginarum, octo ad duodecim septimanas."
+home_spotlight_plan_body: "Consilium transformationis viginti quattuor mensium detailatum cum mappa usuum, gubernatione, organizatione, traditione generationali."
+home_spotlight_companion_deliverable: "Comes mensilis, 1m / 12m / 24m."
+home_spotlight_companion_body: "Disputatio, recensus trimestrales, validatio usuum. Finit ubi gubernatio autonoma fit (typice 12–18 menses)."
+home_spotlight_cta_primary: "Ad Transformationis paginam"
+home_spotlight_cta_secondary: "Articulos legere"
+
+home_spirit_title: "Spiritus Pionariorum Artificialium"
+home_spirit_subtitle: "A Kitty Hawk ad mille lunatica conamina. Pionarii numquam unum vultum habent."
+home_spirit_video_fallback: "Pervestigator tuus tagum video non sustinet."
+home_spirit_cta_text: "Quaerimus eos qui noctu vigiles iacent quia idea non recedit."
+home_spirit_cta_button: "Conditorem cognosce"
+
+home_founder_eyebrow: "Conditor"
+home_founder_name: "Tobias Oberrauch"
+home_founder_p1: "Viginti quinque annis in IT. Nuper CEO sectionis intelligentiae artificialis societatis publicae mediae classis. Solus conditor AI Pioneers — unus homo, sex societates artificiales, quinque vertices, unus clarus focus apud mediae classis negotia."
+home_founder_p2: "Contactus cum clientibus, negotiatio, contractus, escalatio, custodia relationum: personaliter, semper. Cetera: turmae Paperclip-artificiales cum tribus portis qualitatis per traditionem."
+home_founder_link: "Plura de conditore →"
+
+home_oss_title: "Codex apertus — unde venimus"
+home_oss_subtitle: "Tria instrumenta quibus ipsi AI Pioneers utimur. Libera, a communitate sustenta, a nobis culta."
+home_oss_install_eyebrow: "Installatio per pip"
+
+home_beta_badge: "Beta clausa"
+home_beta_title: "Nondum in venditione aperta."
+home_beta_p1: "CLI codicis aperti liberae sunt et statim usabiles. Plataforma intelligentiae artificialis verticalis et comes nubis nunc in beta clausa cum parvo circulo mediae classis pionariorum qui nobiscum modulum perficiunt. Nullae paginae pretiorum, nullae vocationes venditionum, nullae promissiones planorum. Aperimus cum portat."
+home_beta_p2: "Sequi: in GitHub. Construere nobiscum: ostium non clausum est — sed audimus cum quis pulsat."
+home_beta_cta_github: "In GitHub sequere"
+home_beta_cta_founder: "Conditorem contacta"
+
+# ===== Vertical hub =====
+vertical_coming_soon: "Mox apparebit — nunc in beta clausa praeparatur."
+vertical_pricing_title: "Tres gradus"
+vertical_pricing_subtitle: "Aestimatio, Implementatio, Subscriptio — pretium fixum, sine dietis."
+vertical_pricing_class_assessment: "Aestimatio"
+vertical_pricing_class_implementation: "Implementatio"
+vertical_pricing_class_subscription: "Subscriptio"
+vertical_pricing_per_month: "/ mense"
+
+vertical_tier_chooser_label: "Eligere impegnationem"
+vertical_tier_1m_name: "1 mensis"
+vertical_tier_1m_note: "rescissibilis quovis tempore"
+vertical_tier_1m_premium: "+ ~35 %"
+vertical_tier_12m_name: "12 menses"
+vertical_tier_12m_note: "annua impegnatio"
+vertical_tier_12m_premium: "+ ~12 %"
+vertical_tier_24m_name: "24 menses"
+vertical_tier_24m_note: "biennalis impegnatio — pretium basicum"
+vertical_tier_24m_premium: "Basis"
+vertical_tier_footer: "Post impegnationem: voluntate mensili, tres menses praenuntiatio ad finem trimestrii."
+
+vertical_cases_title: "Casus"
+vertical_cases_subtitle: "Anonymi vel nominati — ad clientis voluntatem."
+vertical_cases_empty: "Casus publicabuntur cum prima opera perfecta et approbata erunt."
+
+vertical_articles_title: "Articuli"
+vertical_usecases_title: "Usus"
+
+# ===== Lead magnet =====
+lead_magnet_eyebrow: "PDF"
+lead_magnet_pages_suffix: "paginae"
+lead_magnet_desc_ready: "Directe per epistulam electronicam. Sine importunis. Una pressione subscriptio recidi potest."
+lead_magnet_desc_pending: "In praeparatione — folium hebdomadale a Phasi I incipiet, PDF mox sequitur."
+lead_magnet_email_label: "Inscriptio electronica"
+lead_magnet_email_placeholder: "nomen@societate.de"
+lead_magnet_submit: "PDF petere"
+lead_magnet_pending_short: "Mox apparebit."
+
+# ===== Nav + Footer =====
+nav_aria_main: "Navigatio principalis"
+nav_aria_toggle: "Navigationem mutare"
+lang_switcher_aria: "Linguam eligere"
+footer_quick_links: "Vincula celeria"
+footer_links_label: "Vincula"
+footer_copyright: "AI Pioneers — intelligentia artificialis verticalis pro mediae classis negotiatoribus."

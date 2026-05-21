@@ -1,37 +1,30 @@
 <footer class="footer">
   <div class="container">
+    {{ $lang := .Site.Language.Lang }}
+    {{ $nameField := printf "name_%s" $lang }}
+    {{ $transformation := index (where .Site.Data.verticals "slug" "transformation") 0 }}
     <div class="footer-grid">
       <div>
-        <h4>Pioneers</h4>
+        <h4>AI Pioneers</h4>
         <p>{{ .Site.Params.description }}</p>
-        {{ with .Site.Data.social }}
-          <ul class="footer-links" style="margin-top: 1rem;">
-            {{ range . }}
-              <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} ↗</a></li>
-            {{ end }}
-          </ul>
-        {{ end }}
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4>{{ i18n "footer_quick_links" }}</h4>
         <ul class="footer-links">
-          <li><a href="{{ "/products/" | relURL }}">Products</a></li>
-          <li><a href="{{ "/about/" | relURL }}">About</a></li>
-          <li><a href="{{ "/blog/" | relURL }}">Blog</a></li>
+          <li><a href="{{ "/transformation/" | relLangURL }}">{{ with $transformation }}{{ index . $nameField }}{{ end }}</a></li>
+          <li><a href="{{ "/manifest/" | relLangURL }}">{{ i18n "home_manifest_eyebrow" }}</a></li>
+          <li><a href="{{ "/founder/" | relLangURL }}">{{ i18n "home_founder_eyebrow" }}</a></li>
         </ul>
       </div>
       <div>
-        <h4>Connect</h4>
+        <h4>{{ i18n "footer_links_label" }}</h4>
         <ul class="footer-links">
-          <li><a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">Contribute on GitHub ↗</a></li>
-          {{ range .Site.Data.social }}
-            <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} ↗</a></li>
-          {{ end }}
+          <li><a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; {{ now.Year }} AI Pioneers. Open source under MIT License.
+      &copy; {{ now.Year }} {{ i18n "footer_copyright" }}
     </div>
   </div>
 </footer>

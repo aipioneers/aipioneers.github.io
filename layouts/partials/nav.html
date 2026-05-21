@@ -1,7 +1,7 @@
-<nav class="nav" aria-label="Main navigation">
+<nav class="nav" aria-label="{{ i18n "nav_aria_main" }}">
   <div class="container">
     <a href="{{ "/" | relLangURL }}" class="nav-logo" aria-label="AI Pioneers — home">Pioneers</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <button class="nav-toggle" aria-label="{{ i18n "nav_aria_toggle" }}" aria-expanded="false">
       &#9776;
     </button>
     <ul class="nav-links">
@@ -18,7 +18,7 @@
     </ul>
     {{/* Language switcher */}}
     {{ if gt (len .Site.Home.AllTranslations) 1 }}
-      <div class="lang-switcher" aria-label="Sprache wählen">
+      <div class="lang-switcher" aria-label="{{ i18n "lang_switcher_aria" }}">
         {{ range .Site.Home.AllTranslations }}
           <a href="{{ .Permalink }}"
              class="lang-link{{ if eq .Lang $currentPage.Site.Language.Lang }} lang-link--active{{ end }}"

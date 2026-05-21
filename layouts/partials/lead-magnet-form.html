@@ -1,21 +1,19 @@
 {{/*
-  Lead-magnet section.
-  Expected context: a lead-magnet record from data/lead-magnets.yaml passed as `.`
-  If the Beehiiv list ID is still a PLACEHOLDER, renders a "coming soon" notice
-  instead of a broken form. Once Beehiiv is wired (real list ID replaces PLACEHOLDER),
-  the real form renders automatically.
+  Lead-magnet section. Multilingual via i18n. Title still uses title_de from data
+  (lead magnets are German-language artifacts).
+  Expected context: a lead-magnet record from data/lead-magnets.yaml.
 */}}
 {{ $isReady := and .email_capture_list_id (not (in .email_capture_list_id "PLACEHOLDER")) }}
 <section class="lead-magnet">
   <div class="container">
     <div class="lead-magnet-card">
       <div class="lead-magnet-text">
-        <p class="lead-magnet-eyebrow">PDF — {{ .pages }} Seiten</p>
+        <p class="lead-magnet-eyebrow">{{ i18n "lead_magnet_eyebrow" }} — {{ .pages }} {{ i18n "lead_magnet_pages_suffix" }}</p>
         <h3>{{ .title_de }}</h3>
         {{ if $isReady }}
-          <p class="lead-magnet-desc">Direkt per E-Mail. Kein Spam. Abmeldung mit einem Klick.</p>
+          <p class="lead-magnet-desc">{{ i18n "lead_magnet_desc_ready" }}</p>
         {{ else }}
-          <p class="lead-magnet-desc">In Vorbereitung — Newsletter-Abo geht ab Phase 1 live, das PDF folgt zeitnah.</p>
+          <p class="lead-magnet-desc">{{ i18n "lead_magnet_desc_pending" }}</p>
         {{ end }}
       </div>
       {{ if $isReady }}
@@ -24,14 +22,14 @@
               method="POST"
               target="_blank"
               rel="noopener">
-          <label for="lm-email-{{ .slug }}">E-Mail-Adresse</label>
-          <input id="lm-email-{{ .slug }}" type="email" name="email" required placeholder="name@firma.de">
+          <label for="lm-email-{{ .slug }}">{{ i18n "lead_magnet_email_label" }}</label>
+          <input id="lm-email-{{ .slug }}" type="email" name="email" required placeholder="{{ i18n "lead_magnet_email_placeholder" }}">
           <input type="hidden" name="lead_magnet" value="{{ .slug }}">
-          <button type="submit" class="btn btn-primary">PDF anfordern</button>
+          <button type="submit" class="btn btn-primary">{{ i18n "lead_magnet_submit" }}</button>
         </form>
       {{ else }}
         <div class="lead-magnet-pending">
-          <p><em>Bald verfügbar.</em></p>
+          <p><em>{{ i18n "lead_magnet_pending_short" }}</em></p>
         </div>
       {{ end }}
     </div>

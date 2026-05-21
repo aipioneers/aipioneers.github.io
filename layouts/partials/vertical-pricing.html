@@ -1,8 +1,6 @@
 {{/*
-  Vertical pricing partial.
-  Renders all products for a given vertical_slug in three columns (assessment / implementation / subscription).
+  Vertical pricing partial. Multilingual via i18n.
   Expected context: vertical_slug passed as `.`
-  Reads from site.Data.products.
 */}}
 {{ $verticalSlug := . }}
 {{ $verticalProducts := where site.Data.products "vertical_slug" $verticalSlug }}
@@ -13,14 +11,14 @@
 <section id="angebot" class="vertical-pricing section">
   <div class="container">
     <div class="section-title reveal">
-      <h2>Drei Schritte</h2>
-      <p>Assessment, Implementation, Subscription — festpreislich, keine Tagessätze.</p>
+      <h2>{{ i18n "vertical_pricing_title" }}</h2>
+      <p>{{ i18n "vertical_pricing_subtitle" }}</p>
     </div>
 
     <div class="pricing-grid">
       {{ range $assessment }}
         <article class="pricing-card pricing-card--assessment">
-          <span class="pricing-class">Assessment</span>
+          <span class="pricing-class">{{ i18n "vertical_pricing_class_assessment" }}</span>
           <h3>{{ .name_de }}</h3>
           <p class="pricing-duration">{{ .duration }}</p>
           <p class="pricing-band">
@@ -36,7 +34,7 @@
 
       {{ range $implementation }}
         <article class="pricing-card pricing-card--implementation">
-          <span class="pricing-class">Implementation</span>
+          <span class="pricing-class">{{ i18n "vertical_pricing_class_implementation" }}</span>
           <h3>{{ .name_de }}</h3>
           <p class="pricing-duration">{{ .duration }}</p>
           <p class="pricing-band">€ {{ .price_min_eur }} – € {{ .price_max_eur }}</p>
@@ -46,10 +44,10 @@
 
       {{ range $subscription }}
         <article class="pricing-card pricing-card--subscription">
-          <span class="pricing-class">Subscription</span>
+          <span class="pricing-class">{{ i18n "vertical_pricing_class_subscription" }}</span>
           <h3>{{ .name_de }}</h3>
           <p class="pricing-duration">{{ .duration }}</p>
-          <p class="pricing-band">€ {{ .price_min_eur }} – € {{ .price_max_eur }} / Monat</p>
+          <p class="pricing-band">€ {{ .price_min_eur }} – € {{ .price_max_eur }} {{ i18n "vertical_pricing_per_month" }}</p>
           {{ partial "subscription-tiers.html" . }}
           {{ with .note }}<p class="pricing-note">{{ . }}</p>{{ end }}
         </article>

@@ -1,28 +1,27 @@
 {{/*
-  Subscription tier chooser.
-  Renders the 1m / 12m / 24m commitment tiers for a subscription product.
-  Expected context: a product record (must have commitment_tiers + stripe_price_ids).
+  Subscription tier chooser. Multilingual via i18n.
+  Expected context: a product record.
 */}}
 {{ if gt (len .commitment_tiers) 0 }}
   <div class="tier-chooser" data-sku="{{ .sku }}">
-    <p class="tier-chooser-label">Commitment wählen</p>
+    <p class="tier-chooser-label">{{ i18n "vertical_tier_chooser_label" }}</p>
     <ul class="tier-list">
       <li class="tier tier--1m">
-        <span class="tier-name">1 Monat</span>
-        <span class="tier-note">jederzeit kündbar</span>
-        <span class="tier-premium">+ ca. 35 %</span>
+        <span class="tier-name">{{ i18n "vertical_tier_1m_name" }}</span>
+        <span class="tier-note">{{ i18n "vertical_tier_1m_note" }}</span>
+        <span class="tier-premium">{{ i18n "vertical_tier_1m_premium" }}</span>
       </li>
       <li class="tier tier--12m">
-        <span class="tier-name">12 Monate</span>
-        <span class="tier-note">1 Jahr Bindung</span>
-        <span class="tier-premium">+ ca. 12 %</span>
+        <span class="tier-name">{{ i18n "vertical_tier_12m_name" }}</span>
+        <span class="tier-note">{{ i18n "vertical_tier_12m_note" }}</span>
+        <span class="tier-premium">{{ i18n "vertical_tier_12m_premium" }}</span>
       </li>
       <li class="tier tier--24m tier--recommended">
-        <span class="tier-name">24 Monate</span>
-        <span class="tier-note">2 Jahre Bindung — Basispreis</span>
-        <span class="tier-premium">Basis</span>
+        <span class="tier-name">{{ i18n "vertical_tier_24m_name" }}</span>
+        <span class="tier-note">{{ i18n "vertical_tier_24m_note" }}</span>
+        <span class="tier-premium">{{ i18n "vertical_tier_24m_premium" }}</span>
       </li>
     </ul>
-    <p class="tier-footer">Nach Bindung: rollend monatlich, 3 Monate Kündigungsfrist zum Quartalsende.</p>
+    <p class="tier-footer">{{ i18n "vertical_tier_footer" }}</p>
   </div>
 {{ end }}

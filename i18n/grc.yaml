@@ -1,0 +1,100 @@
+# Hugo i18n — Ἀρχαία Ἑλληνική
+
+# ===== Hero =====
+hero_cta_primary: "Πρὸς Μεταμόρφωσιν"
+hero_cta_secondary: "Πρὸς τὸ Μανιφέστον"
+
+# ===== Homepage sections =====
+home_manifest_eyebrow: "Μανιφέστον"
+home_manifest_lede: "Οὐ πιστεύομεν τῷ τοῦ τεχνητοῦ νοῦ θορύβῳ. Πιστεύομεν τῷ ἔργῳ τῶν πρωτοπόρων τοῖς μέσοις ἐμπόροις τῆς γερμανικῆς γλώσσης. AI Pioneers πλατφόρμα ἐστὶ τεχνητοῦ νοῦ κατὰ τέχνας μερισμένου, ὑφ᾽ ἑνὸς ἀνθρώπου ἀγομένη, ὑπὸ τεχνητῶν ὁμάδων διοικουμένη — πρὸς πέντε ἀκριβεῖς πόνους πραγματικούς."
+home_manifest_link: "Τὸ πλῆρες μανιφέστον →"
+
+home_verticals_title: "Πέντε τέχναι, ἓν ὀξὺ ἄλγος ἐν ἑκάστῃ"
+home_verticals_subtitle: "Οὐ κοινὴ συμβουλία περὶ τεχνητοῦ νοῦ. Ἑκάστη τέχνη πρὸς ἓν ἀκριβές ἄλγος μέσου ἐμπόρου, μετὰ παγίας τιμῆς."
+
+home_state_live: "Ζῇ"
+home_state_coming: "Ταχέως ἥξει"
+
+home_spotlight_eyebrow: "Πρῶτος βαθμός — ζῇ"
+home_spotlight_title: "Μεταμόρφωσις"
+home_spotlight_subtitle: "Τρεῖς βαθμοὶ τοῖς ἡγουμένοις ἐμπόροις τῆς γερμανικῆς γλώσσης: Διανόημα, Σχέδιον, Σύνοδος. Τιμὴ παγία, ἐν ἑβδομάσιν οὐχ τριμηνίοις."
+home_spotlight_step1: "α´ — Δοκιμασία"
+home_spotlight_step2: "β´ — Ποίησις"
+home_spotlight_step3: "γ´ — Συνδρομή"
+home_spotlight_insight_deliverable: "Σύγγραμμα στρατηγικὸν τριάκοντα σελίδων, δ´ ἕως ϛ´ ἑβδομάδες."
+home_spotlight_insight_body: "Ἔξωθεν ἔρευνα ἀγορᾶς, ἔσωθεν ὄψις δεδομένων, στρατηγικὴ κρίσις. Ἐναργεῖς ὁδοὶ + χάρτης κδ´ μηνῶν προτεταγμένος."
+home_spotlight_plan_deliverable: "Βιβλίον δεδεμένον ρν´ σελίδων, η´ ἕως ιβ´ ἑβδομάδες."
+home_spotlight_plan_body: "Λεπτὸν σχέδιον μεταμορφώσεως κδ´ μηνῶν μετὰ χάρτου χρήσεων, διοικήσεως, ὀργανισμοῦ, παραδόσεως γενεῶν."
+home_spotlight_companion_deliverable: "Σύνοδος μηνιαία, 1m / 12m / 24m."
+home_spotlight_companion_body: "Διάλογος, τριμηνιαῖαι ἀναθεωρήσεις, βεβαίωσις χρήσεων. Λήγει ὅταν ἡ ἡγεμονία αὐτόνομος γένηται (συνήθως ιβ´–ιη´ μῆνες)."
+home_spotlight_cta_primary: "Πρὸς τὴν Μεταμορφώσεως σελίδα"
+home_spotlight_cta_secondary: "Ἄρθρα ἀναγνῶναι"
+
+home_spirit_title: "Τὸ Πνεῦμα τῶν Τεχνητῶν Πρωτοπόρων"
+home_spirit_subtitle: "Ἀπὸ Kitty Hawk πρὸς χίλια σεληνιακὰ ἐπιχειρήματα. Οἱ πρωτοπόροι οὐδέποτε ἓν πρόσωπον ἔχουσιν."
+home_spirit_video_fallback: "Ὁ διερευνητής σου τὸ video-tag οὐ φέρει."
+home_spirit_cta_text: "Ζητοῦμεν τοὺς νυκτὶ ἀγρυπνοῦντας ὅτι ἰδέα οὐ ἀφίσταται."
+home_spirit_cta_button: "Τὸν κτίστην γνῶναι"
+
+home_founder_eyebrow: "Κτίστης"
+home_founder_name: "Τοβίας Ὀβερράουχ"
+home_founder_p1: "Πεντεκαίδεκα καὶ πλέον ἔτη ἐν IT. Νεωστὶ CEO τῆς τοῦ τεχνητοῦ νοῦ τμήσεως δημοσίας ἑταιρείας μέσης κλάσεως. Μόνος κτίστης τῆς AI Pioneers — εἷς ἄνθρωπος, ἓξ τεχνηταὶ ἑταιρεῖαι, πέντε τέχναι, εἷς σαφὴς σκοπὸς ἐπὶ τοῖς γερμανοφώνοις ἐμπόροις."
+home_founder_p2: "Πρὸς πελάτας ὁμιλία, διαπραγμάτευσις, συμβόλαιον, ἐπιδίωξις, φυλακὴ τῶν σχέσεων: αὐτοπροσώπως, ἀεί. Τὰ ἄλλα: αἱ Paperclip-τεχνηταὶ ὁμάδες μετὰ τριῶν πυλῶν ποιότητος ἐν ἑκάστῃ παραδόσει."
+home_founder_link: "Πλείω περὶ τοῦ κτίστου →"
+
+home_oss_title: "Ἀνεῳγμένη πηγή — ὅθεν ἐρχόμεθα"
+home_oss_subtitle: "Τρία ὄργανα οἷς αὐτοὶ οἱ AI Pioneers χρώμεθα. Ἐλεύθερα, ὑπὸ κοινότητος βαστάζομενα, ὑφ᾽ ἡμῶν θεραπευόμενα."
+home_oss_install_eyebrow: "Ἐγκατάστασις διὰ pip"
+
+home_beta_badge: "Κεκλεισμένη Beta"
+home_beta_title: "Οὔπω εἰς ἀνοικτὴν πώλησιν."
+home_beta_p1: "Αἱ ἐλεύθεραι CLI ἤδη χρήσιμαί εἰσιν. Ἡ πλατφόρμα καὶ ὁ νεφέλιος σύνοδος νῦν ἐν κεκλεισμένῃ beta μετὰ ὀλίγου κύκλου μέσων ἐμπόρων πρωτοπόρων. Οὔ τιμῶν, οὔ κλήσεων πωλήσεως, οὔ ὑποσχέσεων ὁδοῦ. Ἀνοίγομεν ὅταν φέρῃ."
+home_beta_p2: "Ἕπεσθαι: ἐν τῷ GitHub. Συνοικοδομεῖν: ἡ θύρα οὐ κέκλεισται — ἀλλὰ ἀκούομεν ὅταν τις κρούῃ."
+home_beta_cta_github: "Ἐν τῷ GitHub ἕπου"
+home_beta_cta_founder: "Πρὸς κτίστην γράψον"
+
+# ===== Vertical hub =====
+vertical_coming_soon: "Ταχέως ἥξει — νῦν ἐν κεκλεισμένῃ beta παρασκευάζεται."
+vertical_pricing_title: "Τρεῖς βαθμοί"
+vertical_pricing_subtitle: "Δοκιμασία, Ποίησις, Συνδρομή — τιμὴ παγία, ἄνευ ἡμερησίων."
+vertical_pricing_class_assessment: "Δοκιμασία"
+vertical_pricing_class_implementation: "Ποίησις"
+vertical_pricing_class_subscription: "Συνδρομή"
+vertical_pricing_per_month: "/ μηνί"
+
+vertical_tier_chooser_label: "Δέσμευσιν ἐκλέξαι"
+vertical_tier_1m_name: "α´ μήν"
+vertical_tier_1m_note: "πάντοτε καταλύσιμος"
+vertical_tier_1m_premium: "+ ~35 %"
+vertical_tier_12m_name: "ιβ´ μῆνες"
+vertical_tier_12m_note: "ἐνιαυσία δέσμευσις"
+vertical_tier_12m_premium: "+ ~12 %"
+vertical_tier_24m_name: "κδ´ μῆνες"
+vertical_tier_24m_note: "διετὴς δέσμευσις — τιμὴ ἀρχική"
+vertical_tier_24m_premium: "Ἀρχή"
+vertical_tier_footer: "Μετὰ τὴν δέσμευσιν: κατὰ μῆνα, τρεῖς μῆνες προμηνύσεως πρὸς τέλει τοῦ τριμηνίου."
+
+vertical_cases_title: "Παραδείγματα"
+vertical_cases_subtitle: "Ἀνώνυμα ἢ ἐπώνυμα — κατὰ τὴν βούλησιν τοῦ πελάτου."
+vertical_cases_empty: "Παραδείγματα δημοσιευθήσονται ὅταν τὰ πρῶτα ἔργα τετελεσμένα καὶ ἐπιδεδειγμένα ἔσται."
+
+vertical_articles_title: "Ἄρθρα"
+vertical_usecases_title: "Χρήσεις"
+
+# ===== Lead magnet =====
+lead_magnet_eyebrow: "PDF"
+lead_magnet_pages_suffix: "σελίδες"
+lead_magnet_desc_ready: "Εὐθὺς δι᾽ ἐπιστολῆς ἠλεκτρονικῆς. Οὐδεμία ἀσχημοσύνη. Μιᾷ πιέσει συνδρομὴ καταλύεται."
+lead_magnet_desc_pending: "Ἐν παρασκευῇ — τὸ ἑβδομαδιαῖον φύλλον ἀπὸ τοῦ πρώτου βαθμοῦ ἄρξεται, τὸ PDF μετὰ ταῦτα."
+lead_magnet_email_label: "Διεύθυνσις ἠλεκτρονική"
+lead_magnet_email_placeholder: "ὄνομα@ἑταιρεία.gr"
+lead_magnet_submit: "PDF αἰτεῖν"
+lead_magnet_pending_short: "Ταχέως ἥξει."
+
+# ===== Nav + Footer =====
+nav_aria_main: "Κυρία ναυσιπλοΐα"
+nav_aria_toggle: "Ναυσιπλοΐαν μεταβαλεῖν"
+lang_switcher_aria: "Γλῶσσαν ἐκλέξαι"
+footer_quick_links: "Δεσμοὶ ταχεῖς"
+footer_links_label: "Δεσμοί"
+footer_copyright: "AI Pioneers — τεχνητὸς νοῦς κατὰ τέχνας μερισμένος τοῖς μέσοις ἐμπόροις."

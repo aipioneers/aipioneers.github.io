@@ -1,0 +1,100 @@
+# Hugo i18n — English
+
+# ===== Hero =====
+hero_cta_primary: "View Transformation"
+hero_cta_secondary: "Read the manifesto"
+
+# ===== Homepage sections =====
+home_manifest_eyebrow: "Manifesto"
+home_manifest_lede: "We don't believe in AI hype. We believe in pioneer work for the German-speaking Mittelstand. AI Pioneers is a vertical-AI platform, run by one human, operated by AI teams — specialised in five concrete operational pain points."
+home_manifest_link: "Read the full manifesto →"
+
+home_verticals_title: "Five verticals, one sharp pain point per vertical"
+home_verticals_subtitle: "No generic AI consulting. Each vertical addresses one specific Mittelstand pain with fixed-price engagements."
+
+home_state_live: "Live"
+home_state_coming: "Coming soon"
+
+home_spotlight_eyebrow: "Phase 1 — Live"
+home_spotlight_title: "Transformation"
+home_spotlight_subtitle: "Three steps for managing directors in the DACH Mittelstand: Insight, Plan, Companion. Fixed price, weeks not quarters."
+home_spotlight_step1: "1 — Assessment"
+home_spotlight_step2: "2 — Implementation"
+home_spotlight_step3: "3 — Subscription"
+home_spotlight_insight_deliverable: "30-page strategy paper, 4–6 weeks."
+home_spotlight_insight_body: "External market research, internal data review, strategic assessment. Concrete options + prioritised 24-month roadmap."
+home_spotlight_plan_deliverable: "150-page bound book, 8–12 weeks."
+home_spotlight_plan_body: "Detailed 24-month transformation plan incl. use-case roadmap, governance, organisation, generational handover."
+home_spotlight_companion_deliverable: "Monthly companion, 1m / 12m / 24m."
+home_spotlight_companion_body: "Sparring, quarterly reviews, use-case validation. Ends when leadership is autonomous (typically 12–18 months)."
+home_spotlight_cta_primary: "Go to Transformation"
+home_spotlight_cta_secondary: "Read the articles"
+
+home_spirit_title: "The Spirit of AI Pioneers"
+home_spirit_subtitle: "From Kitty Hawk to a thousand moonshots. Pioneers never have a single face."
+home_spirit_video_fallback: "Your browser does not support the video tag."
+home_spirit_cta_text: "We are looking for those who lie awake at night because an idea won't let go."
+home_spirit_cta_button: "Meet the founder"
+
+home_founder_eyebrow: "Founder"
+home_founder_name: "Tobias Oberrauch"
+home_founder_p1: "25+ years in IT. Most recently CEO of the AI division of a publicly-listed Mittelstand group. Solo founder of AI Pioneers — one person, six AI companies, five verticals, one clear focus on the DACH Mittelstand."
+home_founder_p2: "Customer contact, negotiation, contract, escalation, relationship: personal, always. Everything else: Paperclip-AI teams with three quality gates per delivery."
+home_founder_link: "More about the founder →"
+
+home_oss_title: "Open Source — where we come from"
+home_oss_subtitle: "Three tools that AI Pioneers itself runs on. Free, community-supported, maintained by us."
+home_oss_install_eyebrow: "Install via pip"
+
+home_beta_badge: "Closed Beta"
+home_beta_title: "Not yet for open sale."
+home_beta_p1: "The open-source CLIs are free and ready to use. The vertical-AI platform and cloud companion are currently in closed beta with a small group of Mittelstand pioneers helping us refine the model. No pricing pages, no sales calls, no roadmap promises. We open when it carries."
+home_beta_p2: "Follow along on GitHub. Want to build with us? The door is not locked — but we hear when someone knocks."
+home_beta_cta_github: "Follow on GitHub"
+home_beta_cta_founder: "Contact founder"
+
+# ===== Vertical hub =====
+vertical_coming_soon: "Coming soon — currently in closed beta preparation."
+vertical_pricing_title: "Three steps"
+vertical_pricing_subtitle: "Assessment, Implementation, Subscription — fixed price, no day rates."
+vertical_pricing_class_assessment: "Assessment"
+vertical_pricing_class_implementation: "Implementation"
+vertical_pricing_class_subscription: "Subscription"
+vertical_pricing_per_month: "/ month"
+
+vertical_tier_chooser_label: "Choose commitment"
+vertical_tier_1m_name: "1 month"
+vertical_tier_1m_note: "cancel anytime"
+vertical_tier_1m_premium: "+ ~35 %"
+vertical_tier_12m_name: "12 months"
+vertical_tier_12m_note: "1-year commitment"
+vertical_tier_12m_premium: "+ ~12 %"
+vertical_tier_24m_name: "24 months"
+vertical_tier_24m_note: "2-year commitment — base price"
+vertical_tier_24m_premium: "Base"
+vertical_tier_footer: "After commitment: rolling monthly, 3 months notice to quarter end."
+
+vertical_cases_title: "Cases"
+vertical_cases_subtitle: "Anonymised or named — customer's choice."
+vertical_cases_empty: "Cases will be published once the first engagements are complete and approved."
+
+vertical_articles_title: "Articles"
+vertical_usecases_title: "Use cases"
+
+# ===== Lead magnet =====
+lead_magnet_eyebrow: "PDF"
+lead_magnet_pages_suffix: "pages"
+lead_magnet_desc_ready: "Direct via email. No spam. One-click unsubscribe."
+lead_magnet_desc_pending: "In preparation — the newsletter goes live in Phase 1, the PDF follows shortly."
+lead_magnet_email_label: "Email address"
+lead_magnet_email_placeholder: "name@company.com"
+lead_magnet_submit: "Request PDF"
+lead_magnet_pending_short: "Coming soon."
+
+# ===== Nav + Footer =====
+nav_aria_main: "Main navigation"
+nav_aria_toggle: "Toggle navigation"
+lang_switcher_aria: "Choose language"
+footer_quick_links: "Quick links"
+footer_links_label: "Links"
+footer_copyright: "AI Pioneers — vertical-AI for the DACH Mittelstand."

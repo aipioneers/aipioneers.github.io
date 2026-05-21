@@ -32,8 +32,8 @@
       {{ range $i, $w := $words }}<span class="hero-word hero-word--stagger" style="transition-delay: {{ add (mul $i 60) 400 }}ms">{{ $w }} </span>{{ end }}
     </p>
     <div class="hero-cta">
-      <a href="{{ "/transformation/" | relURL }}" class="btn btn-primary">Transformation ansehen</a>
-      <a href="{{ "/manifest/" | relURL }}" class="btn btn-outline">Manifest lesen</a>
+      <a href="{{ "/transformation/" | relLangURL }}" class="btn btn-primary">{{ i18n "hero_cta_primary" }}</a>
+      <a href="{{ "/manifest/" | relLangURL }}" class="btn btn-outline">{{ i18n "hero_cta_secondary" }}</a>
     </div>
   </div>
 

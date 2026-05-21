@@ -52,14 +52,6 @@ defaultContentLanguageInSubdir = false
       name = "Efficiency"
       url = "/efficiency/"
       weight = 14
-    [[languages.de.menu.main]]
-      name = "Manifest"
-      url = "/manifest/"
-      weight = 30
-    [[languages.de.menu.main]]
-      name = "Founder"
-      url = "/founder/"
-      weight = 40
 
   # ---------- English ----------
   [languages.en]
@@ -91,14 +83,6 @@ defaultContentLanguageInSubdir = false
       name = "Efficiency"
       url = "/en/efficiency/"
       weight = 14
-    [[languages.en.menu.main]]
-      name = "Manifesto"
-      url = "/en/manifest/"
-      weight = 30
-    [[languages.en.menu.main]]
-      name = "Founder"
-      url = "/en/founder/"
-      weight = 40
 
   # ---------- Latina ----------
   [languages.la]
@@ -130,14 +114,6 @@ defaultContentLanguageInSubdir = false
       name = "Efficientia"
       url = "/la/efficiency/"
       weight = 14
-    [[languages.la.menu.main]]
-      name = "Manifestum"
-      url = "/la/manifest/"
-      weight = 30
-    [[languages.la.menu.main]]
-      name = "Conditor"
-      url = "/la/founder/"
-      weight = 40
 
   # ---------- Ἀρχαία Ἑλληνική (Altgriechisch) ----------
   [languages.grc]
@@ -169,11 +145,3 @@ defaultContentLanguageInSubdir = false
       name = "Ἀποτέλεσμα"
       url = "/grc/efficiency/"
       weight = 14
-    [[languages.grc.menu.main]]
-      name = "Μανιφέστον"
-      url = "/grc/manifest/"
-      weight = 30
-    [[languages.grc.menu.main]]
-      name = "Κτίστης"
-      url = "/grc/founder/"
-      weight = 40

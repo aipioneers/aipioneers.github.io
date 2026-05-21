@@ -96,6 +96,206 @@ main { flex: 1; }
 .section-title p { color: var(--fg-secondary); font-size: 1.2rem; }
 .bg-secondary { background: var(--bg-secondary); }
 
+/* ===== Manifest-Anriss (homepage section 1) ===== */
+.section--narrative { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.manifest-intro { text-align: center; }
+.manifest-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+  margin-bottom: var(--space-sm);
+}
+.manifest-lede {
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: var(--fg);
+  font-weight: 400;
+  margin-bottom: var(--space-sm);
+}
+.manifest-link {
+  color: var(--accent);
+  font-weight: 500;
+}
+.manifest-link:hover { text-decoration: underline; }
+
+/* ===== Vertical grid (homepage section 2) ===== */
+.vertical-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+.vertical-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  text-decoration: none;
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  transition: transform var(--duration-normal) var(--ease-apple),
+              box-shadow var(--duration-normal) var(--ease-apple),
+              border-color var(--duration-normal) var(--ease-apple);
+  box-shadow: var(--shadow-sm);
+}
+.vertical-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border);
+}
+.vertical-card-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.vertical-card-pain {
+  font-size: 0.95rem;
+  color: var(--fg-secondary);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+.vertical-card-state {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.vertical-card-state--live { color: var(--green); }
+.vertical-card-state--coming { color: var(--fg-tertiary); }
+.vertical-card-arrow {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  font-size: 1.2rem;
+  color: var(--fg-tertiary);
+  transition: transform var(--duration-fast) var(--ease-apple), color var(--duration-fast);
+}
+.vertical-card:hover .vertical-card-arrow {
+  transform: translateX(3px);
+  color: var(--accent);
+}
+.vertical-card--coming_soon { opacity: 0.85; }
+
+/* ===== Spotlight section (homepage section 3 — Transformation) ===== */
+.section--spotlight { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+.section-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-xs);
+}
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.spotlight-card {
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.spotlight-step {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+  margin: 0;
+}
+.spotlight-card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.spotlight-deliverable {
+  font-size: 0.95rem;
+  color: var(--fg-secondary);
+  margin: 0;
+}
+.spotlight-price {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: var(--space-xs) 0;
+}
+.spotlight-cta { text-align: center; display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+
+/* ===== Founder card (homepage section 5) ===== */
+.founder-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+.founder-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+  margin-bottom: var(--space-xs);
+}
+.founder-card h2 { margin-bottom: var(--space-sm); }
+.founder-card p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--fg-secondary);
+  margin-bottom: var(--space-sm);
+}
+.founder-link {
+  color: var(--accent);
+  font-weight: 500;
+}
+.founder-link:hover { text-decoration: underline; }
+
+/* ===== OSS Quickstart (homepage section 6) ===== */
+.oss-quickstart {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+.oss-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+  margin-bottom: var(--space-sm);
+}
+.quickstart-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-sm);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== Closed beta actions ===== */
+.closed-beta-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ===== Closed beta block ===== */
 .closed-beta {
   max-width: 720px;

@@ -154,7 +154,7 @@ agents_form_error_email: "Bitte trage eine gültige E-Mail-Adresse ein."
 agents_form_error_use_case_short: "Kannst du noch 1–2 Worte ergänzen? Hilft mir bei der Auswahl."
 agents_form_error_use_case_long: "Bitte fasse den Use Case auf maximal 500 Zeichen zusammen."
 agents_form_error_consent: "Bitte bestätige die Einwilligung, damit ich deine Anmeldung verarbeiten darf."
-agents_form_error_server: "Da ist etwas schiefgelaufen. Versuch es bitte gleich nochmal — oder schreib direkt an tobias@pioneers.ai."
+agents_form_error_server: "Da ist etwas schiefgelaufen. Versuch es bitte gleich nochmal — oder schreib direkt an tobias.oberrauch@gmx.de."
 
 # Locale stub (shown on /en|la|grc/agents/deep-dive/)
 agents_language_stub_title: "Currently German-language only"

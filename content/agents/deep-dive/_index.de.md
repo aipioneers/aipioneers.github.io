@@ -6,12 +6,11 @@ date: 2026-05-21
 layout: deep-dive
 ---
 
-Im Anschluss an den Workshop zu KI-Agenten lade ich euch zu einer kleinen
-Online-Runde ein: maximal 6–8 Personen, rund 90 Minuten, fairer Austausch auf
-Augenhöhe. Jede:r bringt das eigene Fachwissen ein, gemeinsam arbeiten wir an
-euren echten Use Cases. Keine Verkaufsveranstaltung, kein Pitch — sondern
-konkrete Arbeit an dem, was bei euch gerade hakt.
+Im Anschluss an den Workshop bilden wir eine kleine Online-Runde:
+maximal 6–8 Pioniere, rund 90 Minuten, fairer Austausch auf Augenhöhe.
+Jede:r bringt das eigene Fachwissen ein — gemeinsam arbeiten wir an
+euren echten KI-Agenten-Use-Cases. Keine Verkaufsveranstaltung, kein Pitch.
 
-Ich kuratiere die Runde nach Branchen-Vielfalt und Bauphase, damit der Austausch
-möglichst reich wird. Wenn ihr aktuell konkret an einem KI-Agenten baut oder ihn
-einführt, ist das hier richtig für euch.
+Die Runde wird nach Branchen-Vielfalt und Bauphase zusammengestellt, damit
+der Austausch möglichst reich wird. Wenn ihr aktuell konkret an einem
+KI-Agenten baut oder ihn einführt, seid ihr unter Pionieren richtig.

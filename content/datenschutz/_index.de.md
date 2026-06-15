@@ -16,7 +16,7 @@ sitemap_exclude: false
 Verantwortlich für die Datenverarbeitung auf dieser Website ist:
 
 **Tobias Oberrauch** — AI Pioneers (Freiberufler)
-E-Mail: [tobias@pioneers.ai](mailto:tobias@pioneers.ai)
+E-Mail: [tobias.oberrauch@gmx.de](mailto:tobias.oberrauch@gmx.de)
 
 Anfragen zu deinen Daten richtest du bitte direkt an diese E-Mail-Adresse.
 
@@ -51,7 +51,7 @@ und um dir per E-Mail Terminvorschläge zukommen zu lassen.
 
 **Rechtsgrundlage**: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Du erteilst die
 Einwilligung beim Absenden des Formulars per aktiver Checkbox. Du kannst sie
-jederzeit per E-Mail an [tobias@pioneers.ai](mailto:tobias@pioneers.ai)
+jederzeit per E-Mail an [tobias.oberrauch@gmx.de](mailto:tobias.oberrauch@gmx.de)
 widerrufen — dann lösche ich deine Angaben innerhalb von 30 Tagen.
 
 **Speicherdauer**: Bis zum Widerruf. Wenn du nicht in eine Runde eingeladen
@@ -110,7 +110,7 @@ Du hast nach DSGVO folgende Rechte:
 - **Widerruf** einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3)
 
 Die Ausübung erfolgt formlos per E-Mail an
-[tobias@pioneers.ai](mailto:tobias@pioneers.ai). Antwort erfolgt typisch
+[tobias.oberrauch@gmx.de](mailto:tobias.oberrauch@gmx.de). Antwort erfolgt typisch
 innerhalb von 7 Tagen, spätestens innerhalb der gesetzlichen Frist (1 Monat).
 
 ## 8. Beschwerderecht

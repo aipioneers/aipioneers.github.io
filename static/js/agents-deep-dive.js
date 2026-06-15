@@ -18,7 +18,7 @@ const ERROR_MESSAGES = {
   useCaseShort: "Kannst du noch 1–2 Worte ergänzen? Hilft mir bei der Auswahl.",
   useCaseLong: "Bitte fasse den Use Case auf maximal 500 Zeichen zusammen.",
   consent: "Bitte bestätige die Einwilligung, damit ich deine Anmeldung verarbeiten darf.",
-  server: "Da ist etwas schiefgelaufen. Versuch es bitte gleich nochmal — oder schreib direkt an tobias@pioneers.ai.",
+  server: "Da ist etwas schiefgelaufen. Versuch es bitte gleich nochmal — oder schreib direkt an tobias.oberrauch@gmx.de.",
 }
 
 const LABEL_BY_FIELD = {

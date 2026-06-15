@@ -274,7 +274,7 @@ Governance-Modell — keine Tools, sondern arbeitende digitale Kollegen.
 Wer die Workforce-Subscription (€1.8–4.5k/Monat) nutzt, erhält den laufenden Betrieb
 plus neue Use-Cases aus dem gleichen Stack.
 
-Festpreise. EU-residente Infrastruktur. Solo-Founder-Modell mit hauseigenen KI-Teams.
+Festpreise. EU-residente Infrastruktur. Pionier-Initiative mit hauseigenen KI-Teams.
 
 **pioneers.ai/workforce**
 

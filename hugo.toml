@@ -43,7 +43,7 @@ defaultContentLanguageInSubdir = false
     weight = 1
     title = "AI Pioneers"
     [languages.de.params]
-      description = "Vertical-AI für den DACH-Mittelstand. Solo Founder, betrieben durch KI-Teams."
+      description = "Vertical-AI für den DACH-Mittelstand. Eine Gemeinschaft von Pionieren mit KI-Teams im Verbund."
       tagline = "Pioniere bauen, was es noch nicht gibt."
       github = "https://github.com/aipioneers"
     [[languages.de.menu.main]]
@@ -74,7 +74,7 @@ defaultContentLanguageInSubdir = false
     weight = 2
     title = "AI Pioneers"
     [languages.en.params]
-      description = "Vertical-AI for the German-speaking Mittelstand. Solo founder, run by AI teams."
+      description = "Vertical-AI for the German-speaking Mittelstand. A community of pioneers, supported by AI teams."
       tagline = "Pioneers build what does not yet exist."
       github = "https://github.com/aipioneers"
     [[languages.en.menu.main]]

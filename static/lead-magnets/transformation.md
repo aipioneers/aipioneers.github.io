@@ -277,7 +277,7 @@ Wenn Ihr Bedarf größer ist, folgt ein **Transformation Plan** als 150-seitiges
 gebundenes Buch. Wenn Sie monatliche Begleitung wollen, ein **Transformation Companion**
 bis Ihre Geschäftsführung autonom ist.
 
-Festpreise, keine Tagessätze. EU-residente Infrastruktur. Solo-Founder-Modell mit
+Festpreise, keine Tagessätze. EU-residente Infrastruktur. Pionier-Initiative mit
 hauseigenen KI-Teams.
 
 Wenn Sie eines der fünf Fragen-Felder mit uns durchgehen wollen, schreiben Sie

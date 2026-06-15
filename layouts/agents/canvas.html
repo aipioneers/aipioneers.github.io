@@ -1,0 +1,131 @@
+{{ define "main" }}
+{{ $fw := site.Data.agents.framework }}
+
+<article class="agents-canvas">
+
+  <header class="agents-canvas__header">
+    <p class="agents-canvas__eyebrow">Canvas</p>
+    <h1>Euer AGENTS-Use-Case auf einer Seite</h1>
+    <p class="agents-canvas__lede">
+      Sechs Felder, ein Use Case. Tippt direkt im Browser — euer Stand bleibt
+      lokal auf eurem Gerät, niemand sonst sieht ihn. Druckt es aus für den
+      Workshop, oder nehmt es als Diskussionsgrundlage für die Deep-Dive-Runde.
+    </p>
+    <div class="agents-canvas__actions no-print">
+      <button type="button" class="agents-canvas__btn agents-canvas__btn--primary" data-action="print">
+        Drucken / als PDF speichern
+      </button>
+      <button type="button" class="agents-canvas__btn" data-action="clear">
+        Felder leeren
+      </button>
+      <span class="agents-canvas__status" data-canvas-status></span>
+    </div>
+  </header>
+
+  <form class="agents-canvas__grid" id="agents-canvas-form" autocomplete="off">
+
+    <div class="agents-canvas__title-row">
+      <label for="canvas-title">Use-Case-Titel</label>
+      <input
+        type="text"
+        id="canvas-title"
+        name="title"
+        placeholder="z. B. Solar-RFI-Triage, Bürger-Mail-Klassifikation, Predictive Maintenance Wind …"
+        maxlength="120"
+        data-canvas-field="title">
+    </div>
+
+    {{ range $fw.letters }}
+    <fieldset class="agents-canvas__field" data-letter="{{ .id }}">
+      <legend>
+        <span class="agents-canvas__field-letter">{{ .letter }}</span>
+        <span class="agents-canvas__field-name">{{ .name }}</span>
+        <span class="agents-canvas__field-question">„{{ .question }}"</span>
+      </legend>
+      <p class="agents-canvas__field-hint">{{ .eli5_body }}</p>
+      <textarea
+        name="{{ .id }}"
+        rows="6"
+        maxlength="2000"
+        placeholder="Notiert hier, was bei euch konkret zu diesem Baustein passt — Stichworte reichen."
+        data-canvas-field="{{ .id }}"></textarea>
+    </fieldset>
+    {{ end }}
+
+  </form>
+
+  <footer class="agents-canvas__footer no-print">
+    <p>
+      Bereit für die Diskussion in kleiner Runde?
+      <a href="/agents/deep-dive/">→ Zur Deep-Dive-Anmeldung</a>
+    </p>
+  </footer>
+
+</article>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'agents.canvas.draft.v1';
+  var fields = document.querySelectorAll('[data-canvas-field]');
+  var status = document.querySelector('[data-canvas-status]');
+  var saveTimer = null;
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function (el) {
+        var key = el.getAttribute('data-canvas-field');
+        if (data[key] != null) el.value = data[key];
+      });
+    } catch (e) {
+      console.warn('canvas load failed', e);
+    }
+  }
+
+  function save() {
+    var data = {};
+    fields.forEach(function (el) {
+      data[el.getAttribute('data-canvas-field')] = el.value;
+    });
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      flashStatus('Lokal gesichert');
+    } catch (e) {
+      flashStatus('Speichern fehlgeschlagen');
+    }
+  }
+
+  function debouncedSave() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(save, 500);
+  }
+
+  function flashStatus(msg) {
+    if (!status) return;
+    status.textContent = msg;
+    setTimeout(function () { status.textContent = ''; }, 1800);
+  }
+
+  function clearAll() {
+    if (!confirm('Wirklich alle Felder leeren? Der lokale Stand geht verloren.')) return;
+    fields.forEach(function (el) { el.value = ''; });
+    localStorage.removeItem(STORAGE_KEY);
+    flashStatus('Alle Felder geleert');
+  }
+
+  load();
+  fields.forEach(function (el) {
+    el.addEventListener('input', debouncedSave);
+  });
+
+  var printBtn = document.querySelector('[data-action="print"]');
+  if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+
+  var clearBtn = document.querySelector('[data-action="clear"]');
+  if (clearBtn) clearBtn.addEventListener('click', clearAll);
+})();
+</script>
+
+{{ end }}

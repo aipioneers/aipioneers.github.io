@@ -284,15 +284,358 @@
   background: var(--agents-accent);
 }
 
+/* ============================================================
+ * Landing page  (/agents/)
+ * ============================================================ */
+
+.agents-landing {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  color: var(--agents-text);
+}
+
+.agents-landing__hero {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.agents-landing__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--agents-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.agents-landing__hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--agents-anthracite);
+  margin-bottom: var(--space-md);
+}
+
+.agents-landing__lede {
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--agents-text);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ─── Six cards grid ─── */
+
+.agents-landing__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.agents-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-md);
+  background: #fff;
+  border: 1px solid var(--agents-silver-strong);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--agents-text);
+  transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.agents-card:hover {
+  border-color: var(--agents-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.agents-card__letter {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--agents-accent);
+  letter-spacing: -0.04em;
+}
+
+.agents-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: var(--space-xs);
+  color: var(--agents-anthracite);
+}
+
+.agents-card__question {
+  font-size: 0.8125rem;
+  color: var(--agents-text-muted);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+/* ─── Drei Sätze (principles) ─── */
+
+.agents-landing__principles {
+  background: var(--agents-silver);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.agents-landing__principles h2 {
+  text-align: center;
+  margin-bottom: var(--space-md);
+  font-weight: 600;
+  color: var(--agents-anthracite);
+}
+
+.agents-landing__principles-list {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.agents-landing__principles-list li {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* ─── Letter sections ─── */
+
+.agents-letter {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--agents-silver-strong);
+  scroll-margin-top: var(--space-lg);
+}
+
+.agents-letter:first-of-type {
+  border-top: none;
+}
+
+.agents-letter__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.agents-letter__big {
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 0.9;
+  color: var(--agents-accent);
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+}
+
+.agents-letter__name {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--agents-anthracite);
+  margin-bottom: 0.25rem;
+}
+
+.agents-letter__question {
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--agents-text-muted);
+  margin: 0;
+}
+
+.agents-letter__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.agents-letter__eli5 h3,
+.agents-letter__technical h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--agents-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.agents-letter__eli5 p {
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.agents-letter__technical dl {
+  margin: 0;
+}
+
+.agents-letter__technical dt {
+  font-weight: 600;
+  color: var(--agents-anthracite);
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.agents-letter__technical dt:first-child {
+  margin-top: 0;
+}
+
+.agents-letter__technical dd {
+  margin: 0.125rem 0 0 0;
+  color: var(--agents-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.agents-letter__cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+
+.agents-letter__case {
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  border-left: 3px solid var(--agents-silver-strong);
+}
+
+.agents-letter__case--praxis  { border-left-color: var(--agents-success); }
+.agents-letter__case--anti    { border-left-color: var(--agents-error); }
+.agents-letter__case--energie { border-left-color: var(--agents-accent); }
+
+.agents-letter__case h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--agents-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.agents-letter__case p {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── EU AI Act timeline ─── */
+
+.agents-landing__timeline {
+  margin-top: var(--space-xl);
+  padding: var(--space-md);
+  background: var(--agents-silver);
+  border-radius: var(--radius);
+}
+
+.agents-landing__timeline h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+  color: var(--agents-anthracite);
+}
+
+.agents-landing__timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-sm);
+}
+
+.agents-landing__timeline-list li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.agents-landing__timeline-list strong {
+  color: var(--agents-accent);
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.agents-landing__timeline-list span {
+  color: var(--agents-text);
+  font-size: 0.9375rem;
+  margin-top: 0.25rem;
+}
+
+/* ─── CTA block ─── */
+
+.agents-landing__cta {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg) var(--space-md);
+  background: var(--agents-anthracite);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.agents-landing__cta h2 {
+  color: #fff;
+  margin-bottom: var(--space-sm);
+}
+
+.agents-landing__cta p {
+  max-width: 600px;
+  margin: 0 auto var(--space-md);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.agents-landing__cta-button {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  background: var(--agents-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.agents-landing__cta-button:hover {
+  background: #2884e8;
+  transform: translateY(-2px);
+}
+
 /* ─── Responsive ─── */
+
+@media (max-width: 768px) {
+  .agents-letter__body {
+    grid-template-columns: 1fr;
+  }
+  .agents-letter__cases {
+    grid-template-columns: 1fr;
+  }
+  .agents-letter__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+}
 
 @media (max-width: 480px) {
   .agents-deep-dive,
-  .agents-danke {
+  .agents-danke,
+  .agents-landing {
     padding: var(--space-md) var(--space-sm);
   }
   .agents-deep-dive__submit {
     width: 100%;
     text-align: center;
+  }
+  .agents-landing__cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

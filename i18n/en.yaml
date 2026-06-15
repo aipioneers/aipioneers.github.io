@@ -98,3 +98,8 @@ lang_switcher_aria: "Choose language"
 footer_quick_links: "Quick links"
 footer_links_label: "Links"
 footer_copyright: "AI Pioneers — vertical-AI for the DACH Mittelstand."
+
+# ===== AGENTS surface (Spec 006) =====
+agents_language_stub_title: "Currently German-language only"
+agents_language_stub_body: "The Deep-Dive session itself is held in German. The signup form is therefore German-language only."
+agents_language_stub_cta: "Go to the German signup →"

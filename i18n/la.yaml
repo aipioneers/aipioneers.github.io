@@ -98,3 +98,8 @@ lang_switcher_aria: "Linguam eligere"
 footer_quick_links: "Vincula celeria"
 footer_links_label: "Vincula"
 footer_copyright: "AI Pioneers — intelligentia artificialis verticalis pro mediae classis negotiatoribus."
+
+# ===== Superficies AGENTS (Specificatio 006) =====
+agents_language_stub_title: "Tantum Germanice"
+agents_language_stub_body: "Conventus parvus Germanice habetur. Forma inscriptionis igitur tantum Germanice praesto est."
+agents_language_stub_cta: "Ad inscriptionem Germanicam →"

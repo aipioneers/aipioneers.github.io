@@ -1,0 +1,298 @@
+/* /agents/ surface — Spec 006
+ * Apple-Restraint tokens: white, silver, anthracite #1D1D1F, Apple Blue #0071E3
+ * Loaded only on /agents/* pages via partial.
+ */
+
+:root {
+  --agents-anthracite: #1d1d1f;
+  --agents-anthracite-soft: #2d2d2f;
+  --agents-silver: #f5f5f7;
+  --agents-silver-strong: #e5e5ea;
+  --agents-text: #1d1d1f;
+  --agents-text-muted: #6e6e73;
+  --agents-accent: #0071e3;
+  --agents-accent-hover: #0058b3;
+  --agents-error: #b8252f;
+  --agents-success: #1d6f42;
+}
+
+/* ─── Deep-Dive form ─── */
+
+.agents-deep-dive {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+  color: var(--agents-text);
+}
+
+.agents-deep-dive__header {
+  margin-bottom: var(--space-md);
+}
+
+.agents-deep-dive__intro {
+  margin-bottom: var(--space-lg);
+  color: var(--agents-text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.agents-deep-dive__intro p {
+  margin-bottom: var(--space-sm);
+}
+
+.agents-deep-dive__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.agents-deep-dive__form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.agents-deep-dive__form .field label,
+.agents-deep-dive__form .field legend {
+  font-weight: 600;
+  color: var(--agents-anthracite);
+}
+
+.agents-deep-dive__form .req {
+  color: var(--agents-accent);
+  margin-left: 0.25rem;
+}
+
+.agents-deep-dive__form .opt {
+  color: var(--agents-text-muted);
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+
+.agents-deep-dive__form input[type="text"],
+.agents-deep-dive__form input[type="email"],
+.agents-deep-dive__form select,
+.agents-deep-dive__form textarea {
+  font: inherit;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--agents-silver-strong);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--agents-text);
+  transition: border-color 150ms ease;
+}
+
+.agents-deep-dive__form input:focus,
+.agents-deep-dive__form select:focus,
+.agents-deep-dive__form textarea:focus {
+  outline: none;
+  border-color: var(--agents-accent);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+.agents-deep-dive__form textarea {
+  resize: vertical;
+  min-height: 5rem;
+  font-family: var(--font-sans);
+}
+
+.agents-deep-dive__form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.agents-deep-dive__form fieldset legend {
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.agents-deep-dive__form fieldset label {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.agents-deep-dive__form .field--consent label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.agents-deep-dive__form .field--consent input {
+  margin-top: 0.25rem;
+}
+
+.agents-deep-dive__form .field--consent a {
+  color: var(--agents-accent);
+  text-decoration: underline;
+}
+
+.agents-deep-dive__form .field-hint,
+.agents-deep-dive__form .field-error {
+  margin: 0;
+  font-size: 0.875rem;
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 200ms ease;
+}
+
+.agents-deep-dive__form .field-hint.is-visible,
+.agents-deep-dive__form .field-error.is-visible {
+  max-height: 4rem;
+  margin-top: 0.25rem;
+}
+
+.agents-deep-dive__form .field-hint {
+  color: var(--agents-text-muted);
+}
+
+.agents-deep-dive__form .field-error {
+  color: var(--agents-error);
+}
+
+.agents-deep-dive__form .form-status {
+  font-size: 0.9375rem;
+  min-height: 1.25rem;
+  margin: 0;
+}
+
+.agents-deep-dive__form .form-status[data-kind="error"] { color: var(--agents-error); }
+.agents-deep-dive__form .form-status[data-kind="pending"] { color: var(--agents-text-muted); }
+
+.agents-deep-dive__submit {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  font: inherit;
+  font-weight: 600;
+  background: var(--agents-anthracite);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.agents-deep-dive__submit:hover:not(:disabled) {
+  background: var(--agents-accent);
+}
+
+.agents-deep-dive__submit:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.agents-deep-dive__submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* honeypot — never visible to humans */
+.agents-deep-dive__form .hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ─── Language stub (non-DE locales on /agents/deep-dive/) ─── */
+
+.agents-language-stub {
+  max-width: 560px;
+  margin: var(--space-lg) auto;
+  padding: var(--space-md);
+  background: var(--agents-silver);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.agents-language-stub h2 {
+  margin-bottom: var(--space-sm);
+  color: var(--agents-anthracite);
+}
+
+.agents-language-stub p {
+  color: var(--agents-text);
+  margin-bottom: var(--space-sm);
+}
+
+.agents-language-stub__cta {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  color: #fff;
+  background: var(--agents-accent);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.agents-language-stub__cta:hover {
+  background: var(--agents-accent-hover);
+}
+
+/* ─── Thank-you page ─── */
+
+.agents-danke {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+}
+
+.agents-danke__header h1 {
+  margin-bottom: var(--space-md);
+}
+
+.agents-danke__body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--agents-text);
+  text-align: left;
+}
+
+.agents-danke__body p {
+  margin-bottom: var(--space-sm);
+}
+
+.agents-danke__cta {
+  margin-top: var(--space-lg);
+}
+
+.agents-danke__cta-button {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  background: var(--agents-anthracite);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background 150ms ease;
+}
+
+.agents-danke__cta-button:hover {
+  background: var(--agents-accent);
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 480px) {
+  .agents-deep-dive,
+  .agents-danke {
+    padding: var(--space-md) var(--space-sm);
+  }
+  .agents-deep-dive__submit {
+    width: 100%;
+    text-align: center;
+  }
+}

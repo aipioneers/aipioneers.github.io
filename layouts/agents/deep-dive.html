@@ -1,0 +1,131 @@
+{{ define "main" }}
+<article class="agents-deep-dive">
+  <header class="agents-deep-dive__header">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  {{ if ne .Site.Language.Lang "de" }}
+    {{/* Non-DE locales get the language stub instead of the form */}}
+    {{ partial "agents-language-stub.html" . }}
+  {{ else }}
+    <div class="agents-deep-dive__intro">
+      {{ .Content }}
+    </div>
+
+    <form
+      id="agents-deep-dive-form"
+      class="agents-deep-dive__form"
+      novalidate
+      data-supabase-url="{{ site.Params.supabase.url }}"
+      data-supabase-anon-key="{{ site.Params.supabase.anonKey }}"
+    >
+      <p class="form-status" role="status" aria-live="polite"></p>
+
+      {{/* Honeypot — bots fill it, humans don't see it */}}
+      <div class="hp" aria-hidden="true">
+        <label>Website (bitte freilassen)
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="field">
+        <label for="f-name">Name <span class="req">*</span></label>
+        <input id="f-name" name="name" type="text" required minlength="2" maxlength="120"
+               placeholder="Vor- und Nachname">
+        <p class="field-error" data-error-for="name"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-email">E-Mail <span class="req">*</span></label>
+        <input id="f-email" name="email" type="email" required maxlength="254"
+               placeholder="name@firma.de">
+        <p class="field-error" data-error-for="email"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-company-role">Unternehmen & Rolle <span class="req">*</span></label>
+        <input id="f-company-role" name="company_role" type="text" required minlength="5" maxlength="240"
+               placeholder="z. B. Stadtwerke Musterstadt, Leiterin Digitalisierung">
+        <p class="field-error" data-error-for="company_role"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-industry">Branche <span class="req">*</span></label>
+        <select id="f-industry" name="industry" required>
+          <option value="">— bitte wählen —</option>
+          <option value="maschinenbau_industrie">Maschinenbau / Industrie</option>
+          <option value="energie_versorger">Energie / Versorger</option>
+          <option value="versicherung_banken">Versicherung / Banken</option>
+          <option value="gesundheit_pflege">Gesundheit / Pflege</option>
+          <option value="handel">Handel</option>
+          <option value="logistik_transport">Logistik / Transport</option>
+          <option value="it_dienstleister">IT-Dienstleister</option>
+          <option value="beratung">Beratung</option>
+          <option value="oeffentlicher_sektor">Öffentlicher Sektor</option>
+          <option value="bildung_forschung">Bildung / Forschung</option>
+          <option value="andere">Andere</option>
+        </select>
+        <p class="field-error" data-error-for="industry"></p>
+      </div>
+
+      <div class="field">
+        <label for="f-use-case">
+          Euer Use Case in 1–2 Sätzen — was soll der Agent tun? <span class="req">*</span>
+        </label>
+        <textarea id="f-use-case" name="use_case" required minlength="20" maxlength="500" rows="4"
+                  placeholder='z. B. "Der Agent klassifiziert und priorisiert eingehende Bürger-Mails und schlägt eine Antwort vor, die ein Sachbearbeiter freigibt."'></textarea>
+        <p class="field-hint" data-hint-for="use_case"></p>
+        <p class="field-error" data-error-for="use_case"></p>
+      </div>
+
+      <fieldset class="field">
+        <legend>Wo steht ihr gerade? <span class="req">*</span></legend>
+        <label><input type="radio" name="phase" value="idee" required> Idee</label>
+        <label><input type="radio" name="phase" value="erster_poc"> Erster PoC</label>
+        <label><input type="radio" name="phase" value="in_entwicklung"> In Entwicklung</label>
+        <label><input type="radio" name="phase" value="produktiv"> Bereits produktiv</label>
+        <p class="field-error" data-error-for="phase"></p>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>Wo hakt es am meisten? <span class="opt">optional</span></legend>
+        <label><input type="radio" name="pain_point" value="auftrag_unklar"> Auftrag unklar</label>
+        <label><input type="radio" name="pain_point" value="modellwahl"> Modellwahl</label>
+        <label><input type="radio" name="pain_point" value="tools_integration"> Tools & Integration</label>
+        <label><input type="radio" name="pain_point" value="wissen_kontext"> Wissen & Kontext</label>
+        <label><input type="radio" name="pain_point" value="orchestrierung"> Orchestrierung</label>
+        <label><input type="radio" name="pain_point" value="sicherheit_compliance"> Sicherheit & Compliance</label>
+        <label><input type="radio" name="pain_point" value="weiss_noch_nicht"> Weiß noch nicht</label>
+      </fieldset>
+
+      <div class="field">
+        <label for="f-preknowledge">
+          Was sollte ich vorab wissen? <span class="opt">optional</span>
+        </label>
+        <textarea id="f-preknowledge" name="preknowledge" maxlength="1000" rows="3"
+                  placeholder="z. B. besondere Constraints, Lieblings-Tools, geplanter Live-Termin im Unternehmen, …"></textarea>
+        <p class="field-error" data-error-for="preknowledge"></p>
+      </div>
+
+      <div class="field field--consent">
+        <label>
+          <input id="f-consent" name="consent_given" type="checkbox" required value="true">
+          <span>
+            Ich willige ein, dass meine Angaben zur Organisation und Auswahl der Runde
+            gespeichert und verarbeitet werden. Keine Weitergabe an Dritte. Löschung
+            jederzeit per Mail an
+            <a href="mailto:tobias@pioneers.ai">tobias@pioneers.ai</a> möglich.
+            Weitere Informationen in der
+            <a href="/datenschutz/">Datenschutzerklärung</a>.
+          </span>
+        </label>
+        <p class="field-error" data-error-for="consent_given"></p>
+      </div>
+
+      <button type="submit" class="agents-deep-dive__submit">Zur Runde anmelden</button>
+    </form>
+
+    <script type="module" src="{{ "js/agents-deep-dive.js" | relURL }}"></script>
+  {{ end }}
+</article>
+{{ end }}

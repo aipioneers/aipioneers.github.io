@@ -98,3 +98,8 @@ lang_switcher_aria: "Γλῶσσαν ἐκλέξαι"
 footer_quick_links: "Δεσμοὶ ταχεῖς"
 footer_links_label: "Δεσμοί"
 footer_copyright: "AI Pioneers — τεχνητὸς νοῦς κατὰ τέχνας μερισμένος τοῖς μέσοις ἐμπόροις."
+
+# ===== Πρόσωπον AGENTS (Διαγραφή 006) =====
+agents_language_stub_title: "Μόνον Γερμανιστί"
+agents_language_stub_body: "Ἡ μικρὰ συνέλευσις Γερμανιστὶ γίγνεται. Ἡ τοίνυν φόρμα ἐγγραφῆς μόνον Γερμανιστὶ παρέχεται."
+agents_language_stub_cta: "Πρὸς τὴν Γερμανικὴν ἐγγραφήν →"

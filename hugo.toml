@@ -17,6 +17,20 @@ defaultContentLanguageInSubdir = false
       unsafe = true
 
 # ============================================================
+# Site params
+# ============================================================
+
+[params]
+  # Supabase backend for /agents/ canvas + deep-dive form (Spec 006).
+  # Region: eu-central-1 (Frankfurt) — Constitution Clause 6.
+  # The publishable key (formerly "anon key") is public-by-design;
+  # Row-Level Security protects all data in agents.* and signups.*.
+  # Never put the secret key (sb_secret_*) or the DB password into this file.
+  [params.supabase]
+    url     = "https://ubuknvsossgzkxtllcto.supabase.co"
+    anonKey = "sb_publishable_2u41fkJR6WiEG61x7CwT3A__MXfdiyq"
+
+# ============================================================
 # Languages
 # ============================================================
 

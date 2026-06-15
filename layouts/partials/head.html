@@ -10,5 +10,9 @@
 {{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{/* Per-section stylesheets */}}
+{{ if hasPrefix .RelPermalink "/agents/" }}
+<link rel="stylesheet" href="{{ "css/agents.css" | relURL }}">
+{{ end }}
 <link rel="icon" href="{{ "favicon.ico" | relURL }}">
 {{ hugo.Generator }}

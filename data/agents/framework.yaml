@@ -64,8 +64,8 @@ letters:
     anti_pattern: 'Viele mächtige Tools ohne Berechtigungskonzept — API-Keys und Tokens werden zum unsichtbaren Sicherheitsrisiko.'
     energie_case: 'Der Novel-Agent arbeitet direkt auf der Procore-Projektplattform und kann jedes Detail des Projekts referenzieren.'
 
-  - id: n
-    letter: N
+  - id: 'n'
+    letter: 'N'
     name: Notizbuch
     question: 'Was weiß oder merkt sich der Agent?'
     slug: n-notizbuch

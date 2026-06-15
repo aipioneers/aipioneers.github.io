@@ -1,4 +1,4 @@
 ---
 title: "Pioneers"
-description: "Building open-source tools that help developers work with AI. Scan, index, and search your codebase."
+description: "Vertical-AI für den DACH-Mittelstand. Eine Gemeinschaft von Pionieren mit KI-Teams im Verbund."
 ---

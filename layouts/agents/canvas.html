@@ -91,8 +91,8 @@
 
 </article>
 
-<script type="application/json" id="agents-canvas-examples-data">
-{{ $examples | jsonify }}
+<script>
+window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
 </script>
 
 <script>
@@ -108,14 +108,8 @@
   var progressEl = document.querySelector('[data-canvas-progress]');
   var saveTimer = null;
 
-  // ── examples (injected from Hugo) ──
-  var examples = [];
-  try {
-    var raw = document.getElementById('agents-canvas-examples-data');
-    examples = raw ? JSON.parse(raw.textContent) : [];
-  } catch (e) {
-    console.warn('canvas examples parse failed', e);
-  }
+  // ── examples (injected from Hugo as JS object via safeJS) ──
+  var examples = Array.isArray(window.AGENTS_EXAMPLES) ? window.AGENTS_EXAMPLES : [];
 
   function getField(name) {
     return form.querySelector('[data-canvas-field="' + name + '"]');

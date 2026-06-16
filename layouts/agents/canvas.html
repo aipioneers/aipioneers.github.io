@@ -350,12 +350,93 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
 
   function save() {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(collect()));
+      var data = collect();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
       flashStatus('Lokal gesichert', 'ok');
+      // Best-effort: anonymous dual-write to agents.canvases (non-blocking)
+      saveToServer(data).catch(function (e) {
+        console.warn('[canvas] anon server save failed (non-fatal):', e);
+      });
     } catch (e) {
       flashStatus('Speichern fehlgeschlagen', 'error');
     }
   }
+
+  // ── Anonymous Supabase dual-write ──
+  var SUPABASE_URL = {{ site.Params.supabase.url | jsonify }};
+  var SUPABASE_ANON_KEY = {{ site.Params.supabase.anonKey | jsonify }};
+  var SERVER_ID_KEY = 'agents.canvas.server.id.v1';
+  var supabaseClient = null;
+  var supabaseSession = null;
+  var serverCanvasId = null;
+  try { serverCanvasId = localStorage.getItem(SERVER_ID_KEY); } catch (e) {}
+
+  function flattenLetterForDb(state) {
+    if (!state) return '';
+    if (typeof state === 'string') return state;
+    if (state.mode === 'guided' && Array.isArray(state.options) && state.options.length) {
+      return '[Geführt] ' + state.options.join(', ');
+    }
+    return state.free || '';
+  }
+
+  async function ensureSupabaseSession() {
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) return null;
+    if (!supabaseClient) {
+      var mod = await import('https://esm.sh/@supabase/supabase-js@2.45.0');
+      supabaseClient = mod.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+        auth: { persistSession: true, autoRefreshToken: true }
+      });
+    }
+    var current = await supabaseClient.auth.getSession();
+    if (current && current.data && current.data.session) {
+      supabaseSession = current.data.session;
+      return supabaseSession;
+    }
+    var signedIn = await supabaseClient.auth.signInAnonymously();
+    if (signedIn.error) throw signedIn.error;
+    supabaseSession = signedIn.data.session;
+    return supabaseSession;
+  }
+
+  async function saveToServer(data) {
+    var session = await ensureSupabaseSession();
+    if (!session) return;
+    var row = {
+      user_id: session.user.id,
+      title: (data.title || 'Anonymes Canvas').slice(0, 120),
+      a_auftrag:   flattenLetterForDb(data.a).slice(0, 2000),
+      g_gehirn:    flattenLetterForDb(data.g).slice(0, 2000),
+      e_equipment: flattenLetterForDb(data.e).slice(0, 2000),
+      n_notizbuch: flattenLetterForDb(data.n).slice(0, 2000),
+      t_taktik:    flattenLetterForDb(data.t).slice(0, 2000),
+      s_schutz:    flattenLetterForDb(data.s).slice(0, 2000),
+      locale: 'de'
+    };
+    if (serverCanvasId) {
+      var upd = await supabaseClient.schema('agents').from('canvases')
+        .update(row).eq('id', serverCanvasId);
+      if (upd.error) {
+        // Row gone (deleted server-side) or user_id mismatch → fall back to insert
+        console.warn('[canvas] update failed, will re-insert:', upd.error);
+        serverCanvasId = null;
+        try { localStorage.removeItem(SERVER_ID_KEY); } catch (e) {}
+      }
+    }
+    if (!serverCanvasId) {
+      var ins = await supabaseClient.schema('agents').from('canvases')
+        .insert(row).select('id').single();
+      if (ins.error) throw ins.error;
+      serverCanvasId = ins.data.id;
+      try { localStorage.setItem(SERVER_ID_KEY, serverCanvasId); } catch (e) {}
+    }
+    flashStatus('Anonym gesichert', 'ok');
+  }
+
+  // Kick off anon session ahead of first save (silent)
+  ensureSupabaseSession().catch(function (e) {
+    console.warn('[canvas] anon sign-in failed (non-fatal):', e);
+  });
 
   function debouncedSave() {
     clearTimeout(saveTimer);

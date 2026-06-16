@@ -61,7 +61,35 @@ Monate nach Eingang der Anmeldung.
 **Weitergabe**: Keine Weitergabe an Dritte. Die Daten werden ausschließlich
 beim Auftragsverarbeiter Supabase gespeichert (siehe Abschnitt 5).
 
-## 4. Browser-Speicher (`localStorage`)
+## 4. AGENTS-Canvas — anonyme Server-Speicherung
+
+Auf `/agents/canvas/` werden deine Eingaben **zusätzlich zur lokalen
+Browser-Speicherung** anonym auf Supabase EU-Region (Frankfurt) gesichert.
+Wir nutzen dafür **anonyme Sitzungen** ohne E-Mail, ohne Login, ohne sonstige
+Identifikationsmerkmale. Du wirst nicht als Person identifiziert, kein
+Profil wird gebildet.
+
+**Welche Daten**: ausschließlich die Inhalte, die du selbst in die sechs
+Canvas-Felder tippst oder anklickst (Auftrag, Gehirn, Equipment, Notizbuch,
+Taktik, Schutz) sowie ein optionaler Titel.
+
+**Zweck**: Produkt-Verbesserung des Canvas-Tools und Workshop-Iteration.
+Aggregierte Auswertungen, welche Bausteine häufiger leer bleiben, welche
+Use-Case-Typen vorkommen.
+
+**Rechtsgrundlage**: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
+Produktverbesserung).
+
+**Speicherdauer**: 12 Monate nach letzter Bearbeitung, dann automatische
+Löschung. Ohne erneute Aktivität verschwindet dein anonymer Eintrag
+automatisch.
+
+**Widerspruch**: Wenn du nicht möchtest, dass deine Canvas-Eingaben anonym
+auf dem Server gesichert werden, kannst du in deinem Browser unter `agents.pioneers.ai`
+das `localStorage` leeren — das verwirft die anonyme Sitzung. Alternativ
+arbeite im privaten Browser-Tab.
+
+## 5. Browser-Speicher (`localStorage`)
 
 Auf den Unterseiten unter `/agents/` (insbesondere `/agents/canvas/`) wird
 ggf. der **lokale Browser-Speicher** (`localStorage`) genutzt, um deine
@@ -72,9 +100,9 @@ und enthält keine Trackingdaten. Eine Einwilligung ist hierfür nicht erforderl
 
 Du kannst diese Daten jederzeit über die Browser-Einstellungen löschen.
 
-## 5. Auftragsverarbeiter
+## 6. Auftragsverarbeiter
 
-### 5.1 Supabase (Datenbank + Authentifizierung)
+### 6.1 Supabase (Datenbank + Authentifizierung)
 
 Für die Speicherung der Anmeldedaten und den Betrieb des AGENTS-Canvas nutze
 ich **Supabase** (Supabase Inc., 970 Toa Payoh North #07-04, Singapur 318992).
@@ -86,7 +114,7 @@ EU-Standardvertragsklauseln.
 
 Datenschutzerklärung von Supabase: [supabase.com/privacy](https://supabase.com/privacy)
 
-## 6. Keine Cookies, keine Analytics, kein Tracking
+## 7. Keine Cookies, keine Analytics, kein Tracking
 
 Diese Website setzt **keine Cookies** für Analyse-, Marketing- oder
 Tracking-Zwecke. Es laufen kein Google Analytics, kein Meta-Pixel, kein
@@ -97,7 +125,7 @@ Die einzige Ausnahme ist die optionale, technisch notwendige Authentifizierungs-
 Sitzung auf `/agents/canvas/` (nur wenn du dich dort aktiv anmeldest, um dein
 Canvas dauerhaft zu speichern). Auch das ist konform zu § 25 Abs. 2 Nr. 2 TTDSG.
 
-## 7. Deine Rechte als Betroffene:r
+## 8. Deine Rechte als Betroffene:r
 
 Du hast nach DSGVO folgende Rechte:
 
@@ -113,22 +141,22 @@ Die Ausübung erfolgt formlos per E-Mail an
 [tobias.oberrauch@gmx.de](mailto:tobias.oberrauch@gmx.de). Antwort erfolgt typisch
 innerhalb von 7 Tagen, spätestens innerhalb der gesetzlichen Frist (1 Monat).
 
-## 8. Beschwerderecht
+## 9. Beschwerderecht
 
 Unabhängig davon hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde
 zu beschweren. Zuständig ist beispielsweise das Bundesbeauftragte für den
 Datenschutz und die Informationsfreiheit (BfDI) oder die Aufsichtsbehörde
 deines Bundeslandes.
 
-## 9. Datensicherheit
+## 10. Datensicherheit
 
 Die Übertragung erfolgt verschlüsselt per HTTPS (TLS). Server-Standorte
-befinden sich für Customer-Daten ausschließlich in der EU (siehe Abschnitt 5).
+befinden sich für Customer-Daten ausschließlich in der EU (siehe Abschnitt 6).
 
-## 10. Aktualisierung dieser Datenschutzerklärung
+## 11. Aktualisierung dieser Datenschutzerklärung
 
 Diese Datenschutzerklärung wird angepasst, wenn sich die Datenverarbeitung
 ändert (z. B. neue Funktionen, neue Auftragsverarbeiter). Die jeweils aktuelle
 Version findest du auf dieser Seite.
 
-**Stand**: 15.06.2026
+**Stand**: 16.06.2026

@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $fw := site.Data.agents.framework }}
+{{ $examples := site.Data.agents.examples }}
 
 <article class="agents-canvas">
 
@@ -8,17 +9,37 @@
     <h1>Euer AGENTS-Use-Case auf einer Seite</h1>
     <p class="agents-canvas__lede">
       Sechs Felder, ein Use Case. Tippt direkt im Browser — euer Stand bleibt
-      lokal auf eurem Gerät, niemand sonst sieht ihn. Druckt es aus für den
-      Workshop, oder nehmt es als Diskussionsgrundlage für die Deep-Dive-Runde.
+      lokal auf eurem Gerät. Druckt es aus für den Workshop oder nehmt es als
+      Diskussionsgrundlage für die Deep-Dive-Runde.
     </p>
-    <div class="agents-canvas__actions no-print">
-      <button type="button" class="agents-canvas__btn agents-canvas__btn--primary" data-action="print">
-        Drucken / als PDF speichern
-      </button>
-      <button type="button" class="agents-canvas__btn" data-action="clear">
-        Felder leeren
-      </button>
-      <span class="agents-canvas__status" data-canvas-status></span>
+
+    <div class="agents-canvas__toolbar no-print">
+      <div class="agents-canvas__loader">
+        <label for="canvas-loader">Vorlage laden:</label>
+        <select id="canvas-loader" data-canvas-loader>
+          <option value="">— eigene Anfangsskizze —</option>
+          {{ range $examples }}
+          <option value="{{ .id }}">{{ .label }}</option>
+          {{ end }}
+        </select>
+      </div>
+
+      <div class="agents-canvas__actions">
+        <button type="button" class="agents-canvas__btn agents-canvas__btn--primary" data-action="print">
+          Drucken / PDF
+        </button>
+        <button type="button" class="agents-canvas__btn" data-action="share">
+          Als Link teilen
+        </button>
+        <button type="button" class="agents-canvas__btn" data-action="clear">
+          Felder leeren
+        </button>
+      </div>
+
+      <div class="agents-canvas__meta">
+        <span class="agents-canvas__progress" data-canvas-progress>0 von 6 Bausteinen gefüllt</span>
+        <span class="agents-canvas__status" data-canvas-status></span>
+      </div>
     </div>
   </header>
 
@@ -41,6 +62,9 @@
         <span class="agents-canvas__field-letter">{{ .letter }}</span>
         <span class="agents-canvas__field-name">{{ .name }}</span>
         <span class="agents-canvas__field-question">„{{ .question }}"</span>
+        <a class="agents-canvas__field-explain no-print" href="/agents/#{{ .slug }}" target="_blank" rel="noopener" aria-label="Erklärung zu {{ .name }} öffnen">
+          Was bedeutet das? ↗
+        </a>
       </legend>
       <p class="agents-canvas__field-hint">{{ .eli5_body }}</p>
       <textarea
@@ -48,7 +72,8 @@
         rows="6"
         maxlength="2000"
         placeholder="Notiert hier, was bei euch konkret zu diesem Baustein passt — Stichworte reichen."
-        data-canvas-field="{{ .id }}"></textarea>
+        data-canvas-field="{{ .id }}"
+        data-autogrow></textarea>
     </fieldset>
     {{ end }}
 
@@ -59,41 +84,95 @@
       Bereit für die Diskussion in kleiner Runde?
       <a href="/agents/deep-dive/">→ Zur Deep-Dive-Anmeldung</a>
     </p>
+    <p class="agents-canvas__attribution">
+      Aus dem AI-Pioneers · KI-Agenten-Workshop · 16. Juni 2026
+    </p>
   </footer>
 
 </article>
 
+<script type="application/json" id="agents-canvas-examples-data">
+{{ $examples | jsonify }}
+</script>
+
 <script>
 (function () {
-  var STORAGE_KEY = 'agents.canvas.draft.v1';
-  var fields = document.querySelectorAll('[data-canvas-field]');
-  var status = document.querySelector('[data-canvas-status]');
+  'use strict';
+  var STORAGE_KEY = 'agents.canvas.draft.v2';
+  var FIELDS = ['title', 'a', 'g', 'e', 'n', 't', 's'];
+
+  var form = document.getElementById('agents-canvas-form');
+  if (!form) return;
+
+  var statusEl = document.querySelector('[data-canvas-status]');
+  var progressEl = document.querySelector('[data-canvas-progress]');
   var saveTimer = null;
 
+  // ── examples (injected from Hugo) ──
+  var examples = [];
+  try {
+    var raw = document.getElementById('agents-canvas-examples-data');
+    examples = raw ? JSON.parse(raw.textContent) : [];
+  } catch (e) {
+    console.warn('canvas examples parse failed', e);
+  }
+
+  function getField(name) {
+    return form.querySelector('[data-canvas-field="' + name + '"]');
+  }
+
+  function collect() {
+    var data = {};
+    FIELDS.forEach(function (k) {
+      var el = getField(k);
+      data[k] = el ? el.value : '';
+    });
+    return data;
+  }
+
+  function populate(data, opts) {
+    opts = opts || {};
+    FIELDS.forEach(function (k) {
+      var el = getField(k);
+      if (!el) return;
+      if (data[k] != null) el.value = data[k];
+      autoGrow(el);
+    });
+    updateProgress();
+    if (opts.persist !== false) save();
+  }
+
   function load() {
+    // 1. URL-hash share-snapshot beats everything
+    try {
+      var hash = window.location.hash.replace(/^#/, '');
+      var m = /(?:^|&)s=([^&]+)/.exec(hash);
+      if (m && m[1]) {
+        var json = JSON.parse(b64decode(m[1]));
+        populate(json, { persist: true });
+        flashStatus('Aus geteiltem Link geladen', 'ok');
+        // Clean URL after load
+        history.replaceState(null, '', window.location.pathname);
+        return;
+      }
+    } catch (e) {
+      console.warn('share-hash decode failed', e);
+    }
+    // 2. localStorage draft
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-      var data = JSON.parse(raw);
-      fields.forEach(function (el) {
-        var key = el.getAttribute('data-canvas-field');
-        if (data[key] != null) el.value = data[key];
-      });
+      if (raw) populate(JSON.parse(raw), { persist: false });
     } catch (e) {
-      console.warn('canvas load failed', e);
+      console.warn('canvas localStorage load failed', e);
     }
   }
 
   function save() {
-    var data = {};
-    fields.forEach(function (el) {
-      data[el.getAttribute('data-canvas-field')] = el.value;
-    });
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      flashStatus('Lokal gesichert');
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(collect()));
+      flashStatus('Lokal gesichert', 'ok');
     } catch (e) {
-      flashStatus('Speichern fehlgeschlagen');
+      flashStatus('Speichern fehlgeschlagen', 'error');
     }
   }
 
@@ -102,29 +181,128 @@
     saveTimer = setTimeout(save, 500);
   }
 
-  function flashStatus(msg) {
-    if (!status) return;
-    status.textContent = msg;
-    setTimeout(function () { status.textContent = ''; }, 1800);
+  function flashStatus(msg, kind) {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.dataset.kind = kind || '';
+    setTimeout(function () {
+      if (statusEl.textContent === msg) {
+        statusEl.textContent = '';
+        statusEl.dataset.kind = '';
+      }
+    }, 2200);
+  }
+
+  function updateProgress() {
+    if (!progressEl) return;
+    var letters = ['a', 'g', 'e', 'n', 't', 's'];
+    var filled = letters.filter(function (k) {
+      var el = getField(k);
+      return el && el.value.trim().length > 0;
+    }).length;
+    progressEl.textContent = filled + ' von 6 Bausteinen gefüllt';
+    progressEl.dataset.progress = filled;
+  }
+
+  function autoGrow(el) {
+    if (!el || el.tagName !== 'TEXTAREA') return;
+    el.style.height = 'auto';
+    el.style.height = Math.max(el.scrollHeight, 140) + 'px';
   }
 
   function clearAll() {
     if (!confirm('Wirklich alle Felder leeren? Der lokale Stand geht verloren.')) return;
-    fields.forEach(function (el) { el.value = ''; });
+    FIELDS.forEach(function (k) {
+      var el = getField(k);
+      if (el) el.value = '';
+      autoGrow(el);
+    });
     localStorage.removeItem(STORAGE_KEY);
-    flashStatus('Alle Felder geleert');
+    updateProgress();
+    flashStatus('Alle Felder geleert', 'ok');
   }
 
-  load();
-  fields.forEach(function (el) {
-    el.addEventListener('input', debouncedSave);
+  function loadExample(id) {
+    var ex = examples.find(function (e) { return e.id === id; });
+    if (!ex) return;
+    var hasContent = FIELDS.some(function (k) {
+      var el = getField(k);
+      return el && el.value.trim().length > 0;
+    });
+    if (hasContent && !confirm('Aktuelle Felder werden durch das Beispiel überschrieben. Fortfahren?')) return;
+    var data = { title: ex.title, a: ex.a, g: ex.g, e: ex.e, n: ex.n, t: ex.t, s: ex.s };
+    populate(data, { persist: true });
+    flashStatus('Vorlage „' + ex.label + '" geladen', 'ok');
+  }
+
+  // ── base64url for share URL (UTF-8-safe) ──
+  function b64encode(str) {
+    return btoa(unescape(encodeURIComponent(str)))
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function b64decode(str) {
+    str = str.replace(/-/g, '+').replace(/_/g, '/');
+    while (str.length % 4) str += '=';
+    return decodeURIComponent(escape(atob(str)));
+  }
+
+  function shareLink() {
+    try {
+      var encoded = b64encode(JSON.stringify(collect()));
+      // Keep URLs reasonable — refuse if state is huge (>6KB → ~8KB URL)
+      if (encoded.length > 6000) {
+        flashStatus('Inhalt zu lang für einen Share-Link — bitte kürzen', 'error');
+        return;
+      }
+      var url = window.location.origin + window.location.pathname + '#s=' + encoded;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          flashStatus('Link in Zwischenablage kopiert', 'ok');
+        }).catch(function () {
+          window.prompt('Link zum Teilen (Cmd+C zum Kopieren):', url);
+        });
+      } else {
+        window.prompt('Link zum Teilen (Cmd+C zum Kopieren):', url);
+      }
+    } catch (e) {
+      flashStatus('Konnte Link nicht erzeugen', 'error');
+    }
+  }
+
+  // ── wire up events ──
+  form.querySelectorAll('[data-canvas-field]').forEach(function (el) {
+    el.addEventListener('input', function () {
+      debouncedSave();
+      updateProgress();
+      autoGrow(el);
+    });
   });
+
+  var loaderEl = document.querySelector('[data-canvas-loader]');
+  if (loaderEl) {
+    loaderEl.addEventListener('change', function (event) {
+      if (event.target.value) {
+        loadExample(event.target.value);
+        // Reset dropdown so re-selecting same example re-loads
+        setTimeout(function () { event.target.value = ''; }, 100);
+      }
+    });
+  }
 
   var printBtn = document.querySelector('[data-action="print"]');
   if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
 
   var clearBtn = document.querySelector('[data-action="clear"]');
   if (clearBtn) clearBtn.addEventListener('click', clearAll);
+
+  var shareBtn = document.querySelector('[data-action="share"]');
+  if (shareBtn) shareBtn.addEventListener('click', shareLink);
+
+  // ── initial load ──
+  load();
+  // initial autogrow + progress
+  form.querySelectorAll('textarea[data-autogrow]').forEach(autoGrow);
+  updateProgress();
 })();
 </script>
 

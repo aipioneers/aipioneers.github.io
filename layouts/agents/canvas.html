@@ -20,7 +20,7 @@
     <div class="agents-workspace__template-grid">
       {{ range $examples }}
       <button type="button" class="agents-workspace__template-card" data-canvas-template="{{ .id }}">
-        <span class="agents-workspace__template-icon" aria-hidden="true">{{ .icon }}</span>
+        <span class="agents-workspace__template-icon">{{ partial "agents-template-icon.html" . }}</span>
         <span class="agents-workspace__template-text">
           <span class="agents-workspace__template-branch">{{ .branch }}</span>
           <span class="agents-workspace__template-label">{{ .label }}</span>
@@ -182,8 +182,15 @@
   <footer class="agents-workspace__footer no-print">
     <p class="agents-workspace__footer-cta">
       Bereit für die Diskussion in kleiner Runde?
-      <a href="/agents/deep-dive/">→ Zur Deep-Dive-Anmeldung</a>
     </p>
+    <div class="agents-workspace__footer-actions">
+      <button type="button" class="agents-workspace__footer-btn agents-workspace__footer-btn--primary" data-action="to-form">
+        Mit diesem Stand zur Anmeldung
+      </button>
+      <a class="agents-workspace__footer-btn agents-workspace__footer-btn--ghost" href="/agents/deep-dive/">
+        Anmeldung ohne Übernahme
+      </a>
+    </div>
     <p class="agents-workspace__attribution">
       Aus dem AI-Pioneers · KI-Agenten-Workshop · 16. Juni 2026
     </p>
@@ -524,6 +531,24 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
 
   var expandBtn = document.querySelector('[data-action="expand-all"]');
   if (expandBtn) expandBtn.addEventListener('click', expandAll);
+
+  var toFormBtn = document.querySelector('[data-action="to-form"]');
+  if (toFormBtn) toFormBtn.addEventListener('click', function () {
+    var data = collect();
+    if (!hasAnyContent()) {
+      if (!confirm('Das Canvas ist leer. Trotzdem zur Anmeldung wechseln?')) return;
+    }
+    try {
+      localStorage.setItem('agents.canvas.to-form.v1', JSON.stringify({
+        savedAt: '' + Date.now(),
+        canvas: data,
+        examples: window.AGENTS_EXAMPLES || []
+      }));
+    } catch (e) {
+      console.warn('Could not stash canvas for form', e);
+    }
+    window.location.href = '/agents/deep-dive/';
+  });
 
   // Initial
   load();

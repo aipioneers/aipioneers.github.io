@@ -12,6 +12,23 @@
       {{ .Content }}
     </div>
 
+    {{/* Canvas-bridge banner — hidden by default, shown by JS if canvas data is present */}}
+    <aside id="canvas-bridge-banner" class="agents-deep-dive__bridge" hidden>
+      <span class="agents-deep-dive__bridge-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 12l2 2 4-4"/>
+          <circle cx="12" cy="12" r="9"/>
+        </svg>
+      </span>
+      <div class="agents-deep-dive__bridge-body">
+        <strong>Aus deinem AGENTS-Canvas übernommen</strong>
+        <p>Use-Case und Vorab-Info sind unten vor-ausgefüllt — du kannst alles noch bearbeiten.</p>
+      </div>
+      <button type="button" class="agents-deep-dive__bridge-dismiss" data-bridge-dismiss>
+        Übernahme verwerfen
+      </button>
+    </aside>
+
     <form
       id="agents-deep-dive-form"
       class="agents-deep-dive__form"

@@ -30,9 +30,71 @@ const LABEL_BY_FIELD = {
   phase: "deine aktuelle Bauphase",
 }
 
+const BRIDGE_KEY = "agents.canvas.to-form.v1"
+const LETTER_NAMES = { a: "Auftrag", g: "Gehirn", e: "Equipment", n: "Notizbuch", t: "Taktik", s: "Schutz" }
+
 const form = document.querySelector(FORM_SELECTOR)
 if (form) {
+  applyCanvasBridge(form)
   init(form)
+}
+
+function readCanvasBridge() {
+  try {
+    const raw = localStorage.getItem(BRIDGE_KEY)
+    return raw ? JSON.parse(raw) : null
+  } catch (e) {
+    return null
+  }
+}
+
+function flattenLetter(letter, state, examples) {
+  if (!state) return ""
+  if (state.mode === "guided" && Array.isArray(state.options) && state.options.length) {
+    // resolve option ids to labels via examples? No — checkbox option labels come from data, not examples
+    return state.options.join(", ")
+  }
+  return (state.free || "").trim()
+}
+
+function applyCanvasBridge(form) {
+  const bridge = readCanvasBridge()
+  if (!bridge || !bridge.canvas) return
+  const canvas = bridge.canvas
+  const useCaseEl = form.querySelector('#f-use-case')
+  const prekEl = form.querySelector('#f-preknowledge')
+
+  // Use-Case: title + A (Auftrag) condensed
+  const auftrag = flattenLetter('a', canvas.a)
+  const titlePart = canvas.title ? canvas.title : ""
+  const useCaseDraft = [titlePart, auftrag].filter(Boolean).join(" — ").slice(0, 500)
+  if (useCaseEl && !useCaseEl.value && useCaseDraft) useCaseEl.value = useCaseDraft
+
+  // Vorab-Info: full canvas dump
+  const lines = []
+  if (canvas.title) lines.push("Use-Case: " + canvas.title)
+  Object.keys(LETTER_NAMES).forEach(function (k) {
+    const txt = flattenLetter(k, canvas[k])
+    if (txt) {
+      const head = k.toUpperCase() + " — " + LETTER_NAMES[k]
+      lines.push("\n" + head + ":\n" + txt)
+    }
+  })
+  const dump = lines.join("\n").slice(0, 1000)
+  if (prekEl && !prekEl.value && dump) prekEl.value = dump
+
+  // Show banner
+  const banner = document.getElementById('canvas-bridge-banner')
+  if (banner) {
+    banner.hidden = false
+    const dismiss = banner.querySelector('[data-bridge-dismiss]')
+    if (dismiss) dismiss.addEventListener('click', function () {
+      localStorage.removeItem(BRIDGE_KEY)
+      if (useCaseEl) useCaseEl.value = ""
+      if (prekEl) prekEl.value = ""
+      banner.hidden = true
+    })
+  }
 }
 
 function init(form) {
@@ -104,6 +166,7 @@ async function handleSubmit(form, supabaseUrl, supabaseAnonKey) {
       return
     }
 
+    try { localStorage.removeItem(BRIDGE_KEY) } catch (e) {}
     window.location.href = "/agents/deep-dive/danke/"
   } catch (err) {
     console.error("[agents-deep-dive] unexpected error", err)

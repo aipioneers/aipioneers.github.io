@@ -2,7 +2,7 @@
 # Five branches, each a tight realistic AGENTS canvas.
 
 - id: solar-rfi
-  icon: ☀
+  icon: sun
   branch: 'Energie / Versorger'
   label: 'Solar-RFI-Triage'
   summary: 'Designrelevante RFIs aus Procore filtern und priorisieren.'
@@ -38,7 +38,7 @@
     EU AI Act: Low-Risk, keine besonderen Pflichten.
 
 - id: schaden-class
-  icon: 🛡
+  icon: shield
   branch: 'Versicherung / Banken'
   label: 'Schaden-Klassifikation'
   summary: 'Schadenmeldungen automatisch sortieren und zuweisen.'
@@ -72,7 +72,7 @@
     EU AI Act: Annex III relevant — Hochrisiko-Pfad ab 12/2027 vorbereiten.
 
 - id: pflege-doku
-  icon: ❤
+  icon: heart
   branch: 'Gesundheit / Pflege'
   label: 'Pflege-Doku-Assistent'
   summary: 'Aus Sprachnotiz nach Visite einen Doku-Entwurf erstellen.'
@@ -107,7 +107,7 @@
     EU AI Act: Annex III Hochrisiko + GPAI-Pflichten (08/2025 aktiv). CE-Kennzeichnung Medizinprodukt prüfen.
 
 - id: service-routing
-  icon: ⚙
+  icon: gear
   branch: 'Maschinenbau / Industrie'
   label: 'Service-Ticket-Routing'
   summary: 'Service-Tickets automatisch dem richtigen Techniker zuweisen.'
@@ -142,7 +142,7 @@
     EU AI Act: Low-Risk.
 
 - id: buerger-mail
-  icon: 🏛
+  icon: building
   branch: 'Öffentlicher Sektor'
   label: 'Bürger-Mail-Klassifikator'
   summary: 'Bürger-Mails sortieren, Antwortvorschläge zur Freigabe vorbereiten.'

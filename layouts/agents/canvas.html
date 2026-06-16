@@ -33,7 +33,7 @@
         Als Link teilen
       </button>
       <button type="button" class="agents-workspace__btn" data-action="expand-all">
-        Alle Erklärungen aufklappen
+        Alle Erklärungen einklappen
       </button>
       <button type="button" class="agents-workspace__btn" data-action="clear">
         Felder leeren
@@ -89,8 +89,8 @@
         data-canvas-field="{{ .id }}"
         data-autogrow></textarea>
 
-      <details class="agents-workspace__explain no-print-details" data-letter-explain="{{ .id }}">
-        <summary>Erklärung, Beispiele und Anti-Pattern anzeigen</summary>
+      <details class="agents-workspace__explain no-print-details" data-letter-explain="{{ .id }}" open>
+        <summary>Erklärung, Beispiele und Anti-Pattern</summary>
 
         <div class="agents-workspace__explain-body">
           <div class="agents-workspace__explain-eli5">

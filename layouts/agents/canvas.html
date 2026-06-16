@@ -2,50 +2,63 @@
 {{ $fw := site.Data.agents.framework }}
 {{ $examples := site.Data.agents.examples }}
 
-<article class="agents-canvas">
+<article class="agents-workspace">
 
-  <header class="agents-canvas__header">
-    <p class="agents-canvas__eyebrow">Canvas</p>
+  <header class="agents-workspace__hero">
+    <p class="agents-workspace__eyebrow">Canvas + Erklärung</p>
     <h1>Euer AGENTS-Use-Case auf einer Seite</h1>
-    <p class="agents-canvas__lede">
-      Sechs Felder, ein Use Case. Tippt direkt im Browser — euer Stand bleibt
-      lokal auf eurem Gerät. Druckt es aus für den Workshop oder nehmt es als
-      Diskussionsgrundlage für die Deep-Dive-Runde.
+    <p class="agents-workspace__lede">
+      Sechs Felder, ein Use Case. Tippt direkt unten in den Bausteinen.
+      Jede Erklärung lässt sich ein- und ausklappen — kein Wechsel zwischen
+      Seiten nötig. Stand bleibt lokal im Browser.
     </p>
-
-    <div class="agents-canvas__toolbar no-print">
-      <div class="agents-canvas__loader">
-        <label for="canvas-loader">Vorlage laden:</label>
-        <select id="canvas-loader" data-canvas-loader>
-          <option value="">— eigene Anfangsskizze —</option>
-          {{ range $examples }}
-          <option value="{{ .id }}">{{ .label }}</option>
-          {{ end }}
-        </select>
-      </div>
-
-      <div class="agents-canvas__actions">
-        <button type="button" class="agents-canvas__btn agents-canvas__btn--primary" data-action="print">
-          Drucken / PDF
-        </button>
-        <button type="button" class="agents-canvas__btn" data-action="share">
-          Als Link teilen
-        </button>
-        <button type="button" class="agents-canvas__btn" data-action="clear">
-          Felder leeren
-        </button>
-      </div>
-
-      <div class="agents-canvas__meta">
-        <span class="agents-canvas__progress" data-canvas-progress>0 von 6 Bausteinen gefüllt</span>
-        <span class="agents-canvas__status" data-canvas-status></span>
-      </div>
-    </div>
   </header>
 
-  <form class="agents-canvas__grid" id="agents-canvas-form" autocomplete="off">
+  <div class="agents-workspace__toolbar no-print">
+    <div class="agents-workspace__loader">
+      <label for="canvas-loader">Vorlage laden:</label>
+      <select id="canvas-loader" data-canvas-loader>
+        <option value="">— eigene Anfangsskizze —</option>
+        {{ range $examples }}
+        <option value="{{ .id }}">{{ .label }}</option>
+        {{ end }}
+      </select>
+    </div>
 
-    <div class="agents-canvas__title-row">
+    <div class="agents-workspace__actions">
+      <button type="button" class="agents-workspace__btn agents-workspace__btn--primary" data-action="print">
+        Drucken / PDF
+      </button>
+      <button type="button" class="agents-workspace__btn" data-action="share">
+        Als Link teilen
+      </button>
+      <button type="button" class="agents-workspace__btn" data-action="expand-all">
+        Alle Erklärungen aufklappen
+      </button>
+      <button type="button" class="agents-workspace__btn" data-action="clear">
+        Felder leeren
+      </button>
+    </div>
+
+    <div class="agents-workspace__meta">
+      <span class="agents-workspace__progress" data-canvas-progress>0 von 6 Bausteinen gefüllt</span>
+      <span class="agents-workspace__status" data-canvas-status></span>
+    </div>
+  </div>
+
+  {{/* Quick-nav cards */}}
+  <nav class="agents-workspace__cards no-print" aria-label="AGENTS-Bausteine">
+    {{ range $fw.letters }}
+      <a href="#{{ .slug }}" class="agents-workspace__card">
+        <span class="agents-workspace__card-letter">{{ .letter }}</span>
+        <span class="agents-workspace__card-name">{{ .name }}</span>
+      </a>
+    {{ end }}
+  </nav>
+
+  <form id="agents-canvas-form" autocomplete="off" class="agents-workspace__form">
+
+    <div class="agents-workspace__title-row">
       <label for="canvas-title">Use-Case-Titel</label>
       <input
         type="text"
@@ -57,16 +70,17 @@
     </div>
 
     {{ range $fw.letters }}
-    <fieldset class="agents-canvas__field" data-letter="{{ .id }}">
-      <legend>
-        <span class="agents-canvas__field-letter">{{ .letter }}</span>
-        <span class="agents-canvas__field-name">{{ .name }}</span>
-        <span class="agents-canvas__field-question">„{{ .question }}"</span>
-        <a class="agents-canvas__field-explain no-print" href="/agents/#{{ .slug }}" target="_blank" rel="noopener" aria-label="Erklärung zu {{ .name }} öffnen">
-          Was bedeutet das? ↗
-        </a>
-      </legend>
-      <p class="agents-canvas__field-hint">{{ .eli5_body }}</p>
+    <section class="agents-workspace__letter" id="{{ .slug }}" data-letter="{{ .id }}">
+      <header class="agents-workspace__letter-header">
+        <span class="agents-workspace__letter-big">{{ .letter }}</span>
+        <div>
+          <h2 class="agents-workspace__letter-name">{{ .name }}</h2>
+          <p class="agents-workspace__letter-question">„{{ .question }}"</p>
+        </div>
+      </header>
+
+      <p class="agents-workspace__letter-hint">{{ .eli5_body }}</p>
+
       <textarea
         name="{{ .id }}"
         rows="6"
@@ -74,17 +88,66 @@
         placeholder="Notiert hier, was bei euch konkret zu diesem Baustein passt — Stichworte reichen."
         data-canvas-field="{{ .id }}"
         data-autogrow></textarea>
-    </fieldset>
+
+      <details class="agents-workspace__explain no-print-details" data-letter-explain="{{ .id }}">
+        <summary>Erklärung, Beispiele und Anti-Pattern anzeigen</summary>
+
+        <div class="agents-workspace__explain-body">
+          <div class="agents-workspace__explain-eli5">
+            <h3>{{ .eli5_title }}</h3>
+            <p>{{ .eli5_body }}</p>
+          </div>
+
+          <div class="agents-workspace__explain-technical">
+            <h3>Technisch</h3>
+            <dl>
+              {{ range .technical }}
+              <dt>{{ .label }}</dt>
+              <dd>{{ .body }}</dd>
+              {{ end }}
+            </dl>
+          </div>
+
+          <div class="agents-workspace__explain-cases">
+            <div class="agents-workspace__explain-case agents-workspace__explain-case--praxis">
+              <h4>Praxis</h4>
+              <p>{{ .praxis }}</p>
+            </div>
+            <div class="agents-workspace__explain-case agents-workspace__explain-case--anti">
+              <h4>Anti-Pattern</h4>
+              <p>{{ .anti_pattern }}</p>
+            </div>
+            <div class="agents-workspace__explain-case agents-workspace__explain-case--energie">
+              <h4>Am Energie-Beispiel</h4>
+              <p>{{ .energie_case }}</p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
     {{ end }}
 
   </form>
 
-  <footer class="agents-canvas__footer no-print">
-    <p>
+  {{/* EU AI Act timeline (collapsed by default) */}}
+  <details class="agents-workspace__timeline-wrap no-print-details">
+    <summary>EU AI Act — die Fristen, die zählen</summary>
+    <ul class="agents-workspace__timeline-list">
+      {{ range $fw.ai_act_timeline }}
+      <li>
+        <strong>{{ .date }}</strong>
+        <span>{{ .rule }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </details>
+
+  <footer class="agents-workspace__footer no-print">
+    <p class="agents-workspace__footer-cta">
       Bereit für die Diskussion in kleiner Runde?
       <a href="/agents/deep-dive/">→ Zur Deep-Dive-Anmeldung</a>
     </p>
-    <p class="agents-canvas__attribution">
+    <p class="agents-workspace__attribution">
       Aus dem AI-Pioneers · KI-Agenten-Workshop · 16. Juni 2026
     </p>
   </footer>
@@ -107,8 +170,6 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   var statusEl = document.querySelector('[data-canvas-status]');
   var progressEl = document.querySelector('[data-canvas-progress]');
   var saveTimer = null;
-
-  // ── examples (injected from Hugo as JS object via safeJS) ──
   var examples = Array.isArray(window.AGENTS_EXAMPLES) ? window.AGENTS_EXAMPLES : [];
 
   function getField(name) {
@@ -137,7 +198,6 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   }
 
   function load() {
-    // 1. URL-hash share-snapshot beats everything
     try {
       var hash = window.location.hash.replace(/^#/, '');
       var m = /(?:^|&)s=([^&]+)/.exec(hash);
@@ -145,14 +205,12 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
         var json = JSON.parse(b64decode(m[1]));
         populate(json, { persist: true });
         flashStatus('Aus geteiltem Link geladen', 'ok');
-        // Clean URL after load
         history.replaceState(null, '', window.location.pathname);
         return;
       }
     } catch (e) {
       console.warn('share-hash decode failed', e);
     }
-    // 2. localStorage draft
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
       if (raw) populate(JSON.parse(raw), { persist: false });
@@ -216,6 +274,14 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
     flashStatus('Alle Felder geleert', 'ok');
   }
 
+  function expandAll() {
+    var details = document.querySelectorAll('details[data-letter-explain]');
+    var anyClosed = Array.prototype.some.call(details, function (d) { return !d.open; });
+    details.forEach(function (d) { d.open = anyClosed; });
+    var btn = document.querySelector('[data-action="expand-all"]');
+    if (btn) btn.textContent = anyClosed ? 'Alle Erklärungen einklappen' : 'Alle Erklärungen aufklappen';
+  }
+
   function loadExample(id) {
     var ex = examples.find(function (e) { return e.id === id; });
     if (!ex) return;
@@ -229,7 +295,6 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
     flashStatus('Vorlage „' + ex.label + '" geladen', 'ok');
   }
 
-  // ── base64url for share URL (UTF-8-safe) ──
   function b64encode(str) {
     return btoa(unescape(encodeURIComponent(str)))
       .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -243,7 +308,6 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   function shareLink() {
     try {
       var encoded = b64encode(JSON.stringify(collect()));
-      // Keep URLs reasonable — refuse if state is huge (>6KB → ~8KB URL)
       if (encoded.length > 6000) {
         flashStatus('Inhalt zu lang für einen Share-Link — bitte kürzen', 'error');
         return;
@@ -263,7 +327,7 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
     }
   }
 
-  // ── wire up events ──
+  // ── wire up ──
   form.querySelectorAll('[data-canvas-field]').forEach(function (el) {
     el.addEventListener('input', function () {
       debouncedSave();
@@ -277,7 +341,6 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
     loaderEl.addEventListener('change', function (event) {
       if (event.target.value) {
         loadExample(event.target.value);
-        // Reset dropdown so re-selecting same example re-loads
         setTimeout(function () { event.target.value = ''; }, 100);
       }
     });
@@ -292,9 +355,10 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   var shareBtn = document.querySelector('[data-action="share"]');
   if (shareBtn) shareBtn.addEventListener('click', shareLink);
 
-  // ── initial load ──
+  var expandBtn = document.querySelector('[data-action="expand-all"]');
+  if (expandBtn) expandBtn.addEventListener('click', expandAll);
+
   load();
-  // initial autogrow + progress
   form.querySelectorAll('textarea[data-autogrow]').forEach(autoGrow);
   updateProgress();
 })();

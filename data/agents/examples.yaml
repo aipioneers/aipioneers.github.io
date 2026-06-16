@@ -1,119 +1,125 @@
 # Use-Case examples for /agents/canvas/
-# Five branches, each a realistic fully-filled AGENTS canvas.
+# Five branches, each a tight realistic AGENTS canvas.
 
 - id: solar-rfi
-  label: 'Energie / Versorger — Solar-RFI-Triage'
+  icon: ☀
+  branch: 'Energie / Versorger'
+  label: 'Solar-RFI-Triage'
+  summary: 'Designrelevante RFIs aus Procore filtern und priorisieren.'
   title: 'Solar-RFI-Triage (Novel Energy)'
   a: |-
-    Scanne eingehende RFIs und Submittals aus Procore auf designrelevante Änderungen. Liefere pro Dokument eine 1-Satz-Zusammenfassung und drei Optionen für die Projektleitung.
+    Eingehende RFIs/Submittals aus Procore scannen, designrelevante Änderungen flaggen, eine 1-Satz-Zusammenfassung + 3 Optionen an die PL liefern.
 
-    Scope: ausschließlich Solar-Projekte, kein Wind, kein BESS.
-    Erfolg: ≥ 90 % der designrelevanten Docs werden korrekt geflaggt, ≤ 5 % False-Positives.
+    Scope: Solar-Projekte (kein Wind, kein BESS).
+    Erfolg: ≥ 90 % korrekt geflaggt, ≤ 5 % False-Positives.
   g: |-
-    GPT-4o-mini für die Erst-Triage — günstig, latenzarm, ausreichend.
-    Frontier-Modell (Claude Sonnet) erst bei Eskalation oder strittiger Klassifikation.
-    Datenschutz unkritisch — keine Personendaten, nur Projekt-Engineering-Inhalte.
+    GPT-4o-mini für Erst-Triage (günstig, latenzarm).
+    Claude Sonnet nur bei Eskalation.
+    Keine Personendaten — Datenschutz unkritisch.
   e: |-
-    Procore-API (read-only auf RFIs + Submittals).
-    Interne Doc-DB für As-built-Vergleich.
-    MS Teams als Notification-Kanal an Projektleitung.
+    Procore-API (read-only RFIs + Submittals).
+    Interne Doc-DB (As-built-Vergleich).
+    MS Teams (Notification).
 
-    Least Privilege: keine Submit-Rechte zurück nach Procore — Agent darf nie selbst antworten.
+    Least Privilege: keine Submit-Rechte zurück nach Procore.
   n: |-
-    RAG über As-built-Pläne aller laufenden Projekte.
-    Trafo-Spezifikationen pro Site.
-    Historische Submittal-Patterns als Vector-Index (letzte 24 Monate).
-    Files on-demand — kein Dump in den Kontext.
+    RAG: As-built-Pläne aller Projekte, Trafo-Specs pro Site.
+    Vector-Index: historische Submittal-Patterns (24 Monate).
+    Files on-demand statt Kontext-Dump.
   t: |-
-    Single-Agent Loop:
-    Doc empfangen → Klassifizieren (designrelevant ja/nein) → Bei "ja" Detail-Analyse → 1-Satz-Summary + 3 Optionen → Teams-Notify Projektleitung.
+    Single-Agent Loop: Doc → Klassifikation → Bei "ja" Detail-Analyse → Summary + 3 Optionen → Teams-Notify.
 
-    Kein Multi-Agent — Handoffs würden hier Komplexität ohne Wert hinzufügen.
+    Kein Multi-Agent — unnötige Komplexität für diesen Scope.
   s: |-
-    Human-in-the-Loop bei jeder Empfehlung — Agent dokumentiert, Mensch entscheidet.
-    Logging in Datadog (Trace pro Doc, Latenz, Confidence-Score).
-    Wöchentliche Evals gegen 50 historische Docs als Regression-Suite.
+    Human-in-the-Loop bei jeder Empfehlung.
+    Datadog-Tracing pro Doc.
+    Wöchentliche Evals gegen 50 Regression-Docs.
 
-    EU AI Act: Low-Risk-System, kein Hochrisiko-Bereich, keine besonderen Pflichten.
+    EU AI Act: Low-Risk, keine besonderen Pflichten.
 
 - id: schaden-class
-  label: 'Versicherung / Banken — Schadenfall-Erstklassifikation'
+  icon: 🛡
+  branch: 'Versicherung / Banken'
+  label: 'Schaden-Klassifikation'
+  summary: 'Schadenmeldungen automatisch sortieren und zuweisen.'
   title: 'Schadenmeldung-Erstklassifikation'
   a: |-
-    Klassifiziere eingehende Schadensmeldungen (Mail, Web-Formular) nach Sparte, Komplexität und Eilbedürftigkeit. Liefere pro Fall: Sparte-Tag, Eskalations-Stufe (1–3), Sachbearbeiter-Vorschlag.
+    Eingehende Schadensmeldungen nach Sparte, Komplexität, Eilbedürftigkeit klassifizieren. Tag, Eskalations-Stufe (1–3) und Sachbearbeiter-Vorschlag liefern.
 
-    Scope: Sach-/Hausrat. KEIN KFZ, KEINE Personenschäden in dieser Iteration.
+    Scope: Sach-/Hausrat. KEIN KFZ, KEINE Personenschäden in v1.
   g: |-
-    Open-Source LLM (Llama 3.3 70B) auf eigener EU-Infrastruktur (Hetzner Frankfurt).
-    Datenschutz kritisch: keine Customer-Daten verlassen das Haus, keine API-Provider im Pfad.
-    Frontier nur für Eval-Vergleichsläufe (mit synthetischen Daten).
+    Llama 3.3 70B auf eigener EU-Infra (Hetzner Frankfurt).
+    Datenschutz kritisch: keine API-Provider im Customer-Pfad.
+    Frontier nur für Evals mit synthetischen Daten.
   e: |-
-    Mail-Gateway-Integration (read inbox).
-    Schadens-System-API (write nur Tag-Zuweisung + Vorgangsnummer).
-    Interne Sparte-Definition-DB.
-
-    Berechtigungen: read alles, write strikt auf Tags und Routing beschränkt.
+    Mail-Gateway (read).
+    Schadens-System-API (write nur Tags + Vorgangs-Nr.).
+    Sparte-Definition-DB.
   n: |-
-    Historische 5-Jahres-Schadensdaten als Vector-Index.
-    Sparte-Definitionen aus dem Compliance-Handbuch (RAG, monatlich aktualisiert).
-    Eskalations-Regeln als strukturiertes JSON.
-
-    Memory pro Vorgang: Verknüpfung zu früheren Schäden des Kunden.
+    Vector-Index: 5 Jahre Schadensdaten.
+    RAG: Sparte-Definitionen aus Compliance-Handbuch.
+    Memory pro Vorgang: Kundenhistorie verknüpft.
   t: |-
     Plan → Klassifizieren → Confidence-Check → Verify.
 
-    Bei Confidence < 80 %: automatischer Handoff an Sachbearbeiter:in mit Begründung und Tag-Vorschlag.
-    Bei Confidence ≥ 80 %: direkte Zuweisung mit Audit-Eintrag.
+    Confidence < 80 % → Handoff an Sachbearbeiter:in mit Begründung.
+    Confidence ≥ 80 % → direkte Zuweisung.
   s: |-
-    Audit-Trail über LangSmith mit Eingangs- und Ausgangsdaten.
-    Vier-Augen-Prinzip bei Eskalations-Stufe 3.
-    Monitoring auf Bias bei Sparte-Zuordnung (gleichmäßig über Postleitzahl-Bereiche).
+    LangSmith Audit-Trail (Ein-/Ausgangsdaten).
+    Vier-Augen-Prinzip bei Stufe 3.
+    PLZ-Bias-Monitoring.
 
-    EU AI Act: Annex III risikorelevant (Versicherung) → Hochrisiko-Pfad ab 12/2027 vorbereiten.
+    EU AI Act: Annex III relevant — Hochrisiko-Pfad ab 12/2027 vorbereiten.
 
 - id: pflege-doku
-  label: 'Gesundheit / Pflege — Pflegedokumentations-Assistenz'
+  icon: ❤
+  branch: 'Gesundheit / Pflege'
+  label: 'Pflege-Doku-Assistent'
+  summary: 'Aus Sprachnotiz nach Visite einen Doku-Entwurf erstellen.'
   title: 'Pflege-Doku-Assistent'
   a: |-
-    Generiere aus einer 2-Min-Sprachnotiz nach der Pflegevisite einen strukturierten Doku-Entwurf: Vitalwerte, Beobachtungen, Maßnahmen-Empfehlungen — zur Freigabe durch die Pflegekraft.
+    Aus 2-Min-Sprachnotiz nach Pflegevisite strukturierten Doku-Entwurf (Vitalwerte, Beobachtungen, Maßnahmen) zur Freigabe durch die Pflegekraft erstellen.
 
     Scope: stationäre Pflege. KEINE Akutmedizin, KEINE Medikamentenempfehlungen.
   g: |-
-    Whisper (lokal) für Transkription — keine Stimme verlässt die Einrichtung.
+    Whisper lokal für Transkription (Stimme verlässt Einrichtung nicht).
     Mistral Large via EU-API für Strukturierung.
-    Datenschutz: PHI muss auf EU-Infra bleiben, AVV mit Mistral vorhanden.
+    AVV mit Mistral vorhanden, PHI bleibt EU-resident.
   e: |-
-    Spracherkennungs-Tablet im Stationszimmer.
-    Pflege-IS API (z. B. vivendi/CGM), write nur in Status "Entwurf".
-    Interne Doku-Templates für Standardvisiten.
+    Spracherkennungs-Tablet (Stationszimmer).
+    Pflege-IS API (z. B. vivendi/CGM), write NUR in "Entwurf".
+    Standardvisite-Templates.
 
-    Berechtigung: write NIE in Final-Status — nur Pflegekraft kann freigeben.
+    Berechtigung: write NIE Final-Status.
   n: |-
-    Patient:innen-Stammdaten on-demand (Diagnose, Allergien, laufende Therapien).
-    Pflegestandards der Einrichtung (RAG).
-    Fachliche Begrifflichkeiten als Glossar — verhindert Halluzination bei Fachtermini.
+    Patient:innen-Stammdaten on-demand (Diagnose, Allergien, Therapien).
+    RAG: Pflegestandards der Einrichtung.
+    Fachglossar gegen Halluzination bei Fachtermini.
   t: |-
     Voice → Transkript → Strukturierung → Template-Befüllung → Pflegekraft-Review → Freigabe.
 
-    Single-Agent. Kein Multi-Agent — bei medizinischem Kontext Komplexität minimieren.
+    Single-Agent. Multi-Agent verboten — Komplexität ist Risiko in medizinischem Kontext.
   s: |-
     HARTE Regel: kein Final-Status ohne menschliche Freigabe.
-    Monitoring auf False-Negative (übersehene Symptome) als wichtigste Metrik.
-    Wöchentliche Eval-Runs gegen anonymisierte Vergleichsdokus.
+    Monitoring False-Negative (übersehene Symptome) — wichtigste Metrik.
+    Eval-Runs gegen anonymisierte Vergleichsdokus.
 
-    EU AI Act: medizinischer Bereich = Hochrisiko (Annex III), GPAI-Pflichten ab 08/2025 aktiv. CE-Kennzeichnung als Medizinprodukt prüfen.
+    EU AI Act: Annex III Hochrisiko + GPAI-Pflichten (08/2025 aktiv). CE-Kennzeichnung Medizinprodukt prüfen.
 
 - id: service-routing
-  label: 'Maschinenbau / Industrie — Service-Ticket-Routing'
+  icon: ⚙
+  branch: 'Maschinenbau / Industrie'
+  label: 'Service-Ticket-Routing'
+  summary: 'Service-Tickets automatisch dem richtigen Techniker zuweisen.'
   title: 'Service-Ticket-Smart-Routing'
   a: |-
-    Route eingehende Service-Tickets (Email, Hotline-Transkript, Portal) an den passenden Techniker-Pool — basierend auf Maschinen-Modell, Symptom und Standort. Liefere pro Ticket: Pool-Zuordnung und drei wahrscheinlichste Ursachen aus der Historie.
+    Service-Tickets (Email, Hotline, Portal) an passenden Techniker-Pool routen — basierend auf Maschinen-Modell, Symptom, Standort. Plus 3 wahrscheinlichste Ursachen aus Historie.
 
-    Erfolg: ≥ 85 % Korrekt-Routing-Rate, < 10 Min Routing-Zeit.
+    Erfolg: ≥ 85 % Korrekt-Routing, < 10 Min Bearbeitungszeit.
   g: |-
-    Open-Source Qwen 2.5 32B auf eigenem Hetzner-Cluster.
+    Qwen 2.5 32B auf eigenem Hetzner-Cluster.
     Günstig, kontextstark (128k), EU-resident.
-    Frontier nur für Schwierigkeitsfälle (Confidence < 60 %).
+    Frontier nur bei Confidence < 60 %.
   e: |-
     Service-CRM (SAP S/4) read+write.
     Knowledge-Base (Confluence) read.
@@ -121,51 +127,50 @@
 
     Least Privilege: keine Kundendaten-Edits, nur Ticket-Felder.
   n: |-
-    10-Jahres-Service-Historie als Vector-Index (~3M Tickets).
-    Modellbaureihen-Spezifikationen mit Fehler-Patterns.
-    Techniker-Profile (Skills, Standort, Verfügbarkeit) als strukturierte Tabelle.
-
-    Memory: pro Maschine Patterns der letzten 12 Monate.
+    Vector-Index: 10 Jahre Service-Historie (~3M Tickets).
+    Strukturierte DB: Modellbaureihen + Fehler-Patterns.
+    Techniker-Profile: Skills, Standort, Verfügbarkeit.
   t: |-
-    Loop: Ticket eingehen → Klassifikation → Pool-Match → Ähnlichkeitssuche → 3 Ursachen-Hypothesen → Notify Pool-Lead.
+    Loop: Ticket → Klassifikation → Pool-Match → Ähnlichkeitssuche → 3 Hypothesen → Notify.
 
-    Multi-Agent nur bei strittiger Klassifikation: zwei LLM-Calls, Disagreement → Human-Routing.
+    Multi-Agent nur bei strittiger Klassifikation: zwei LLM-Calls, Disagreement → Human.
   s: |-
     Audit-Log pro Routing-Entscheidung.
     Eskalation an Disponent:in bei Confidence < 70 %.
-    Monitoring False-Routing-Rate weekly, Drift-Detection für neue Maschinen-Modelle.
+    Drift-Detection für neue Maschinen-Modelle.
 
-    EU AI Act: Low-Risk, keine besonderen Pflichten.
+    EU AI Act: Low-Risk.
 
 - id: buerger-mail
-  label: 'Öffentlicher Sektor — Bürger-Mail-Klassifikation'
+  icon: 🏛
+  branch: 'Öffentlicher Sektor'
+  label: 'Bürger-Mail-Klassifikator'
+  summary: 'Bürger-Mails sortieren, Antwortvorschläge zur Freigabe vorbereiten.'
   title: 'Bürger-Mail-Klassifikator'
   a: |-
-    Klassifiziere eingehende Bürger-Mails nach Fachbereich, Dringlichkeit und Anliegen-Typ. Schlage pro Mail eine 2-Satz-Antwort vor — Sachbearbeiter:in gibt vor Versand frei.
+    Bürger-Mails nach Fachbereich, Dringlichkeit, Anliegen-Typ klassifizieren. Pro Mail einen 2-Satz-Antwortvorschlag zur Freigabe durch Sachbearbeiter:in liefern.
 
     Scope: Kommune 50–200k Einwohner, alle Fachbereiche.
-    KEIN Versand ohne menschliche Freigabe.
+    HARTE Regel: KEIN Versand ohne menschliche Freigabe.
   g: |-
-    Frontier-Modell (Claude Sonnet via Anthropic EU-Region) für Erstklassifikation.
-    Lokales Modell (Llama 3.3 auf StackIT) für Antwort-Generierung.
-    AVV mit Anthropic vorhanden, Datenschutz-Folgenabschätzung dokumentiert.
+    Claude Sonnet via Anthropic EU-Region für Erstklassifikation.
+    Llama 3.3 lokal (StackIT) für Antwort-Generierung.
+    AVV mit Anthropic + Datenschutz-Folgenabschätzung dokumentiert.
   e: |-
-    Mail-Server-API (IMAP read, SMTP write nur durch Mensch).
-    Fachverfahren-System (z. B. enaio) read+write nur in Status "Entwurf".
-    Interne Wissens-DB mit häufigen Bürger-Anliegen.
-
-    Berechtigung: read Mails, write nur Drafts in Sachbearbeitungs-Queue.
+    Mail-Server-API (IMAP read; SMTP nur durch Mensch).
+    Fachverfahren-System (z. B. enaio) write nur "Entwurf".
+    Wissens-DB häufiger Bürger-Anliegen.
   n: |-
-    Aktuelle Verfahrensanweisungen pro Fachbereich (RAG, täglicher Refresh).
+    RAG: Verfahrensanweisungen pro Fachbereich (täglicher Refresh).
     Frage-Antwort-Wissensdatenbank (kuratiert).
     Eskalations-Matrix bei sensiblen Themen (Sozialhilfe, Asyl, Beschwerden).
   t: |-
-    Plan → parse → klassifizieren → ähnliche Fälle suchen → Antwort-Entwurf → Sachbearbeiter-Review.
+    Plan → parse → klassifizieren → ähnliche Fälle → Antwort-Entwurf → Sachbearbeiter-Review.
 
-    Single-Agent, kein Handoff. Multi-Agent würde Verantwortung verwässern.
+    Single-Agent. Kein Handoff — Verantwortung soll klar bleiben.
   s: |-
-    Striktes Human-in-the-Loop: KEIN Mailversand ohne Freigabe.
-    Monitoring auf diskriminierende Sprache (Bias-Check vor jeder Antwort-Generierung).
-    Bias-Audit halbjährlich mit externen Tests.
+    Striktes Human-in-the-Loop.
+    Bias-Check vor jeder Antwort-Generierung (diskriminierende Sprache).
+    Bias-Audit halbjährlich extern.
 
-    EU AI Act: öffentlicher Sektor = potenziell Hochrisiko bei Sozialleistungs-relevanten Antworten. Transparenz-Pflicht 08/2026.
+    EU AI Act: potenziell Hochrisiko bei Sozialleistungen. Transparenz-Pflicht 08/2026 aktiv.

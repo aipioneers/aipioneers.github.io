@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $fw := site.Data.agents.framework }}
 {{ $examples := site.Data.agents.examples }}
+{{ $options := site.Data.agents.field_options }}
 
 <article class="agents-workspace">
 
@@ -8,45 +9,51 @@
     <p class="agents-workspace__eyebrow">Canvas + Erklärung</p>
     <h1>Euer AGENTS-Use-Case auf einer Seite</h1>
     <p class="agents-workspace__lede">
-      Sechs Felder, ein Use Case. Tippt direkt unten in den Bausteinen.
-      Jede Erklärung lässt sich ein- und ausklappen — kein Wechsel zwischen
-      Seiten nötig. Stand bleibt lokal im Browser.
+      Sechs Bausteine, ein Use Case. Tippt frei oder klickt euch durch
+      vordefinierte Optionen — pro Baustein umschaltbar. Stand bleibt lokal.
     </p>
   </header>
 
-  <div class="agents-workspace__toolbar no-print">
-    <div class="agents-workspace__loader">
-      <label for="canvas-loader">Vorlage laden:</label>
-      <select id="canvas-loader" data-canvas-loader>
-        <option value="">— eigene Anfangsskizze —</option>
-        {{ range $examples }}
-        <option value="{{ .id }}">{{ .label }}</option>
-        {{ end }}
-      </select>
+  {{/* ── Template selector (cards) ── */}}
+  <section class="agents-workspace__templates no-print" aria-label="Vorlage laden">
+    <p class="agents-workspace__templates-title">Vorlage laden</p>
+    <div class="agents-workspace__template-grid">
+      {{ range $examples }}
+      <button type="button" class="agents-workspace__template-card" data-canvas-template="{{ .id }}">
+        <span class="agents-workspace__template-icon" aria-hidden="true">{{ .icon }}</span>
+        <span class="agents-workspace__template-text">
+          <span class="agents-workspace__template-branch">{{ .branch }}</span>
+          <span class="agents-workspace__template-label">{{ .label }}</span>
+          <span class="agents-workspace__template-summary">{{ .summary }}</span>
+        </span>
+      </button>
+      {{ end }}
     </div>
+  </section>
 
+  {{/* ── Slim toolbar ── */}}
+  <div class="agents-workspace__toolbar no-print">
     <div class="agents-workspace__actions">
-      <button type="button" class="agents-workspace__btn agents-workspace__btn--primary" data-action="print">
+      <button type="button" class="agents-workspace__btn agents-workspace__btn--primary" data-action="print" title="Drucken oder als PDF speichern">
         Drucken / PDF
       </button>
-      <button type="button" class="agents-workspace__btn" data-action="share">
-        Als Link teilen
+      <button type="button" class="agents-workspace__btn" data-action="share" title="Aktuellen Stand als Link teilen">
+        Teilen
       </button>
-      <button type="button" class="agents-workspace__btn" data-action="expand-all">
-        Alle Erklärungen einklappen
+      <button type="button" class="agents-workspace__btn" data-action="expand-all" title="Alle Erklärungen ein-/ausklappen">
+        Erklärungen
       </button>
-      <button type="button" class="agents-workspace__btn" data-action="clear">
+    </div>
+    <div class="agents-workspace__meta">
+      <span class="agents-workspace__progress" data-canvas-progress>0 / 6</span>
+      <span class="agents-workspace__status" data-canvas-status></span>
+      <button type="button" class="agents-workspace__link" data-action="clear" title="Alle Eingaben löschen">
         Felder leeren
       </button>
     </div>
-
-    <div class="agents-workspace__meta">
-      <span class="agents-workspace__progress" data-canvas-progress>0 von 6 Bausteinen gefüllt</span>
-      <span class="agents-workspace__status" data-canvas-status></span>
-    </div>
   </div>
 
-  {{/* Quick-nav cards */}}
+  {{/* ── Quick-nav ── */}}
   <nav class="agents-workspace__cards no-print" aria-label="AGENTS-Bausteine">
     {{ range $fw.letters }}
       <a href="#{{ .slug }}" class="agents-workspace__card">
@@ -70,24 +77,55 @@
     </div>
 
     {{ range $fw.letters }}
+    {{ $letter := . }}
+    {{ $letterOptions := index $options .id }}
     <section class="agents-workspace__letter" id="{{ .slug }}" data-letter="{{ .id }}">
       <header class="agents-workspace__letter-header">
         <span class="agents-workspace__letter-big">{{ .letter }}</span>
-        <div>
+        <div class="agents-workspace__letter-meta">
           <h2 class="agents-workspace__letter-name">{{ .name }}</h2>
           <p class="agents-workspace__letter-question">„{{ .question }}"</p>
+        </div>
+        <div class="agents-workspace__letter-mode no-print" role="group" aria-label="Eingabe-Modus {{ .name }}">
+          <button type="button" class="agents-workspace__mode-btn is-active" data-mode-btn="free" data-mode-letter="{{ .id }}" aria-pressed="true">Frei</button>
+          <button type="button" class="agents-workspace__mode-btn" data-mode-btn="guided" data-mode-letter="{{ .id }}" aria-pressed="false">Geführt</button>
         </div>
       </header>
 
       <p class="agents-workspace__letter-hint">{{ .eli5_body }}</p>
 
-      <textarea
-        name="{{ .id }}"
-        rows="6"
-        maxlength="2000"
-        placeholder="Notiert hier, was bei euch konkret zu diesem Baustein passt — Stichworte reichen."
-        data-canvas-field="{{ .id }}"
-        data-autogrow></textarea>
+      {{/* Free mode */}}
+      <div class="agents-workspace__mode-view" data-mode-view="free" data-letter="{{ .id }}">
+        <textarea
+          name="{{ .id }}"
+          rows="6"
+          maxlength="2000"
+          placeholder="Stichworte oder Volltext — wie ihr wollt."
+          data-canvas-field="{{ .id }}"
+          data-canvas-mode="free"
+          data-autogrow></textarea>
+      </div>
+
+      {{/* Guided mode */}}
+      <div class="agents-workspace__mode-view" data-mode-view="guided" data-letter="{{ .id }}" hidden>
+        {{ range $letterOptions }}
+        <fieldset class="agents-workspace__options">
+          <legend>{{ .group }}</legend>
+          <div class="agents-workspace__options-grid">
+            {{ range .items }}
+            <label class="agents-workspace__option">
+              <input
+                type="checkbox"
+                value="{{ .id }}"
+                data-canvas-option="{{ $letter.id }}"
+                data-option-label="{{ .label }}">
+              <span>{{ .label }}</span>
+            </label>
+            {{ end }}
+          </div>
+        </fieldset>
+        {{ end }}
+      </div>
 
       <details class="agents-workspace__explain no-print-details" data-letter-explain="{{ .id }}" open>
         <summary>Erklärung, Beispiele und Anti-Pattern</summary>
@@ -129,7 +167,6 @@
 
   </form>
 
-  {{/* EU AI Act timeline (collapsed by default) */}}
   <details class="agents-workspace__timeline-wrap no-print-details">
     <summary>EU AI Act — die Fristen, die zählen</summary>
     <ul class="agents-workspace__timeline-list">
@@ -161,8 +198,9 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
 <script>
 (function () {
   'use strict';
-  var STORAGE_KEY = 'agents.canvas.draft.v2';
-  var FIELDS = ['title', 'a', 'g', 'e', 'n', 't', 's'];
+  var STORAGE_KEY = 'agents.canvas.draft.v3';
+  var LETTERS = ['a', 'g', 'e', 'n', 't', 's'];
+  var FIELDS = ['title'].concat(LETTERS);
 
   var form = document.getElementById('agents-canvas-form');
   if (!form) return;
@@ -172,32 +210,103 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   var saveTimer = null;
   var examples = Array.isArray(window.AGENTS_EXAMPLES) ? window.AGENTS_EXAMPLES : [];
 
-  function getField(name) {
-    return form.querySelector('[data-canvas-field="' + name + '"]');
+  // ──────────────────────────────────────────────────────────────
+  // Data model (v3):
+  //   {
+  //     title: '...',
+  //     a: { mode: 'free'|'guided', free: '...', options: ['triage', ...] },
+  //     g: { ... },
+  //     ...
+  //   }
+  // ──────────────────────────────────────────────────────────────
+
+  function defaultLetterState() {
+    return { mode: 'free', free: '', options: [] };
+  }
+
+  function getTitleEl() {
+    return form.querySelector('[data-canvas-field="title"]');
+  }
+  function getFreeEl(letter) {
+    return form.querySelector('[data-canvas-field="' + letter + '"][data-canvas-mode="free"]');
+  }
+  function getOptionEls(letter) {
+    return form.querySelectorAll('[data-canvas-option="' + letter + '"]');
+  }
+  function getFreeView(letter) {
+    return form.querySelector('[data-mode-view="free"][data-letter="' + letter + '"]');
+  }
+  function getGuidedView(letter) {
+    return form.querySelector('[data-mode-view="guided"][data-letter="' + letter + '"]');
   }
 
   function collect() {
-    var data = {};
-    FIELDS.forEach(function (k) {
-      var el = getField(k);
-      data[k] = el ? el.value : '';
+    var data = { title: '' };
+    var titleEl = getTitleEl();
+    if (titleEl) data.title = titleEl.value;
+    LETTERS.forEach(function (l) {
+      var freeEl = getFreeEl(l);
+      var optionEls = getOptionEls(l);
+      var selected = Array.prototype.filter.call(optionEls, function (cb) { return cb.checked; })
+        .map(function (cb) { return cb.value; });
+      var mode = (currentMode(l) || 'free');
+      data[l] = {
+        mode: mode,
+        free: freeEl ? freeEl.value : '',
+        options: selected
+      };
     });
     return data;
   }
 
+  function currentMode(letter) {
+    var btn = form.querySelector('[data-mode-btn][data-mode-letter="' + letter + '"].is-active');
+    return btn ? btn.getAttribute('data-mode-btn') : 'free';
+  }
+
+  function setMode(letter, mode) {
+    var btns = form.querySelectorAll('[data-mode-btn][data-mode-letter="' + letter + '"]');
+    btns.forEach(function (b) {
+      var active = b.getAttribute('data-mode-btn') === mode;
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    var freeView = getFreeView(letter);
+    var guidedView = getGuidedView(letter);
+    if (freeView) freeView.hidden = (mode !== 'free');
+    if (guidedView) guidedView.hidden = (mode !== 'guided');
+    if (mode === 'free') {
+      var freeEl = getFreeEl(letter);
+      if (freeEl) autoGrow(freeEl);
+    }
+  }
+
   function populate(data, opts) {
     opts = opts || {};
-    FIELDS.forEach(function (k) {
-      var el = getField(k);
-      if (!el) return;
-      if (data[k] != null) el.value = data[k];
-      autoGrow(el);
+    var titleEl = getTitleEl();
+    if (titleEl) titleEl.value = (data.title || '');
+
+    LETTERS.forEach(function (l) {
+      var state = (data && data[l]) || defaultLetterState();
+      // Backward compat: if state is a string, treat as free text
+      if (typeof state === 'string') state = { mode: 'free', free: state, options: [] };
+
+      var freeEl = getFreeEl(l);
+      if (freeEl) freeEl.value = state.free || '';
+
+      var optionEls = getOptionEls(l);
+      var selected = new Set(state.options || []);
+      optionEls.forEach(function (cb) { cb.checked = selected.has(cb.value); });
+
+      setMode(l, state.mode === 'guided' ? 'guided' : 'free');
     });
     updateProgress();
+    form.querySelectorAll('textarea[data-autogrow]').forEach(autoGrow);
     if (opts.persist !== false) save();
   }
 
   function load() {
+    // Share-URL hash beats local
     try {
       var hash = window.location.hash.replace(/^#/, '');
       var m = /(?:^|&)s=([^&]+)/.exec(hash);
@@ -213,7 +322,20 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
     }
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) populate(JSON.parse(raw), { persist: false });
+      if (raw) {
+        populate(JSON.parse(raw), { persist: false });
+        return;
+      }
+      // Migration: try v2 (flat strings) if v3 missing
+      var v2 = localStorage.getItem('agents.canvas.draft.v2');
+      if (v2) {
+        var v2data = JSON.parse(v2);
+        var migrated = { title: v2data.title || '' };
+        LETTERS.forEach(function (l) {
+          migrated[l] = { mode: 'free', free: v2data[l] || '', options: [] };
+        });
+        populate(migrated, { persist: true });
+      }
     } catch (e) {
       console.warn('canvas localStorage load failed', e);
     }
@@ -247,12 +369,18 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
 
   function updateProgress() {
     if (!progressEl) return;
-    var letters = ['a', 'g', 'e', 'n', 't', 's'];
-    var filled = letters.filter(function (k) {
-      var el = getField(k);
-      return el && el.value.trim().length > 0;
-    }).length;
-    progressEl.textContent = filled + ' von 6 Bausteinen gefüllt';
+    var filled = 0;
+    LETTERS.forEach(function (l) {
+      var mode = currentMode(l);
+      if (mode === 'guided') {
+        var anyChecked = Array.prototype.some.call(getOptionEls(l), function (cb) { return cb.checked; });
+        if (anyChecked) filled++;
+      } else {
+        var freeEl = getFreeEl(l);
+        if (freeEl && freeEl.value.trim().length > 0) filled++;
+      }
+    });
+    progressEl.textContent = filled + ' / 6';
     progressEl.dataset.progress = filled;
   }
 
@@ -264,13 +392,17 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
 
   function clearAll() {
     if (!confirm('Wirklich alle Felder leeren? Der lokale Stand geht verloren.')) return;
-    FIELDS.forEach(function (k) {
-      var el = getField(k);
-      if (el) el.value = '';
-      autoGrow(el);
+    var titleEl = getTitleEl();
+    if (titleEl) titleEl.value = '';
+    LETTERS.forEach(function (l) {
+      var freeEl = getFreeEl(l);
+      if (freeEl) freeEl.value = '';
+      getOptionEls(l).forEach(function (cb) { cb.checked = false; });
+      setMode(l, 'free');
     });
     localStorage.removeItem(STORAGE_KEY);
     updateProgress();
+    form.querySelectorAll('textarea[data-autogrow]').forEach(autoGrow);
     flashStatus('Alle Felder geleert', 'ok');
   }
 
@@ -278,21 +410,33 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
     var details = document.querySelectorAll('details[data-letter-explain]');
     var anyClosed = Array.prototype.some.call(details, function (d) { return !d.open; });
     details.forEach(function (d) { d.open = anyClosed; });
-    var btn = document.querySelector('[data-action="expand-all"]');
-    if (btn) btn.textContent = anyClosed ? 'Alle Erklärungen einklappen' : 'Alle Erklärungen aufklappen';
+  }
+
+  function hasAnyContent() {
+    var titleEl = getTitleEl();
+    if (titleEl && titleEl.value.trim().length > 0) return true;
+    return LETTERS.some(function (l) {
+      var freeEl = getFreeEl(l);
+      if (freeEl && freeEl.value.trim().length > 0) return true;
+      return Array.prototype.some.call(getOptionEls(l), function (cb) { return cb.checked; });
+    });
   }
 
   function loadExample(id) {
     var ex = examples.find(function (e) { return e.id === id; });
     if (!ex) return;
-    var hasContent = FIELDS.some(function (k) {
-      var el = getField(k);
-      return el && el.value.trim().length > 0;
+    if (hasAnyContent() && !confirm('Aktuelle Felder werden durch das Beispiel überschrieben. Fortfahren?')) return;
+    // Examples are freeform text only — load as 'free' mode for all letters
+    var data = { title: ex.title || '' };
+    LETTERS.forEach(function (l) {
+      data[l] = { mode: 'free', free: ex[l] || '', options: [] };
     });
-    if (hasContent && !confirm('Aktuelle Felder werden durch das Beispiel überschrieben. Fortfahren?')) return;
-    var data = { title: ex.title, a: ex.a, g: ex.g, e: ex.e, n: ex.n, t: ex.t, s: ex.s };
     populate(data, { persist: true });
     flashStatus('Vorlage „' + ex.label + '" geladen', 'ok');
+    // Visual feedback on card
+    document.querySelectorAll('[data-canvas-template]').forEach(function (c) { c.classList.remove('is-active'); });
+    var card = document.querySelector('[data-canvas-template="' + id + '"]');
+    if (card) card.classList.add('is-active');
   }
 
   function b64encode(str) {
@@ -308,7 +452,7 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   function shareLink() {
     try {
       var encoded = b64encode(JSON.stringify(collect()));
-      if (encoded.length > 6000) {
+      if (encoded.length > 8000) {
         flashStatus('Inhalt zu lang für einen Share-Link — bitte kürzen', 'error');
         return;
       }
@@ -328,24 +472,47 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   }
 
   // ── wire up ──
-  form.querySelectorAll('[data-canvas-field]').forEach(function (el) {
-    el.addEventListener('input', function () {
-      debouncedSave();
-      updateProgress();
-      autoGrow(el);
+
+  // Title + freeform fields
+  var titleEl = getTitleEl();
+  if (titleEl) titleEl.addEventListener('input', function () { debouncedSave(); });
+
+  LETTERS.forEach(function (l) {
+    var freeEl = getFreeEl(l);
+    if (freeEl) {
+      freeEl.addEventListener('input', function () {
+        debouncedSave();
+        updateProgress();
+        autoGrow(freeEl);
+      });
+    }
+    getOptionEls(l).forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        debouncedSave();
+        updateProgress();
+      });
     });
   });
 
-  var loaderEl = document.querySelector('[data-canvas-loader]');
-  if (loaderEl) {
-    loaderEl.addEventListener('change', function (event) {
-      if (event.target.value) {
-        loadExample(event.target.value);
-        setTimeout(function () { event.target.value = ''; }, 100);
-      }
+  // Mode toggle
+  form.querySelectorAll('[data-mode-btn]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var letter = btn.getAttribute('data-mode-letter');
+      var mode = btn.getAttribute('data-mode-btn');
+      setMode(letter, mode);
+      debouncedSave();
+      updateProgress();
     });
-  }
+  });
 
+  // Template cards
+  document.querySelectorAll('[data-canvas-template]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      loadExample(card.getAttribute('data-canvas-template'));
+    });
+  });
+
+  // Toolbar
   var printBtn = document.querySelector('[data-action="print"]');
   if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
 
@@ -358,6 +525,7 @@ window.AGENTS_EXAMPLES = {{ $examples | jsonify | safeJS }};
   var expandBtn = document.querySelector('[data-action="expand-all"]');
   if (expandBtn) expandBtn.addEventListener('click', expandAll);
 
+  // Initial
   load();
   form.querySelectorAll('textarea[data-autogrow]').forEach(autoGrow);
   updateProgress();

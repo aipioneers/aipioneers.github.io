@@ -1,0 +1,121 @@
+# Multi-select options per AGENTS letter (Geführt-Modus)
+# Used by /agents/canvas/ when user toggles a section to "Geführt"
+
+a:
+  - group: 'Aufgabentyp'
+    items:
+      - { id: 'triage',     label: 'Triage / Klassifikation' }
+      - { id: 'summarize',  label: 'Recherche / Zusammenfassung' }
+      - { id: 'draft',      label: 'Erstellen / Entwerfen' }
+      - { id: 'route',      label: 'Routing / Weiterleitung' }
+      - { id: 'monitor',    label: 'Überwachung / Monitoring' }
+      - { id: 'advise',     label: 'Beraten / Empfehlen' }
+      - { id: 'execute',    label: 'Ausführen mit Bestätigung' }
+  - group: 'Autonomie-Grad'
+    items:
+      - { id: 'human-decides',  label: 'Mensch entscheidet, Agent schlägt vor' }
+      - { id: 'agent-drafts',   label: 'Agent entwirft, Mensch gibt frei' }
+      - { id: 'agent-acts',     label: 'Agent führt eigenständig aus, Mensch reviewt' }
+
+g:
+  - group: 'Modell'
+    items:
+      - { id: 'gpt-4o',         label: 'GPT-4o (OpenAI, Frontier)' }
+      - { id: 'gpt-4o-mini',    label: 'GPT-4o-mini (OpenAI)' }
+      - { id: 'claude-sonnet',  label: 'Claude Sonnet (Anthropic)' }
+      - { id: 'claude-haiku',   label: 'Claude Haiku (Anthropic)' }
+      - { id: 'gemini-pro',     label: 'Gemini Pro (Google)' }
+      - { id: 'llama-3-3',      label: 'Llama 3.3 (Meta, OSS)' }
+      - { id: 'mistral-large',  label: 'Mistral Large (EU)' }
+      - { id: 'qwen-2-5',       label: 'Qwen 2.5 (Alibaba, OSS)' }
+      - { id: 'deepseek-v3',    label: 'DeepSeek V3 (OSS)' }
+      - { id: 'local-vllm',     label: 'Lokales Modell / vLLM' }
+  - group: 'Treiber der Wahl'
+    items:
+      - { id: 'quality',     label: 'Qualität' }
+      - { id: 'cost',        label: 'Kosten' }
+      - { id: 'latency',     label: 'Latenz' }
+      - { id: 'privacy',     label: 'Datenschutz / EU-Residenz' }
+      - { id: 'sovereignty', label: 'Souveränität / Open Source' }
+
+e:
+  - group: 'Datenquellen'
+    items:
+      - { id: 'erp',         label: 'ERP (SAP, Dynamics, …)' }
+      - { id: 'crm',         label: 'CRM (Salesforce, HubSpot, …)' }
+      - { id: 'docs',        label: 'Dokumente (SharePoint, Confluence, Drive)' }
+      - { id: 'db',          label: 'Datenbank (SQL / NoSQL)' }
+      - { id: 'files',       label: 'File-System / Network-Share' }
+      - { id: 'websearch',   label: 'Web-Suche' }
+      - { id: 'mail',        label: 'Mail-Postfach' }
+      - { id: 'calendar',    label: 'Kalender' }
+      - { id: 'code',        label: 'Code-Repository' }
+      - { id: 'voice',       label: 'Sprache / Telefonie' }
+  - group: 'Integrations-Pattern'
+    items:
+      - { id: 'rest',         label: 'REST API' }
+      - { id: 'mcp',          label: 'MCP (Model Context Protocol)' }
+      - { id: 'function-call',label: 'Function Calling' }
+      - { id: 'direct-db',    label: 'Direkter DB-Access' }
+      - { id: 'sdk',          label: 'Vendor-SDK / Library' }
+  - group: 'Berechtigungs-Konzept'
+    items:
+      - { id: 'least-priv', label: 'Least Privilege' }
+      - { id: 'read-only',  label: 'Read-only' }
+      - { id: 'approval',   label: 'Approval-Required vor Write' }
+
+n:
+  - group: 'Wissens-Quelle'
+    items:
+      - { id: 'rag',         label: 'RAG über Dokumente' }
+      - { id: 'kg',          label: 'Knowledge Graph' }
+      - { id: 'structured',  label: 'Strukturierte DB' }
+      - { id: 'vector',      label: 'Vektor-Index' }
+      - { id: 'on-demand',   label: 'Files on-demand' }
+      - { id: 'memory-long', label: 'Memory (langzeit)' }
+      - { id: 'memory-short',label: 'Kontext-Fenster (kurzzeit)' }
+  - group: 'Pflege-Modus'
+    items:
+      - { id: 'auto-refresh', label: 'Automatisches Reindexing' }
+      - { id: 'manual-curate',label: 'Manuell kuratiert' }
+      - { id: 'hybrid',       label: 'Hybrid (Auto + Review)' }
+
+t:
+  - group: 'Pattern'
+    items:
+      - { id: 'single',      label: 'Single-Agent' }
+      - { id: 'multi',       label: 'Multi-Agent' }
+      - { id: 'pipeline',    label: 'Sequenz / Pipeline' }
+      - { id: 'loop',        label: 'Plan-Act-Observe-Loop' }
+      - { id: 'supervisor',  label: 'Supervisor + Sub-Agents' }
+      - { id: 'reflection',  label: 'Reflection / Self-Critique' }
+  - group: 'Orchestrierung'
+    items:
+      - { id: 'langgraph',     label: 'LangGraph' }
+      - { id: 'openai-agents', label: 'OpenAI Agents SDK' }
+      - { id: 'claude-agents', label: 'Claude Agent SDK' }
+      - { id: 'n8n',           label: 'n8n' }
+      - { id: 'eigenbau',      label: 'Eigenbau' }
+
+s:
+  - group: 'Guardrails'
+    items:
+      - { id: 'hitl',         label: 'Human-in-the-Loop bei kritischen Entscheidungen' }
+      - { id: 'input-guard',  label: 'Eingabe-Guardrails (Prompt Injection, PII)' }
+      - { id: 'output-guard', label: 'Ausgabe-Guardrails (Toxicity, Halluzination)' }
+      - { id: 'confidence',   label: 'Confidence-Threshold mit Auto-Eskalation' }
+      - { id: 'four-eyes',    label: 'Vier-Augen-Prinzip' }
+      - { id: 'sandbox',      label: 'Sandboxing kritischer Tools' }
+  - group: 'Beobachtbarkeit'
+    items:
+      - { id: 'tracing',      label: 'Tracing (LangSmith / Langfuse / Datadog)' }
+      - { id: 'audit-log',    label: 'Audit-Logs' }
+      - { id: 'evals',        label: 'Wiederkehrende Evals / Regression-Tests' }
+      - { id: 'bias-audit',   label: 'Bias-Audits (Fairness-Tests)' }
+      - { id: 'drift-watch',  label: 'Drift-Detection' }
+  - group: 'EU AI Act'
+    items:
+      - { id: 'low-risk',    label: 'Low-Risk' }
+      - { id: 'limited',     label: 'Limited-Risk (Transparenz-Pflicht)' }
+      - { id: 'high-risk',   label: 'Hochrisiko (Annex III)' }
+      - { id: 'gpai',        label: 'GPAI-Pflichten (08/2025+)' }

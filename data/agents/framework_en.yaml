@@ -1,0 +1,133 @@
+# AGENTS framework — EN translation
+# Source: workshop "KI-Agenten in der Praxis" 16.06.2026, translated from DE
+# Used by: layouts/agents/list.html + layouts/agents/canvas.html when locale=en
+
+intro_three:
+  - 'Agent ≠ Chatbot. Six building blocks decide success — not the logo on the tool.'
+  - 'Domain knowledge beats model. Block N is your biggest lever — curate the context.'
+  - 'No safety, no production. Guardrails, monitoring and human-in-the-loop from day 1.'
+
+letters:
+  - id: a
+    letter: A
+    name: Assignment
+    question: 'What should the agent do?'
+    slug: a-auftrag
+    eli5_title: 'The job description'
+    eli5_body: 'Like hiring a new colleague — what is the task, how do they know they''re done, and what is explicitly out of scope?'
+    technical:
+      - label: 'System Prompt & role'
+        body: 'Who is the agent, on whose behalf does it act?'
+      - label: 'Goal & success criteria'
+        body: 'How are "done" and "good" measured?'
+      - label: 'Scope boundaries'
+        body: 'What the agent is explicitly not allowed to do.'
+    praxis: 'SDR and outbound agents run most autonomously today — because their assignment is narrow, measurable and clearly bounded.'
+    anti_pattern: '"Make our business better." Too vague, too broad — the agent gets lost and delivers nothing useful.'
+    energie_case: '"Scan RFIs and submittals for design-relevant changes." One sentence, clearly measurable — the Novel Solar agent.'
+
+  - id: g
+    letter: G
+    name: Grey matter
+    question: 'What does the agent think with?'
+    slug: g-gehirn
+    eli5_title: 'The head'
+    eli5_body: 'How smart does the colleague really need to be for this task — and how much may the thinking cost?'
+    technical:
+      - label: 'LLM choice'
+        body: 'GPT, Claude, Gemini, Qwen & co. — pick per task.'
+      - label: 'Frontier vs. open source'
+        body: 'Maximum quality, or sovereignty and cost control.'
+      - label: 'Selection criteria'
+        body: 'Quality, cost, latency, data protection.'
+    praxis: 'Open-source models on EU infrastructure reach 60–70% of frontier quality at a fraction of the cost (Bitkom 2026).'
+    anti_pattern: 'Model fetishism — buying the biggest model and hoping. Without context even the top model won''t solve your problem.'
+    energie_case: 'For the Novel agent''s document triage a cheaper model is enough — as long as context is right (see block N).'
+
+  - id: e
+    letter: E
+    name: Equipment
+    question: 'Which tools may it use?'
+    slug: e-equipment
+    eli5_title: 'Toolbox & access cards'
+    eli5_body: 'What tools does the colleague get — and which rooms does their key actually open?'
+    technical:
+      - label: 'Tools & function calling'
+        body: 'The agent calls functions, not just text.'
+      - label: 'APIs & data sources'
+        body: 'ERP, CRM, documents, web search.'
+      - label: 'MCP'
+        body: 'An open standard, 200+ ready-made servers.'
+      - label: 'Permissions'
+        body: 'Least privilege — as little access as possible.'
+    praxis: 'MCP is the "USB-C for AI" — an open protocol connects the agent to database, drive and Slack without special integration.'
+    anti_pattern: 'Many powerful tools without a permissions concept — API keys and tokens become an invisible security risk.'
+    energie_case: 'The Novel agent works directly on the Procore project platform and can reference every detail of the project.'
+
+  - id: 'n'
+    letter: 'N'
+    name: Notebook
+    question: 'What does the agent know or remember?'
+    slug: n-notizbuch
+    eli5_title: 'Notebook, memory & manual'
+    eli5_body: 'What does the colleague already know? What do they look up when needed? And what do they remember for tomorrow?'
+    technical:
+      - label: 'Context window'
+        body: 'Short-term memory of the current task.'
+      - label: 'Memory'
+        body: 'Long-term knowledge about users, cases, preferences.'
+      - label: 'RAG & knowledge graphs'
+        body: 'Look-ups in your documents and data.'
+      - label: 'Files on-demand'
+        body: 'Load knowledge only when needed.'
+    praxis: 'Microsoft moved knowledge from the system prompt to on-demand files for the Azure SRE agent — more reliable and cheaper. Domain knowledge beats model.'
+    anti_pattern: 'Dumping everything into context — expensive, slow, imprecise. Context is curated, not tipped in.'
+    energie_case: 'The Novel agent''s value lives in the project history — as-built drawings, transformer data — not in the model.'
+
+  - id: t
+    letter: T
+    name: Tactics
+    question: 'How does it proceed step by step?'
+    slug: t-taktik
+    eli5_title: 'The work plan'
+    eli5_body: 'Step by step to the goal — and once a team is working, who hands off when to whom?'
+    technical:
+      - label: 'Agent loop'
+        body: 'Plan → act → check → continue.'
+      - label: 'Orchestration'
+        body: 'LangGraph, OpenAI Agents SDK, Claude Agent SDK.'
+      - label: 'Handoffs & multi-agent'
+        body: 'Specialised agents hand over in a controlled way.'
+    praxis: 'Multi-agent orchestration is considered the breakthrough topic of 2026 — systems with three or more coordinated agents are growing fastest.'
+    anti_pattern: '"Handoff roulette" — too many specialist agents, brittle routing. Better: fewer agents, broader tools, knowledge on-demand.'
+    energie_case: 'Predictive maintenance on wind runs as a loop — detect → diagnose → decide → dispatch, integrated into SAP PM / Maximo.'
+
+  - id: s
+    letter: S
+    name: Safety
+    question: 'What prevents errors or nonsense?'
+    slug: s-schutz
+    eli5_title: 'Seatbelt, four-eyes principle & MOT'
+    eli5_body: 'Safety belt against runaways, four-eyes principle on important decisions — and an MOT that checks regularly.'
+    technical:
+      - label: 'Guardrails'
+        body: 'Rules for the agent''s inputs and outputs.'
+      - label: 'Human-in-the-loop'
+        body: 'A human decides at critical points.'
+      - label: 'Monitoring, tracing & evals'
+        body: 'See what the agent does — and how well.'
+      - label: 'EU AI Act'
+        body: 'The regulatory framework in Europe.'
+    praxis: 'Governance is the most-cited concern among tech leaders. Checkpointing (e.g. LangGraph) delivers audit trails for regulated industries.'
+    anti_pattern: 'Agent without monitoring or evals in production — a major reason behind the 40%+ abandoned projects.'
+    energie_case: 'Novel deliberately keeps humans in the loop — the agent documents plans, humans approve.'
+
+ai_act_timeline:
+  - date: '02/2025'
+    rule: 'Literacy obligation'
+  - date: '08/2025'
+    rule: 'GPAI'
+  - date: '08/2026'
+    rule: 'Transparency'
+  - date: '12/2027'
+    rule: 'High-risk (Annex III)'

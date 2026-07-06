@@ -1,21 +1,18 @@
 {{ define "main" }}
 {{ $fw := site.Data.agents.framework }}
+{{ with (index site.Data.agents (printf "framework_%s" .Site.Language.Lang)) }}{{ $fw = . }}{{ end }}
 
 <article class="agents-landing">
 
   {{/* ── Hero ── */}}
   <header class="agents-landing__hero">
-    <p class="agents-landing__eyebrow">Framework</p>
-    <h1>Das AGENTS-Framework</h1>
-    <p class="agents-landing__lede">
-      Sechs Bausteine entscheiden, ob ein KI-Agent in eurem Unternehmen trägt —
-      oder im PoC stecken bleibt. Keine Folien-Theorie, sondern das Gerüst aus
-      rund 40 Enterprise-PoCs.
-    </p>
+    <p class="agents-landing__eyebrow">{{ i18n "agents_landing_eyebrow" }}</p>
+    <h1>{{ i18n "agents_landing_title" }}</h1>
+    <p class="agents-landing__lede">{{ i18n "agents_landing_lede" }}</p>
   </header>
 
   {{/* ── Six AGENTS cards (Quick-Nav + Visual) ── */}}
-  <section class="agents-landing__cards" aria-label="AGENTS Buchstaben">
+  <section class="agents-landing__cards" aria-label="{{ i18n "agents_landing_cards_aria" }}">
     {{ range $fw.letters }}
       <a href="#{{ .slug }}" class="agents-card">
         <span class="agents-card__letter">{{ .letter }}</span>
@@ -27,7 +24,7 @@
 
   {{/* ── Drei Sätze (Take-aways) ── */}}
   <section class="agents-landing__principles">
-    <h2>Drei Sätze zum Mitnehmen</h2>
+    <h2>{{ i18n "agents_landing_principles_title" }}</h2>
     <ol class="agents-landing__principles-list">
       {{ range $fw.intro_three }}
       <li>{{ . | markdownify }}</li>
@@ -53,7 +50,7 @@
       </div>
 
       <div class="agents-letter__technical">
-        <h3>Technisch</h3>
+        <h3>{{ i18n "agents_common_technical" }}</h3>
         <dl>
           {{ range .technical }}
           <dt>{{ .label }}</dt>
@@ -65,15 +62,15 @@
 
     <div class="agents-letter__cases">
       <div class="agents-letter__case agents-letter__case--praxis">
-        <h4>Praxis</h4>
+        <h4>{{ i18n "agents_common_praxis" }}</h4>
         <p>{{ .praxis }}</p>
       </div>
       <div class="agents-letter__case agents-letter__case--anti">
-        <h4>Anti-Pattern</h4>
+        <h4>{{ i18n "agents_common_anti_pattern" }}</h4>
         <p>{{ .anti_pattern }}</p>
       </div>
       <div class="agents-letter__case agents-letter__case--energie">
-        <h4>Am Energie-Beispiel</h4>
+        <h4>{{ i18n "agents_common_energy_case" }}</h4>
         <p>{{ .energie_case }}</p>
       </div>
     </div>
@@ -82,7 +79,7 @@
 
   {{/* ── EU AI Act timeline ── */}}
   <section class="agents-landing__timeline">
-    <h2>EU AI Act — die Fristen, die zählen</h2>
+    <h2>{{ i18n "agents_common_timeline_title" }}</h2>
     <ul class="agents-landing__timeline-list">
       {{ range $fw.ai_act_timeline }}
       <li>
@@ -95,14 +92,10 @@
 
   {{/* ── CTA Block: Deep-Dive ── */}}
   <section class="agents-landing__cta">
-    <h2>Deep Dive in kleiner Runde</h2>
-    <p>
-      90 Minuten online, maximal 6–8 Personen, fairer Austausch auf
-      Augenhöhe. Kein Pitch, kein Verkaufsgespräch. Branchen-Vielfalt
-      kuratiert, eure echten Use Cases im Fokus.
-    </p>
+    <h2>{{ i18n "agents_landing_cta_title" }}</h2>
+    <p>{{ i18n "agents_landing_cta_body" }}</p>
     <a class="agents-landing__cta-button" href="/agents/deep-dive/">
-      → Zur Anmeldung
+      {{ i18n "agents_landing_cta_button" }}
     </a>
   </section>
 

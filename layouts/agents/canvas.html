@@ -1,22 +1,23 @@
 {{ define "main" }}
+{{ $lang := .Site.Language.Lang }}
 {{ $fw := site.Data.agents.framework }}
+{{ with (index site.Data.agents (printf "framework_%s" $lang)) }}{{ $fw = . }}{{ end }}
 {{ $examples := site.Data.agents.examples }}
+{{ with (index site.Data.agents (printf "examples_%s" $lang)) }}{{ $examples = . }}{{ end }}
 {{ $options := site.Data.agents.field_options }}
+{{ with (index site.Data.agents (printf "field_options_%s" $lang)) }}{{ $options = . }}{{ end }}
 
 <article class="agents-workspace">
 
   <header class="agents-workspace__hero">
-    <p class="agents-workspace__eyebrow">Canvas + Erklärung</p>
-    <h1>Euer AGENTS-Use-Case auf einer Seite</h1>
-    <p class="agents-workspace__lede">
-      Sechs Bausteine, ein Use Case. Tippt frei oder klickt euch durch
-      vordefinierte Optionen — pro Baustein umschaltbar. Stand bleibt lokal.
-    </p>
+    <p class="agents-workspace__eyebrow">{{ i18n "agents_canvas_hero_eyebrow" }}</p>
+    <h1>{{ i18n "agents_canvas_hero_title" }}</h1>
+    <p class="agents-workspace__lede">{{ i18n "agents_canvas_hero_lede" }}</p>
   </header>
 
   {{/* ── Template selector (cards) ── */}}
-  <section class="agents-workspace__templates no-print" aria-label="Vorlage laden">
-    <p class="agents-workspace__templates-title">Vorlage laden</p>
+  <section class="agents-workspace__templates no-print" aria-label="{{ i18n "agents_canvas_templates_title" }}">
+    <p class="agents-workspace__templates-title">{{ i18n "agents_canvas_templates_title" }}</p>
     <div class="agents-workspace__template-grid">
       {{ range $examples }}
       <button type="button" class="agents-workspace__template-card" data-canvas-template="{{ .id }}">
@@ -34,27 +35,27 @@
   {{/* ── Slim toolbar ── */}}
   <div class="agents-workspace__toolbar no-print">
     <div class="agents-workspace__actions">
-      <button type="button" class="agents-workspace__btn agents-workspace__btn--primary" data-action="print" title="Drucken oder als PDF speichern">
-        Drucken / PDF
+      <button type="button" class="agents-workspace__btn agents-workspace__btn--primary" data-action="print" title="{{ i18n "agents_canvas_btn_print_title" }}">
+        {{ i18n "agents_canvas_btn_print" }}
       </button>
-      <button type="button" class="agents-workspace__btn" data-action="share" title="Aktuellen Stand als Link teilen">
-        Teilen
+      <button type="button" class="agents-workspace__btn" data-action="share" title="{{ i18n "agents_canvas_btn_share_title" }}">
+        {{ i18n "agents_canvas_btn_share_short" }}
       </button>
-      <button type="button" class="agents-workspace__btn" data-action="expand-all" title="Alle Erklärungen ein-/ausklappen">
-        Erklärungen
+      <button type="button" class="agents-workspace__btn" data-action="expand-all" title="{{ i18n "agents_canvas_btn_explain_title" }}">
+        {{ i18n "agents_canvas_btn_explain_short" }}
       </button>
     </div>
     <div class="agents-workspace__meta">
       <span class="agents-workspace__progress" data-canvas-progress>0 / 6</span>
       <span class="agents-workspace__status" data-canvas-status></span>
-      <button type="button" class="agents-workspace__link" data-action="clear" title="Alle Eingaben löschen">
-        Felder leeren
+      <button type="button" class="agents-workspace__link" data-action="clear" title="{{ i18n "agents_canvas_btn_clear_title" }}">
+        {{ i18n "agents_canvas_btn_clear_short" }}
       </button>
     </div>
   </div>
 
   {{/* ── Quick-nav ── */}}
-  <nav class="agents-workspace__cards no-print" aria-label="AGENTS-Bausteine">
+  <nav class="agents-workspace__cards no-print" aria-label="{{ i18n "agents_canvas_quicknav_aria" }}">
     {{ range $fw.letters }}
       <a href="#{{ .slug }}" class="agents-workspace__card">
         <span class="agents-workspace__card-letter">{{ .letter }}</span>
@@ -66,12 +67,12 @@
   <form id="agents-canvas-form" autocomplete="off" class="agents-workspace__form">
 
     <div class="agents-workspace__title-row">
-      <label for="canvas-title">Use-Case-Titel</label>
+      <label for="canvas-title">{{ i18n "agents_canvas_title_label" }}</label>
       <input
         type="text"
         id="canvas-title"
         name="title"
-        placeholder="z. B. Solar-RFI-Triage, Bürger-Mail-Klassifikation, Predictive Maintenance Wind …"
+        placeholder="{{ i18n "agents_canvas_title_placeholder" }}"
         maxlength="120"
         data-canvas-field="title">
     </div>
@@ -86,9 +87,9 @@
           <h2 class="agents-workspace__letter-name">{{ .name }}</h2>
           <p class="agents-workspace__letter-question">„{{ .question }}"</p>
         </div>
-        <div class="agents-workspace__letter-mode no-print" role="group" aria-label="Eingabe-Modus {{ .name }}">
-          <button type="button" class="agents-workspace__mode-btn is-active" data-mode-btn="free" data-mode-letter="{{ .id }}" aria-pressed="true">Frei</button>
-          <button type="button" class="agents-workspace__mode-btn" data-mode-btn="guided" data-mode-letter="{{ .id }}" aria-pressed="false">Geführt</button>
+        <div class="agents-workspace__letter-mode no-print" role="group" aria-label="{{ i18n "agents_canvas_mode_aria" }} — {{ .name }}">
+          <button type="button" class="agents-workspace__mode-btn is-active" data-mode-btn="free" data-mode-letter="{{ .id }}" aria-pressed="true">{{ i18n "agents_canvas_mode_free" }}</button>
+          <button type="button" class="agents-workspace__mode-btn" data-mode-btn="guided" data-mode-letter="{{ .id }}" aria-pressed="false">{{ i18n "agents_canvas_mode_guided" }}</button>
         </div>
       </header>
 
@@ -100,7 +101,7 @@
           name="{{ .id }}"
           rows="6"
           maxlength="2000"
-          placeholder="Stichworte oder Volltext — wie ihr wollt."
+          placeholder="{{ i18n "agents_canvas_textarea_placeholder" }}"
           data-canvas-field="{{ .id }}"
           data-canvas-mode="free"
           data-autogrow></textarea>
@@ -128,7 +129,7 @@
       </div>
 
       <details class="agents-workspace__explain no-print-details" data-letter-explain="{{ .id }}" open>
-        <summary>Erklärung, Beispiele und Anti-Pattern</summary>
+        <summary>{{ i18n "agents_canvas_explain_summary" }}</summary>
 
         <div class="agents-workspace__explain-body">
           <div class="agents-workspace__explain-eli5">
@@ -137,7 +138,7 @@
           </div>
 
           <div class="agents-workspace__explain-technical">
-            <h3>Technisch</h3>
+            <h3>{{ i18n "agents_common_technical" }}</h3>
             <dl>
               {{ range .technical }}
               <dt>{{ .label }}</dt>
@@ -148,15 +149,15 @@
 
           <div class="agents-workspace__explain-cases">
             <div class="agents-workspace__explain-case agents-workspace__explain-case--praxis">
-              <h4>Praxis</h4>
+              <h4>{{ i18n "agents_common_praxis" }}</h4>
               <p>{{ .praxis }}</p>
             </div>
             <div class="agents-workspace__explain-case agents-workspace__explain-case--anti">
-              <h4>Anti-Pattern</h4>
+              <h4>{{ i18n "agents_common_anti_pattern" }}</h4>
               <p>{{ .anti_pattern }}</p>
             </div>
             <div class="agents-workspace__explain-case agents-workspace__explain-case--energie">
-              <h4>Am Energie-Beispiel</h4>
+              <h4>{{ i18n "agents_common_energy_case" }}</h4>
               <p>{{ .energie_case }}</p>
             </div>
           </div>
@@ -168,7 +169,7 @@
   </form>
 
   <details class="agents-workspace__timeline-wrap no-print-details">
-    <summary>EU AI Act — die Fristen, die zählen</summary>
+    <summary>{{ i18n "agents_common_timeline_title" }}</summary>
     <ul class="agents-workspace__timeline-list">
       {{ range $fw.ai_act_timeline }}
       <li>
@@ -180,20 +181,16 @@
   </details>
 
   <footer class="agents-workspace__footer no-print">
-    <p class="agents-workspace__footer-cta">
-      Bereit für die Diskussion in kleiner Runde?
-    </p>
+    <p class="agents-workspace__footer-cta">{{ i18n "agents_canvas_footer_cta_text" }}</p>
     <div class="agents-workspace__footer-actions">
       <button type="button" class="agents-workspace__footer-btn agents-workspace__footer-btn--primary" data-action="to-form">
-        Mit diesem Stand zur Anmeldung
+        {{ i18n "agents_canvas_footer_btn_primary" }}
       </button>
       <a class="agents-workspace__footer-btn agents-workspace__footer-btn--ghost" href="/agents/deep-dive/">
-        Anmeldung ohne Übernahme
+        {{ i18n "agents_canvas_footer_btn_ghost" }}
       </a>
     </div>
-    <p class="agents-workspace__attribution">
-      Aus dem AI-Pioneers · KI-Agenten-Workshop · 16. Juni 2026
-    </p>
+    <p class="agents-workspace__attribution">{{ i18n "agents_canvas_attribution" }}</p>
   </footer>
 
 </article>

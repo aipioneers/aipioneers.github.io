@@ -14,5 +14,8 @@
 {{ if hasPrefix .RelPermalink "/agents/" }}
 <link rel="stylesheet" href="{{ "css/agents.css" | relURL }}">
 {{ end }}
+{{ if hasPrefix .RelPermalink "/aufgaben/" }}
+<link rel="stylesheet" href="{{ "css/aufgaben.css" | relURL }}">
+{{ end }}
 <link rel="icon" href="{{ "favicon.ico" | relURL }}">
 {{ hugo.Generator }}

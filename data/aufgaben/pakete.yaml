@@ -1,0 +1,35 @@
+# /aufgaben/ — 3 preset bundles
+# `hours` = total monthly capacity pool. Customer distributes freely across tasks.
+
+- id: start
+  name: 'Start'
+  tagline: 'Für Einzelkämpfer und kleine Betriebe'
+  price_month: 99
+  hours: 20
+  presets:
+    - '300 E-Mails sortieren · 100 Anrufe · 20 Angebote · 10 Rapporte'
+    - 'oder: 500 Anrufe pro Monat'
+    - 'oder: 80 Angebote pro Monat'
+  highlight: false
+
+- id: wachstum
+  name: 'Wachstum'
+  tagline: 'Wenn der Betrieb rund läuft und mehr Volumen kommt'
+  price_month: 199
+  hours: 50
+  presets:
+    - '800 E-Mails · 300 Anrufe · 50 Angebote · 25 Rapporte · 5 Beurteilungen'
+    - 'oder: 1.000 Anrufe + 200 Rechnungen'
+    - 'oder: 200 Angebote pro Monat'
+  highlight: true
+
+- id: voll
+  name: 'Voll'
+  tagline: 'Wenn der digitale Kollege regelmäßig einspringen soll'
+  price_month: 399
+  hours: 120
+  presets:
+    - '2.000 E-Mails · 800 Anrufe · 120 Angebote · 60 Rapporte · 15 Beurteilungen · 200 Rechnungen'
+    - 'oder: 2.400 Anrufe pro Monat'
+    - 'oder: 480 Angebote pro Monat'
+  highlight: false

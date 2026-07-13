@@ -1,0 +1,335 @@
+{{ define "main" }}
+{{ $tasks := site.Data.aufgaben.tasks }}
+{{ $pakete := site.Data.aufgaben.pakete }}
+{{ $isDefault := eq .Site.Language.Lang "de" }}
+
+<article class="aufgaben">
+
+  {{ if not $isDefault }}
+    <section class="aufgaben__lang-stub">
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Description }}</p>
+      <p><a href="/aufgaben/">→ Zur deutschen Version</a></p>
+    </section>
+  {{ else }}
+
+  {{/* ── Hero ── */}}
+  <header class="aufgaben__hero">
+    <p class="aufgaben__eyebrow">Für den Handwerksbetrieb</p>
+    <h1>Für die Aufgaben, für die Sie niemanden mehr finden.</h1>
+    <p class="aufgaben__lede">
+      Ein digitaler Kollege für Handwerksbetriebe. Nimmt Anrufe an,
+      schreibt Angebote, bereitet Rapporte und Buchhaltung vor —
+      ihre Meister:innen bleiben auf der Baustelle.
+      Auf EU-Servern, mit einem Fundament, das alle Aufgaben verbindet.
+    </p>
+    <div class="aufgaben__hero-cta">
+      <a href="#pakete" class="aufgaben__btn aufgaben__btn--primary">Pakete ansehen</a>
+      <a href="#konfigurator" class="aufgaben__btn">Freien Konfigurator öffnen</a>
+    </div>
+  </header>
+
+  {{/* ── EU-Server / Trust foundation ── */}}
+  <section class="aufgaben__foundation" aria-label="Datenschutz-Fundament">
+    <div class="aufgaben__foundation-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3l8 3v6c0 4.5-3.4 8.1-8 9-4.6-.9-8-4.5-8-9V6l8-3z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    </div>
+    <div>
+      <h2>Alles auf EU-Servern, datenschutzkonform</h2>
+      <p>
+        Ihre Daten und die KI laufen ausschließlich in Europa —
+        wahlweise komplett auf souveräner On-Premise-Infrastruktur
+        oder in einer DSGVO-konformen EU-Cloud.
+      </p>
+      <ul class="aufgaben__foundation-bullets">
+        <li>Kundendaten, Lohndaten und Belege verlassen nie den europäischen Rechtsraum — kein CLOUD-Act-Risiko</li>
+        <li>DSGVO von Grund auf, nicht als Nachgedanke</li>
+        <li>Vertrauensargument gegenüber Ihren eigenen Kunden — „Ihre Daten bleiben in Deutschland"</li>
+        <li>Fundament, das alle anderen Funktionen rechtssicher macht</li>
+      </ul>
+    </div>
+  </section>
+
+  {{/* ── The core differentiator ── */}}
+  <section class="aufgaben__diff">
+    <p class="aufgaben__eyebrow">Der Unterschied</p>
+    <h2>Ein Fundament, das alle Aufgaben verbindet.</h2>
+    <p>
+      Alle Funktionen greifen auf dasselbe Wissen über Ihren Betrieb zu.
+      Das System versteht einmal, wer Ihre Kunden sind, welche Aufträge und
+      Anlagen es gibt und wer was kann — dann arbeiten alle Funktionen auf
+      diesem gemeinsamen Fundament zusammen.
+    </p>
+    <p>
+      Ein wichtiger Kunde am Telefon ist derselbe wichtige Kunde, der bei
+      der Personalplanung Vorrang bekommt. Das unterscheidet echte
+      Intelligenz von zwölf zusammenhanglosen Werkzeugen.
+    </p>
+  </section>
+
+  {{/* ── 11 Task cards ── */}}
+  <section class="aufgaben__tasks" id="aufgaben">
+    <div class="aufgaben__section-head">
+      <p class="aufgaben__eyebrow">Aufgaben</p>
+      <h2>Elf konkrete Aufgaben — alle auf demselben Fundament.</h2>
+      <p class="aufgaben__section-sub">
+        Sie wählen aus, welche davon Ihr digitaler Kollege übernehmen soll.
+        Jede Aufgabe zieht Kapazität aus Ihrem Monats-Kontingent.
+      </p>
+    </div>
+    <div class="aufgaben__task-grid">
+      {{ range $tasks }}
+      <article class="aufgaben__task" data-task-id="{{ .id }}" data-task-minutes="{{ .minutes }}">
+        <header class="aufgaben__task-head">
+          <span class="aufgaben__task-icon" aria-hidden="true">{{ partial "aufgaben-task-icon.html" . }}</span>
+          <h3>{{ .name }}</h3>
+        </header>
+        <p class="aufgaben__task-short">{{ .short }}</p>
+        <ul class="aufgaben__task-benefits">
+          {{ range .benefits }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <p class="aufgaben__task-meta">
+          <strong>{{ .minutes }} Minuten</strong> Kapazität pro {{ .unit_label | singularize }}
+        </p>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ── Preset packages ── */}}
+  <section class="aufgaben__pakete" id="pakete">
+    <div class="aufgaben__section-head">
+      <p class="aufgaben__eyebrow">Preset-Pakete</p>
+      <h2>Ein Kontingent — Sie verteilen es frei.</h2>
+      <p class="aufgaben__section-sub">
+        Jedes Paket enthält alle elf Aufgaben. Der Unterschied ist die
+        Gesamtkapazität pro Monat. Sie entscheiden, wohin die geht.
+      </p>
+    </div>
+    <div class="aufgaben__paket-grid">
+      {{ range $pakete }}
+      <article class="aufgaben__paket {{ if .highlight }}aufgaben__paket--highlight{{ end }}">
+        {{ if .highlight }}<span class="aufgaben__paket-badge">beliebteste Wahl</span>{{ end }}
+        <h3>{{ .name }}</h3>
+        <p class="aufgaben__paket-tagline">{{ .tagline }}</p>
+        <p class="aufgaben__paket-price">
+          <strong>{{ .price_month }} €</strong>
+          <span>/ Monat</span>
+        </p>
+        <p class="aufgaben__paket-hours">
+          <strong>{{ .hours }} Stunden</strong> Arbeitskapazität pro Monat
+        </p>
+        <ul class="aufgaben__paket-presets">
+          {{ range .presets }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <a class="aufgaben__btn {{ if .highlight }}aufgaben__btn--primary{{ end }}" href="#interesse">Paket wählen</a>
+      </article>
+      {{ end }}
+    </div>
+    <p class="aufgaben__paket-fine">
+      Alle Preise netto zzgl. USt. Monatlich kündbar zum Monatsende.
+      Nicht verbrauchte Kapazität verfällt am Monatsende.
+    </p>
+  </section>
+
+  {{/* ── Free configurator ── */}}
+  <section class="aufgaben__konfig" id="konfigurator">
+    <div class="aufgaben__section-head">
+      <p class="aufgaben__eyebrow">Freier Konfigurator</p>
+      <h2>Wie viel Kapazität brauchen Sie?</h2>
+      <p class="aufgaben__section-sub">
+        Stellen Sie ein, wie viele Anrufe, Angebote, Rapporte usw.
+        pro Monat anfallen. Rechts sehen Sie, welches Paket passt.
+      </p>
+    </div>
+
+    <div class="aufgaben__konfig-layout">
+      <div class="aufgaben__konfig-sliders" data-konfig-sliders>
+        {{ range $tasks }}
+        <div class="aufgaben__slider" data-slider-task="{{ .id }}" data-slider-min="{{ .minutes }}">
+          <label>
+            <span class="aufgaben__slider-name">{{ .name }}</span>
+            <span class="aufgaben__slider-unit">
+              <input type="number" min="0" max="10000" step="1" value="0" data-slider-input>
+              {{ .unit_label }} / Monat
+            </span>
+          </label>
+          <input type="range" min="0" max="500" step="5" value="0" data-slider-range>
+        </div>
+        {{ end }}
+      </div>
+
+      <aside class="aufgaben__konfig-summary" data-konfig-summary>
+        <p class="aufgaben__eyebrow">Ihr Bedarf</p>
+        <p class="aufgaben__konfig-total">
+          <strong data-konfig-hours>0</strong>
+          <span>Stunden / Monat</span>
+        </p>
+        <div class="aufgaben__konfig-recommend" data-konfig-recommend>
+          Passendes Paket erscheint hier, sobald Sie Werte eintragen.
+        </div>
+        <ul class="aufgaben__konfig-breakdown" data-konfig-breakdown></ul>
+        <a class="aufgaben__btn aufgaben__btn--primary" href="#interesse">Anfrage stellen</a>
+      </aside>
+    </div>
+  </section>
+
+  {{/* ── Kontrolle & Vertrauen ── */}}
+  <section class="aufgaben__trust">
+    <div class="aufgaben__section-head">
+      <p class="aufgaben__eyebrow">Kontrolle und Vertrauen</p>
+      <h2>Sie behalten das Steuer.</h2>
+    </div>
+    <div class="aufgaben__trust-grid">
+      <div class="aufgaben__trust-item">
+        <h3>Sie geben frei</h3>
+        <p>Nichts geht raus, bevor Sie es abgezeichnet haben. Bei Angeboten, Rechnungen und Gefährdungsbeurteilungen ist die menschliche Freigabe fest eingebaut.</p>
+      </div>
+      <div class="aufgaben__trust-item">
+        <h3>Datenschutz eingebaut</h3>
+        <p>EU-Server, DSGVO by design. Keine Weitergabe an OpenAI oder andere US-Anbieter. Sie können jederzeit Ihre Daten exportieren oder löschen lassen.</p>
+      </div>
+      <div class="aufgaben__trust-item">
+        <h3>Schrittweise einführbar</h3>
+        <p>Fangen Sie mit einer Aufgabe an, die schnell Wirkung zeigt — E-Mail-Sortierung, Belege oder Meeting-Protokolle. Bauen Sie aus, wenn sich der digitale Kollege bewährt.</p>
+      </div>
+    </div>
+  </section>
+
+  {{/* ── FAQ ── */}}
+  <section class="aufgaben__faq">
+    <div class="aufgaben__section-head">
+      <p class="aufgaben__eyebrow">Häufige Fragen</p>
+      <h2>Was Sie wahrscheinlich fragen wollen.</h2>
+    </div>
+    <details class="aufgaben__faq-item">
+      <summary>Ersetzt das jemanden aus meinem Team?</summary>
+      <p>Nein. Der digitale Kollege springt ein, wo Sie ohnehin niemanden mehr finden — oder wo Ihr Team bereits am Anschlag ist. Er nimmt Routine ab, damit Ihre Meister:innen und Bürokräfte für das da sein können, was Menschen brauchen.</p>
+    </details>
+    <details class="aufgaben__faq-item">
+      <summary>Was passiert, wenn er einen Fehler macht?</summary>
+      <p>Bei allen ausgehenden Kommunikationen (Angebote, Rechnungen, Antworten an Kunden) sitzt eine menschliche Freigabe fest im Prozess. Fehler landen bei Ihnen, nicht beim Kunden. Alles wird protokolliert, damit Sie nachvollziehen können, was warum passiert ist.</p>
+    </details>
+    <details class="aufgaben__faq-item">
+      <summary>Kann ich es testen, bevor ich bezahle?</summary>
+      <p>Ja. 14 Tage kostenlos, keine Kreditkarte. Wir richten den digitalen Kollegen an ein bis zwei Aufgaben in Ihrem Betrieb ein — Sie sehen, ob es passt.</p>
+    </details>
+    <details class="aufgaben__faq-item">
+      <summary>Wo liegen meine Daten?</summary>
+      <p>Ausschließlich in Europa. Wahlweise auf souveräner On-Premise-Infrastruktur (bei Ihnen im Haus oder bei einem deutschen Hosting-Partner) oder in einer DSGVO-konformen EU-Cloud. Kein US-Provider im Customer-Pfad.</p>
+    </details>
+    <details class="aufgaben__faq-item">
+      <summary>Bin ich langfristig gebunden?</summary>
+      <p>Nein. Monatlich kündbar zum Monatsende. Sie können Kapazität hoch- und runterschalten, Pakete wechseln oder komplett pausieren.</p>
+    </details>
+    <details class="aufgaben__faq-item">
+      <summary>Reicht mir das gesetzlich für Steuer und Lohn?</summary>
+      <p>Der digitale Kollege macht die Vorarbeit. USt-Voranmeldung und Jahresabschluss bleiben beim Steuerberater — das schreibt das Gesetz so vor. Aber der Steuerberater braucht deutlich weniger Zeit, weil vieles schon aufbereitet ist. Das spart bares Geld.</p>
+    </details>
+  </section>
+
+  {{/* ── Interesse / CTA ── */}}
+  <section class="aufgaben__interesse" id="interesse">
+    <h2>Interesse? Kurzer Anruf oder E-Mail.</h2>
+    <p>
+      Wir stellen keinen Sales-Anruf. Wir schauen mit Ihnen 30 Minuten
+      auf Ihre konkrete Situation und sagen, ob und welches Paket passt.
+      Wenn nicht, sagen wir das auch.
+    </p>
+    <p class="aufgaben__interesse-actions">
+      <a class="aufgaben__btn aufgaben__btn--primary" href="mailto:tobias.oberrauch@gmx.de?subject=Aufgaben%20%E2%80%94%20Interesse">
+        Per E-Mail melden
+      </a>
+    </p>
+    <p class="aufgaben__attribution">
+      AI Pioneers · Ihr digitaler Kollege für den Handwerksbetrieb
+    </p>
+  </section>
+
+  {{ end }}
+
+</article>
+
+{{ if $isDefault }}
+<script>
+window.AUFGABEN_TASKS = {{ $tasks | jsonify | safeJS }};
+window.AUFGABEN_PAKETE = {{ $pakete | jsonify | safeJS }};
+</script>
+<script>
+(function () {
+  'use strict';
+  var tasks  = Array.isArray(window.AUFGABEN_TASKS)  ? window.AUFGABEN_TASKS  : [];
+  var pakete = Array.isArray(window.AUFGABEN_PAKETE) ? window.AUFGABEN_PAKETE : [];
+  if (!tasks.length || !pakete.length) return;
+
+  var sliders  = document.querySelectorAll('[data-slider-task]');
+  var hoursEl  = document.querySelector('[data-konfig-hours]');
+  var recEl    = document.querySelector('[data-konfig-recommend]');
+  var breakdownEl = document.querySelector('[data-konfig-breakdown]');
+
+  function computeTotals() {
+    var totalMin = 0;
+    var lines = [];
+    sliders.forEach(function (row) {
+      var id = row.getAttribute('data-slider-task');
+      var perUnit = Number(row.getAttribute('data-slider-min')) || 0;
+      var input = row.querySelector('[data-slider-input]');
+      var range = row.querySelector('[data-slider-range]');
+      var qty   = Number(input.value) || 0;
+      var mins  = qty * perUnit;
+      totalMin += mins;
+      if (qty > 0) {
+        var task = tasks.filter(function (t) { return t.id === id; })[0];
+        var name = task ? task.name : id;
+        var unit = task ? task.unit_label : '';
+        lines.push({ name: name, qty: qty, unit: unit, mins: mins });
+      }
+      // keep the range in visual sync with the number input
+      if (range && Number(range.value) !== qty) range.value = Math.min(qty, Number(range.max));
+    });
+    var totalHours = totalMin / 60;
+    if (hoursEl) hoursEl.textContent = fmt(totalHours);
+    if (recEl) recEl.innerHTML = recommend(totalHours);
+    if (breakdownEl) {
+      breakdownEl.innerHTML = lines.map(function (l) {
+        return '<li><strong>' + l.qty.toLocaleString('de-DE') + '</strong> ' + l.unit + ' — ' + fmt(l.mins/60) + ' Std</li>';
+      }).join('');
+    }
+  }
+
+  function fmt(hours) {
+    return hours.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  }
+
+  function recommend(totalHours) {
+    if (totalHours <= 0) return 'Passendes Paket erscheint hier, sobald Sie Werte eintragen.';
+    var fit = null;
+    for (var i = 0; i < pakete.length; i++) {
+      if (pakete[i].hours >= totalHours) { fit = pakete[i]; break; }
+    }
+    if (!fit) {
+      return '<strong>Über 120 Stunden</strong> — für so viel Volumen sprechen wir persönlich mit Ihnen (Enterprise-Kapazität).';
+    }
+    return '<strong>Paket „' + fit.name + '"</strong> passt — ' +
+           fit.hours + ' Std für ' + fit.price_month + ' € / Monat. ' +
+           '(Ihr Bedarf: ' + fmt(totalHours) + ' Std)';
+  }
+
+  sliders.forEach(function (row) {
+    var input = row.querySelector('[data-slider-input]');
+    var range = row.querySelector('[data-slider-range]');
+    input.addEventListener('input', computeTotals);
+    range.addEventListener('input', function () {
+      input.value = range.value;
+      computeTotals();
+    });
+  });
+
+  computeTotals();
+})();
+</script>
+{{ end }}
+{{ end }}

@@ -1,0 +1,124 @@
+# /aufgaben/ — 11 concrete tasks (foundation "EU-Server" is rendered separately)
+# `minutes` = minutes of "capacity" one unit consumes from the monthly pool.
+# `unit_label` = what the customer counts (e.g. Anrufe, Angebote).
+
+- id: telefon
+  icon: phone
+  minutes: 3
+  unit_label: 'Anrufe'
+  name: 'Telefon-Assistent mit intelligentem Durchstellen'
+  short: 'Nimmt Anrufe an, verweist auf E-Mail, erfasst das Anliegen — bei wichtigen Kunden oder Stichworten wie „Notdienst" wird sofort durchgestellt.'
+  benefits:
+    - 'Kein verpasster Anruf mehr — auch abends und am Wochenende'
+    - 'Notfälle kommen sofort zu einem Menschen durch'
+    - 'Jeder Anruf wird sauber dokumentiert'
+
+- id: mail-sortieren
+  icon: mail-sort
+  minutes: 1
+  unit_label: 'E-Mails'
+  name: 'E-Mails automatisch sortieren und zuordnen'
+  short: 'Klassifiziert eingehende Mails (Anfrage, Rechnung, Rapport, dringend, Spam) und ordnet sie dem richtigen Kunden und Auftrag zu.'
+  benefits:
+    - 'Kein manuelles Sortieren des Posteingangs mehr'
+    - 'Dringendes wird als dringend erkannt'
+    - 'Angebotsanfragen und Rechnungen landen automatisch im richtigen „Korb"'
+
+- id: angebot
+  icon: pen
+  minutes: 15
+  unit_label: 'Angebote'
+  name: 'Angebote automatisch vorbereiten'
+  short: 'Aus einer Mail-Anfrage entsteht ein bepreister Angebotsentwurf in Ihrem Programm — Sie geben nur noch frei.'
+  benefits:
+    - 'Angebote in Minuten statt Stunden'
+    - 'Aktuelle Großhandelspreise (Datanorm / Eldanorm) automatisch eingerechnet'
+    - 'Sie behalten volle Kontrolle — nichts geht ohne Freigabe raus'
+
+- id: rapport
+  icon: clipboard
+  minutes: 8
+  unit_label: 'Rapporte'
+  name: 'Rapporte und Messprotokolle aufbereiten'
+  short: 'Arbeitsberichte und VDE-/DGUV-Messprotokolle werden auf Vollständigkeit geprüft und normgerecht als PDF aufbereitet.'
+  benefits:
+    - 'Schluss mit unleserlichen Zetteln'
+    - 'Automatische Prüfung auf Grenzwerte (sonst ist das Protokoll rechtlich wertlos)'
+    - 'Normkonform: VDE 0100-600, 0701-0702, DGUV V3'
+
+- id: gefaehrdung
+  icon: shield-check
+  minutes: 20
+  unit_label: 'Beurteilungen'
+  name: 'Gefährdungsbeurteilungen und Unterweisungen'
+  short: 'Entwürfe für Gefährdungsbeurteilungen und Sicherheitsunterweisungen — passend zu Tätigkeit, Anlage und Qualifikation. Eine Fachkraft gibt frei.'
+  benefits:
+    - 'Erfüllt die gesetzliche Pflicht nach ArbSchG (Bußgeld bis 5.000 €)'
+    - 'Kein leeres Blatt mehr — der Entwurf ist da'
+    - 'Deutlich günstiger als externe Erstellung'
+
+- id: checkliste
+  icon: list-check
+  minutes: 5
+  unit_label: 'Listen'
+  name: 'Checklisten für Arbeitsabläufe'
+  short: 'Für jeden Arbeitsablauf und Anlagentyp entstehen automatisch passende Prüflisten.'
+  benefits:
+    - 'Einheitliche Qualität, egal welcher Monteur die Arbeit macht'
+    - 'Nichts wird vergessen, auch bei seltenen Arbeiten'
+    - 'Azubis und neue Mitarbeiter haben sofort eine Anleitung'
+
+- id: bwa-lohn
+  icon: calculator
+  minutes: 30
+  unit_label: 'Monatsberichte'
+  name: 'Vorarbeit für den Steuerberater (BWA + Lohn)'
+  short: 'Buchhaltung, BWA und Lohndaten so weit vorbereitet, dass der Steuerberater nur noch wenige Male im Jahr draufschauen muss — vorbereitend, nicht abschließend.'
+  benefits:
+    - 'Deutlich geringere Steuerberaterkosten'
+    - 'BWA-Überblick jederzeit — nicht erst Wochen später'
+    - 'USt-Voranmeldung und Jahresabschluss bleiben beim Steuerberater (gesetzlich vorgeschrieben)'
+
+- id: rechnungen
+  icon: receipt
+  minutes: 3
+  unit_label: 'Rechnungen'
+  name: 'Rechnungen automatisch verbuchen'
+  short: 'Eingangs- und Ausgangsrechnungen per OCR erfasst, dem Auftrag zugeordnet, als Buchungsvorschlag vorbereitet — inklusive E-Rechnung (ZUGFeRD / XRechnung).'
+  benefits:
+    - 'Erfüllt automatisch die E-Rechnungspflicht (seit 2025 B2B-Pflicht)'
+    - 'Belege sind dem passenden Auftrag zugeordnet — Sie sehen was ein Auftrag wirklich gekostet hat'
+    - 'Revisionssicher, weniger Fehler, weniger Aufwand'
+
+- id: protokolle
+  icon: mic
+  minutes: 10
+  unit_label: 'Protokolle'
+  name: 'Protokolle von Telefonaten und Online-Terminen'
+  short: 'Meetings und Telkos werden mitgeschrieben und als Protokoll mit klaren To-dos zusammengefasst.'
+  benefits:
+    - 'Aufs Gespräch konzentrieren statt mitschreiben'
+    - 'Absprachen schwarz auf weiß — nichts geht verloren'
+    - 'To-dos direkt festgehalten'
+
+- id: sop
+  icon: book-open
+  minutes: 25
+  unit_label: 'Leitfäden'
+  name: 'Leitfäden für Arbeitsabläufe (SOPs)'
+  short: 'Aus dem, was das System über Ihren Betrieb weiß, entstehen verständliche Anleitungen für die typischen Abläufe — nach Auftragstyp, Anlage und Rolle.'
+  benefits:
+    - 'Betriebswissen ist dokumentiert — nicht nur im Kopf'
+    - 'Neue Mitarbeiter sind schneller eingearbeitet'
+    - 'Macht unabhängiger von einzelnen Personen'
+
+- id: personalplanung
+  icon: users
+  minutes: 5
+  unit_label: 'Planungsläufe'
+  name: 'Hilfe bei der Personalplanung'
+  short: 'Fällt jemand aus, schlägt das System vor, wer die Arbeit machen kann (passende Qualifikation) und wer Zeit hat — mit wichtigen Kunden zuerst.'
+  benefits:
+    - 'Schnelle Lösung bei Krankheit, ohne langes Herumtelefonieren'
+    - 'Berücksichtigt Schaltberechtigung, Messberechtigung, Zertifikate'
+    - 'Wichtige Kunden werden bei Engpässen priorisiert'

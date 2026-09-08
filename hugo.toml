@@ -66,6 +66,10 @@ defaultContentLanguageInSubdir = false
       name = "Efficiency"
       url = "/efficiency/"
       weight = 14
+    [[languages.de.menu.main]]
+      name = "Principles"
+      url = "/principles/"
+      weight = 15
 
   # ---------- English ----------
   [languages.en]
@@ -97,6 +101,10 @@ defaultContentLanguageInSubdir = false
       name = "Efficiency"
       url = "/en/efficiency/"
       weight = 14
+    [[languages.en.menu.main]]
+      name = "Principles"
+      url = "/en/principles/"
+      weight = 15
 
   # ---------- Latina ----------
   [languages.la]
@@ -128,6 +136,10 @@ defaultContentLanguageInSubdir = false
       name = "Efficientia"
       url = "/la/efficiency/"
       weight = 14
+    [[languages.la.menu.main]]
+      name = "Principia"
+      url = "/la/principles/"
+      weight = 15
 
   # ---------- Ἀρχαία Ἑλληνική (Altgriechisch) ----------
   [languages.grc]
@@ -159,3 +171,7 @@ defaultContentLanguageInSubdir = false
       name = "Ἀποτέλεσμα"
       url = "/grc/efficiency/"
       weight = 14
+    [[languages.grc.menu.main]]
+      name = "Ἀρχαί"
+      url = "/grc/principles/"
+      weight = 15
